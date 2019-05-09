@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# vim: filetype=zsh
+
+# cd to selected directory
+alias f='fc'
+fc() {
+  dir=$(ag -g . --ignore node_modules -U | sed -e 's:/[^/]*$::' | uniq | fzf)
+  cd "$dir"
+}
+
+# Find all repos in ~/rep
+alias r='fr'
+fr() {
+  rep_dir=~/rep
+  one_level=$(ls -d $rep_dir/*/.git 2> /dev/null | sed s/\\/\.git//g)
+  two_level=$(for i in $(ls -d $rep_dir/*/); do ls -d ${i}*/.git 2> /dev/null; done | sed s/\\/\.git//g)
+  # echo $(for i in $(echo "$one_level $two_level" | sed s/\\n//g); do ls -td ${i}; done | sed s/\\/\.git//g)
+  reps=$(ls -td $(echo "$one_level $two_level" | sed s/\\n/\w/g) | sed "s|${rep_dir}\/||g")
+  dir=$(echo "$reps" | fzf --no-sort)
+  cd "$rep_dir/$dir"
+}

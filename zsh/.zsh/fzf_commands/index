@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# vim: filetype=zsh
+
+source ~/.zsh/fzf_commands/chrome
+source ~/.zsh/fzf_commands/common
+source ~/.zsh/fzf_commands/files
+source ~/.zsh/fzf_commands/git

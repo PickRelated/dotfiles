@@ -1,0 +1,11 @@
+/bower_components
+/node_modules
+/.idea
+/vendor
+/log
+/tmp
+/dist
+/reports
+/coverage
+*.sql
+package-lock.json

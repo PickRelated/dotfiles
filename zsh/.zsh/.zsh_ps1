@@ -1,0 +1,116 @@
+if [ -z $USE_POWERLINE_BASH ]; then
+  USE_POWERLINE_BASH=1
+fi
+
+if [ -z $FONT_NAMESPACE_FILE ]; then
+  FONT_NAMESPACE_FILE=~/.fonts/UbuntuMonoAwesome.sh
+fi
+
+# if [ -z $AWESOME_GLYPHS_LOADED ]; then
+  if [ -f $FONT_NAMESPACE_FILE ]; then
+    . $FONT_NAMESPACE_FILE
+    PC=$(echo -e "\u$AWESOME_DESKTOP")
+    FOLDER=$(echo -e "\u$AWESOME_FOLDER_CLOSE")
+    BRANCH=$(echo -e "\u$AWESOME_CODE_FORK")
+    FILE=$(echo -e "\u$AWESOME_FILE")
+    PLUS=$(echo -e "\u$AWESOME_PLUS")
+    MINUS=$(echo -e "\u$AWESOME_MINUS")
+  else
+    PC=''
+    FOLDER=''
+    BRANCH=''
+    FILE=''
+    PLUS=''
+    MINUS=''
+  fi
+# fi
+
+if [ ! -z $USE_POWERLINE_BASH ]; then
+  RARROW=''
+  RTARROW=''
+else
+  RARROW=' '
+  RTARROW=' '
+fi
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/[()]//g'
+}
+
+function parse_git_diff {
+  git diff --stat | tail -n1 | sed 's/[^0-9]*/ /g'
+}
+
+function parse_git_tag {
+  git describe --exact-match --tags HEAD 2>/dev/null
+}
+
+function diff_files {
+  git diff --shortstat | sed 's/[^0-9]/ /g' | awk '{print $1}'
+}
+
+function diff_ins {
+  git diff --shortstat | sed 's/[^0-9]/ /g' | awk '{print $2}'
+}
+
+function diff_del {
+  git diff --shortstat | sed 's/[^0-9]/ /g' | awk '{print $3}'
+}
+
+# rst='\033[0m'
+# highcolor='\033[1m'
+# inv='\033[7m'
+# black=('\033[30m' '\033[40m')
+# red=('\033[31m' '\033[41m')
+# green=('\033[32m' '\033[42m')
+# yellow=('\033[33m' '\033[43m')
+# blue=('\033[34m' '\033[44m')
+
+autoload -U colors && colors
+color1=("$bg[green]")
+color2=("$bg[yellow]")
+color3=("$bg[blue]")
+color4=("$bg[red]")
+
+start="$reset_color$fg[black]${color1[1]}"
+text="$fg[black]"
+zone1="$fg[black]$bg[green]"
+zone2="$fg[black]$bg[yellow]"
+zone3="$fg[white]$bg[blue]"
+zone4="$fg[black]$bg[red]"
+del1_2="$fg[green]$bg[yellow]$RARROW"
+del2_0="$reset_color$fg[yellow]$RARROW"
+del2_3="$fg[yellow]$bg[blue]$RARROW"
+del3_0="$reset_color$fg[blue]$RARROW"
+del3_4="$fg[blue]$bg[red]$RARROW"
+del4_0="$reset_color$fg[red]$RARROW"
+
+function form_ps {
+  host="$zone1 $PC  %n@%M $del1_2"
+  dir="$zone2$FOLDER  %~ "
+  PS1="$host $dir"
+
+  if [ ! -z "$(parse_git_branch)" ]; then
+    git_branch="$del2_3$zone3 $BRANCH $(parse_git_branch)"
+    PS1="$PS1 $git_branch"
+
+    if [ ! -z "$(parse_git_tag)" ]; then
+      git_tag="$RTARROW \$(parse_git_tag)"
+      PS1="$PS1 $git_tag"
+    fi
+
+    if [ ! -z "$(parse_git_diff)" ]; then
+      git_diff="$del3_4$zone4 $FILE  $(diff_files) $PLUS  $(diff_ins) $MINUS  $(diff_del) $del4_0"
+      PS1="$PS1 $git_diff"
+    else
+      PS1="$PS1 $del3_0"
+    fi
+
+  else
+    PS1="$PS1 $del2_0"
+  fi
+
+  PS1="$PS1$reset_color$(echo '\n$') "
+}
+PROMPT_COMMAND=form_ps
+RPROMPT='%*'

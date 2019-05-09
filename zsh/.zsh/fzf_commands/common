@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# vim: filetype=zsh
+
+# kill process
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+# ssh to known hosts
+fs() {
+  local host
+  host=$(tac ~/.ssh/known_hosts | sed -e 's/ .*//' -e 's/^[^[:alpha:]]*//g' -e 's/[^[:alpha:]]*$//g' -e 's/^ *$//g' -e '/^$/d' | fzf)
+  ssh $(echo ubuntu@$host)
+}
+
+# command r (search zsh_history)
+fz() {
+  # cmd=$(LC_CTYPE=C && cat ~/.zsh_history  | cut -d ";" -f 2 | sort | uniq | fzf)
+  # cmd=$(LC_CTYPE=C && cat ~/.zsh_history | sort -k 2 | uniq -f 1 | sort -n | cut -f 2 | fzf)
+  cmd=$(LC_CTYPE=C && cat ~/.zsh_history | sort -k 1 | cut -d ";" -f 2 | uniq | fzf)
+  eval $cmd
+}

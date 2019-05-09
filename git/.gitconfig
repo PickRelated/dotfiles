@@ -1,0 +1,13 @@
+[user]
+	name = Igor Tatarintsev
+	email = ietatarin@gmail.com
+[push]
+	default = current
+[pull]
+	default = matching
+[core]
+	autocrlf = false
+	safecrlf = false
+	editor = /usr/bin/vim
+[gui]
+	encoding = utf-8

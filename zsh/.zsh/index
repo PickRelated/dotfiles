@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# vim: filetype=zsh
+
+# PS line with pwd, git branch and stuff
+source ~/.zsh/.zsh_ps1
+precmd() { eval "$PROMPT_COMMAND" }
+
+# fzf default command
+export FZF_DEFAULT_COMMAND='ag -g . --ignore node_modules -U'
+
+# fzf commands
+source ~/.zsh/fzf_commands/index
