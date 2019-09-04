@@ -16,6 +16,13 @@ const MAPPING = [
       '.vim/spell',
     ],
   },
+  {
+    module: 'nvim',
+    sources: [
+      '.config/nvim/init.vim',
+      '.config/nvim/spell',
+    ],
+  },
   { module: 'zsh', sources: ['.zsh', '.zshrc'], },
 ];
 
