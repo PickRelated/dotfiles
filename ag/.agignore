@@ -1,3 +1,4 @@
+tags
 /bower_components
 /node_modules
 /.idea
@@ -9,3 +10,5 @@
 /coverage
 *.sql
 package-lock.json
+yarn.lock
+*.log

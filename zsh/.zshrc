@@ -71,8 +71,9 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.zsh/index
 
-source ~/zsh-interactive-cd.plugin.zsh
+# source ~/zsh-interactive-cd.plugin.zsh
 
+alias vim='nvim'
 alias la='ls -lah'
 alias sz='source ~/.zshrc'
 alias du='du -d 1 -h'
@@ -87,18 +88,19 @@ alias nrd='npm run dev'
 alias adb="~/Dist/platform-tools/adb"
 alias fastboot="~/Dist/platform-tools/fastboot"
 
-# srbenv() {
+srbenv() {
   export PATH="$HOME/.rbenv/shims:$PATH"
   eval "$(rbenv init -)"
-# }
+}
 
-# snvm() {
+snvm() {
   export NVM_DIR="$HOME/.nvm"
   # . "$(brew --prefix nvm)/nvm.sh" # MacOS
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# }
+}
 
-export PATH="$PATH:/usr/local/Cellar/openvpn/2.4.4/sbin"
+# export PATH="$PATH:/usr/local/Cellar/openvpn/2.4.4/sbin"
 
 export PATH="$PATH:$HOME/Dist/gcc-arm-none-eabi-7-2018-q2-update/bin"
 
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

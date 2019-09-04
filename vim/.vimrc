@@ -155,7 +155,7 @@ au BufRead,BufNewFile,BufEnter /Users/pin/rep/passport/dashboard/* setlocal ts=2
 au BufRead,BufNewFile,BufEnter /Users/pin/rep/passport/svg/* setlocal ts=2 sts=2 sw=2
 au BufRead,BufNewFile,BufEnter /Users/pin/rep/thumbtack-resource-tool/* setlocal ts=4 sts=4 sw=4
 
-au BufRead,BufNewFile,BufEnter *.c setlocal noexpandtab ts=4 sw=4
+" au BufRead,BufNewFile,BufEnter *.c setlocal noexpandtab ts=4 sw=4
 
 " Search ---------------------------------------------------{{{1
 set hlsearch " highlight search and * and #
@@ -173,6 +173,16 @@ vmap / :/\V
 nmap <leader>ww :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>Q :qa<CR>
+
+" Windows
+nmap <C-l> <C-w>l
+nmap <C-h> <C-w>h
+nmap <C-k> <C-w>k
+nmap <C-j> <C-w>j
+" nmap <C-S-l> <C-w>L
+" nmap <C-S-h> <C-w>H
+" nmap <C-S-k> <C-w>K
+" nmap <C-S-j> <C-w>J
 
 " Tabs
 map <leader>tl :tabn<CR>
@@ -246,18 +256,14 @@ nmap <leader>rb :RuboCop<CR>
 nmap <leader>ra :RuboCop .<CR>
 
 " Hotkeys --------------------------------------------------{{{1
-if has('win32')
-	nmap <leader>so :so ~/_vimrc<CR>
-else
-	nmap <leader>so :so ~/.vimrc<CR>
-endif
+nmap <leader>so :so ~/.vimrc<CR>
 nmap <leader>pi :PluginInstall<CR>
 
 nmap <Space> <leader>
 vmap <Space> <leader>
 
 " Does not work
-imap <C-;> <C-x><C-l>
+" imap <C-;> <C-x><C-l>
 
 " Change ; to : and ;; to ;
 nmap ; :
@@ -303,7 +309,7 @@ nmap zh zc
 " Fold all blocks
 nmap zH zM
 " Fold all blocks except for current one
-nmap zL zMzv
+nmap zL zR
 
 " Diff current two windows
 nmap <leader>d :windo diffthis<CR>
@@ -330,23 +336,17 @@ nmap [w :lprev<CR>
 nmap ]W :llast<CR>
 nmap [W :lfirst<CR>
 
-" Paste without indentation (strange behaviour)
-nmap Yo :set paste<CR>o
-nmap YO :set paste<CR>O
-nmap Yi :set paste<CR>i
-nmap YI :set paste<CR>I
-nmap Ya :set paste<CR>a
-nmap YA :set paste<CR>A
-au InsertLeave * :set nopaste
-" au InsertLeave * silent! :!setxkbmap us
-" au InsertEnter * silent! :!setxkbmap us
+" " Paste without indentation (strange behaviour)
+" nmap Yo :set paste<CR>o
+" nmap YO :set paste<CR>O
+" nmap Yi :set paste<CR>i
+" nmap YI :set paste<CR>I
+" nmap Ya :set paste<CR>a
+" nmap YA :set paste<CR>A
+" au InsertLeave * :set nopaste
 
 " Edit settigs files
-if has('win32')
-	nmap <leader>sv :e ~/_vimrc<CR>
-else
-	nmap <leader>sv :e ~/.vimrc<CR>
-endif
+nmap <leader>sv :e ~/.vimrc<CR>
 nmap <leader>st :e ~/.tmux.conf<CR>
 nmap <leader>sb :e ~/.bashrc<CR>
 nmap <leader>sz :e ~/.zshrc<CR>
@@ -357,22 +357,19 @@ nmap <leader>sa :e ~/.agignore<CR>
 nmap <leader>si :e ~/.i3/config<CR>
 nmap <leader>sx :e ~/.Xresources<CR>
 
-nmap <leader>ta :e ~/notes/.toask.md<CR>
-nmap <leader>td :e ~/notes/.todo.md<CR>
-
-" Moving lines and indenting (CTRL-Shift-LKJH)
-" For this to work ,set xterm*metaSendsEscape: true
-" in ~/.Xresourses if using i3 window manager
-vmap <ESC><C-J> dp`[V`]
-vmap <ESC><C-K> dkP`[V`]
-vmap <ESC><C-L> >`[V`]
-vmap <ESC><C-H> <`[V`]
-
-nmap <ESC><C-J> ddp
-nmap <ESC><C-K> ddkP
-" Moving arguments (sideways.vim)
-nmap <ESC><C-H> :SidewaysLeft<CR>
-nmap <ESC><C-L> :SidewaysRight<CR>
+" " Moving lines and indenting (CTRL-Shift-LKJH)
+" " For this to work ,set xterm*metaSendsEscape: true
+" " in ~/.Xresourses if using i3 window manager
+" vmap <ESC><C-J> dp`[V`]
+" vmap <ESC><C-K> dkP`[V`]
+" vmap <ESC><C-L> >`[V`]
+" vmap <ESC><C-H> <`[V`]
+"
+" nmap <ESC><C-J> ddp
+" nmap <ESC><C-K> ddkP
+" " Moving arguments (sideways.vim)
+" nmap <ESC><C-H> :SidewaysLeft<CR>
+" nmap <ESC><C-L> :SidewaysRight<CR>
 
 " Gundo
 nmap <leader>u :GundoToggle<CR>
@@ -399,11 +396,11 @@ nmap <leader>wt <C-w>T
 vmap * y/<C-R>"<CR>
 
 " Paste from current register/buffer in insert mode
-imap ppp <C-R>"
-imap bbb <C-R>*
+" imap ppp <C-R>"
+" imap bbb <C-R>*
 
-" Remove all trailing whitespaces
-nmap <leader>W :%s/\s\+$//<CR>
+" " Remove all trailing whitespaces
+" nmap <leader>W :%s/\s\+$//<CR>
 
 " Make headers
 nmap <leader>h1 :s/\v<([A-Za-zА-Яа-я])(S*)/\u\1\L\2/g<CR>VypVr=:noh<CR>
@@ -411,7 +408,7 @@ nmap <leader>h2 :s/\v<([A-Za-zА-Яа-я])(S*)/\u\1\L\2/g<CR>VypVr-:noh<CR>
 
 " Multiple cursors
 nmap <leader>m :MultipleCursorsFind<space>
-vmap <leader>m y:MultipleCursorsFind<space><C-R>"<CR>
+vmap m y:MultipleCursorsFind<space><C-R>"<CR>
 nmap <leader>M y:MultipleCursorsFind<space><C-R>/<CR>
 
 " Misc
@@ -578,12 +575,18 @@ let g:airline_section_z=airline#section#create(['ffenc'])
 
 " ALE ---------------{{{2
 let g:airline#extensions#ale#enabled = 1
+let g:ale_c_parse_makefile = 1
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix = 1
 
 " Buffergator ---------------{{{2
 nmap gn :BuffergatorMruCycleNext<CR>
-nmap g<space> :BuffergatorToggle<CR>
+
+let g:buffergator_suppress_keymaps = 1
+let g:buffergator_viewport_split_policy = 'B'
+
+nmap <leader>b :BuffergatorToggle<CR>
+nmap gb :BuffergatorMruCyclePrev<CR>
 
 " CtrlP ---------------{{{2
 let g:ctrlp_custom_ignore = '\v[\/]\.(o|sim|out|jpeg|jpg|pyc)$'
@@ -601,7 +604,7 @@ nmap <leader>t :CtrlPTag<CR>
 nmap <leader>s :CtrlPLine<CR>
 
 let g:ctrlp_prompt_mappings = {
-  \ 'ToggleType(1)': ['<c-j>'],
+  \ 'ToggleType(1)': ['<c-t>'],
   \ 'MarkToOpen()':   ['<c-k>'],
   \ 'PrtCurLeft()':   [],
   \ 'PrtCurRight()':  [],
@@ -619,6 +622,7 @@ let g:calendar_first_day = 'monday'
 
 " Gitgutter --------------{{{2
 nmap <leader>gr :GitGutterRevertHunk<CR>
+set updatetime=100
 
 " Tagbar --------------{{{2
 :let g:tagbar_autoclose=1
@@ -652,7 +656,7 @@ vmap <Leader>k <Plug>(easymotion-k)
 vmap <Leader>l <Plug>(easymotion-w)
 
 " NERDTree -----------------------------{{{2
-let NERDTreeIgnore = ['^lang$', '__pycache__', '^tags$', 'ctags', '.*\.iml', '\.idea', '^vendor$', '^node_modules$', '^bower_components$', '^dist$', '*\.pyc']
+let NERDTreeIgnore = ['^lang$', '__pycache__', '^tags$', 'ctags', '.*\.iml', '\.idea', '^vendor$', '^node_modules$', '^bower_components$', '^dist$', 'pyc$', 'yarn-error.log', 'yarn.lock']
 " TODO wtf with mac?
 " let g:NERDTreeDirArrowExpandable = ''
 " let g:NERDTreeDirArrowCollapsible = ''
@@ -807,13 +811,6 @@ let g:syntastic_c_remove_include_errors = 1
 " Angular
 let g:syntastic_html_checkers=[]
 
-" Buffergator ------------------------------{{{2
-let g:buffergator_suppress_keymaps = 1
-let g:buffergator_viewport_split_policy = 'B'
-
-nmap <leader>b :BuffergatorToggle<CR>
-nmap gb :BuffergatorMruCyclePrev<CR>
-
 " Supertab ------------------------------{{{2
 let g:SuperTabDefaultCompletionType  = 'context'
 let g:SuperTabCrMapping = 1
@@ -853,7 +850,7 @@ let g:vdebug_options['path_maps']['/penton'] = $HOME.'/rep/penton/pentonWEB'
 " let g:vdebug_options['path_maps']['/var/www/penton'] = $HOME.'/rep/penton/app'
 " let g:vdebug_options['path_maps']['/penton'] = $HOME.'/rep/penton'
 
-au FileType DebuggerWatch map <C-l> :python debugger.handle_return_keypress()
+" au FileType DebuggerWatch map <C-l> :python debugger.handle_return_keypress()
 
 " vim-easy-align -----------------------------{{{2
 vmap <leader>a <Plug>(EasyAlign)
@@ -979,16 +976,16 @@ endfun
 
 " Useful commands ------------------------------------------------{{{1
 " ga - show symbol hex code
-au FileType php imap sss $
-au FileType php,javascript,typescript imap .. <space>=><space>
-au FileType c,cpp imap .. ->
+au FileType php imap ;; $
+au FileType php,javascript,typescript imap ;; <space>=><space>
+au FileType c,cpp imap ;; ->
 " imap <M-u> (
 " imap <M-i> )
 " imap <M-j> {
 " imap <M-k> }
 
 au FileType php imap ,, <space>-><space>
-imap lll _
+" imap lll _
 
 " Specific stuff ------------------------------------------------{{{1
 au FileType c syn match comment "KC_NO"
