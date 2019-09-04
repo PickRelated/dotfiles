@@ -16,12 +16,20 @@ fi
     PLUS=$(echo -e "\u$AWESOME_PLUS")
     MINUS=$(echo -e "\u$AWESOME_MINUS")
   else
-    PC=''
-    FOLDER=''
-    BRANCH=''
-    FILE=''
-    PLUS=''
-    MINUS=''
+    # refer to http://mathew-kurian.github.io/CharacterMap/
+    # PC=''
+    PC=''
+    FOLDER=''
+    BRANCH=''
+    FILE=''
+    PLUS=''
+    MINUS=''
+    # PC=''
+    # FOLDER=''
+    # BRANCH=''
+    # FILE=''
+    # PLUS=''
+    # MINUS=''
   fi
 # fi
 
