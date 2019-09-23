@@ -11,6 +11,12 @@ syntax on
 colorscheme pickrelated
 set nofixendofline
 
+set wildignore+=.git,.idea,*.DS_Store,*.o
+set wildignore+=*.swp
+set wildignore+=bower_components,node_modules,dist
+set wildignore+=public/js,public/css
+set wildignore+=tmp
+
 set timeout ttimeoutlen=10 timeoutlen=300
 
 set fileencodings=utf8,cp1251
@@ -451,7 +457,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'edkolev/tmuxline.vim'
 Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tomtom/tcomment_vim'
@@ -476,7 +481,6 @@ Plugin 'w0rp/ale'
 Plugin 'jeetsukumaran/vim-buffergator'
 " Plugin 'mtscout6/vim-tagbar-css'
 Plugin 'AndrewRadev/sideways.vim'
-" Plugin 'kaneshin/ctrlp-git-log'
 Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'itchyny/calendar.vim'
 Plugin 'stefandtw/quickfix-reflector.vim' " Make changes directly from quickfix list
@@ -589,31 +593,6 @@ let g:buffergator_viewport_split_policy = 'B'
 
 " nmap <leader>b :BuffergatorToggle<CR>
 nmap gb :BuffergatorMruCyclePrev<CR>
-
-" CtrlP ---------------{{{2
-let g:ctrlp_custom_ignore = '\v[\/]\.(o|sim|out|jpeg|jpg|pyc)$'
-let g:ctrlp_follow_symlinks = 1
-set wildignore+=.git,.idea,*.DS_Store,*.o
-set wildignore+=*.swp
-set wildignore+=bower_components,node_modules,dist
-set wildignore+=public/js,public/css
-set wildignore+=tmp
-let g:ctrlp_show_hidden = 1
-
-nmap <leader>f :CtrlP<CR>
-nmap <leader>t :CtrlPTag<CR>
-" nmap <leader>g :CtrlPGitLog<CR>
-nmap <leader>s :CtrlPLine<CR>
-
-let g:ctrlp_prompt_mappings = {
-  \ 'ToggleType(1)': ['<c-t>'],
-  \ 'MarkToOpen()':   ['<c-k>'],
-  \ 'PrtCurLeft()':   [],
-  \ 'PrtCurRight()':  [],
-  \}
-
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_extensions = ['tag', 'quickfix', 'changes', 'gitlog']
 
 " Calendar --------------{{{2
 " nmap <leader>c :Calendar<CR>
@@ -741,7 +720,7 @@ let g:phpqa_codesniffer_autorun = 0
 let g:lightline = {
 \	'colortheme': 'wombat',
 \	'active': {
-\		'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+\		'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
 \		'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 \	},
 \	'component': {
