@@ -283,15 +283,15 @@ imap <S-Tab> <Plug>snipMateBack
 imap <C-j> <Plug>snipMateNextOrTrigger
 imap <C-k> <Plug>snipMateBack
 
-map <leader>gs :Gstatus<CR>
-map <leader>gd :Gvdiff<CR>
-map <leader>gc :Gcommit<CR>
-map <leader>gb :Gblame -w<CR>
-map <leader>gl :Glog<CR>
-map <leader>ge :Gedit<CR>
-map <leader>gw :Gwrite<CR>
-map <leader>gp :Gpush<CR>
-map <leader>gg :GitGutterSignsToggle<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gvdiff<CR>
+nmap <leader>gb :Gblame -w<CR>
+nmap <leader>ge :Gedit<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>gp :Gpush<CR>
+nmap <leader>gg :GitGutterSignsToggle<CR>
+nmap <leader>gl :BCommits<CR>
+nmap <leader>gc :GFiles?<CR>
 
 nmap <leader>cv :!open % -a Google\ Chrome<CR><CR>
 
@@ -314,8 +314,6 @@ nmap <leader>du :diffupdate<CR>
 " Ack
 " nmap <leader>a :Ack ""<left>
 nmap <leader>a :Ag<CR>
-" Make Ag search only in file contents and not the file names
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 nmap <leader>A :Ack <cword>
 
@@ -541,13 +539,11 @@ let g:ack_apply_qmappings = 0
 " Ag (fzf) ----------------{{{2
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-nmap <leader>g :BCommits<CR>
-
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
+\ { 'fg':      ['fg', 'Comment'],
   \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'hl':      ['fg', 'Tag'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Directory'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
   \ 'hl+':     ['fg', 'Statement'],
   \ 'info':    ['fg', 'Normal'],
@@ -557,6 +553,15 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" Make Ag search only in file contents and not the file names
+command! -bang -nargs=* Ag call fzf#vim#ag('', fzf#vim#with_preview({'options' : '--delimiter : --nth 4.. --color hl:3,hl+:226 --preview "highlight"'}, 'right:30%'), 0)
+
+command! -bang -nargs=* Files call fzf#vim#files('', fzf#vim#with_preview({'options' : '--preview "highlight"'}, 'right:30%'), 0)
+
+nmap <leader>b :Buffers<CR>
+nmap <leader>f :Files<CR>
+nmap <leader>s :BLines<CR>
 
 " Airline ----------------{{{2
 set laststatus=2
@@ -582,7 +587,7 @@ nmap gn :BuffergatorMruCycleNext<CR>
 let g:buffergator_suppress_keymaps = 1
 let g:buffergator_viewport_split_policy = 'B'
 
-nmap <leader>b :BuffergatorToggle<CR>
+" nmap <leader>b :BuffergatorToggle<CR>
 nmap gb :BuffergatorMruCyclePrev<CR>
 
 " CtrlP ---------------{{{2
