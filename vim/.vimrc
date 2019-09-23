@@ -397,6 +397,7 @@ nmap <leader>wt <C-w>T
 vmap * y/<C-R>"<CR>
 
 " Paste from current register/buffer in insert mode
+imap <C-v> <C-R>*
 " imap ppp <C-R>"
 " imap bbb <C-R>*
 
