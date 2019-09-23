@@ -20,9 +20,8 @@ fs() {
 }
 
 # command r (search zsh_history)
-fz() {
-  # cmd=$(LC_CTYPE=C && cat ~/.zsh_history  | cut -d ";" -f 2 | sort | uniq | fzf)
-  # cmd=$(LC_CTYPE=C && cat ~/.zsh_history | sort -k 2 | uniq -f 1 | sort -n | cut -f 2 | fzf)
-  cmd=$(LC_CTYPE=C && cat ~/.zsh_history | sort -k 1 | cut -d ";" -f 2 | uniq | fzf)
+alias h="fh"
+fh() {
+  cmd=$(cat ~/.zsh_history | sed -e 's/[^;]*;//' | uniq | fzf --tac --no-sort)
   eval $cmd
 }
