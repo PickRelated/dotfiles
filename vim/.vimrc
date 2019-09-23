@@ -104,6 +104,8 @@ au BufRead,BufNewFile *.rabl     set ft=ruby          syntax=ruby
 
 au BufRead,BufNewFile *.lock     setlocal noeol binary
 
+au BufRead,BufNewFile *.styl     set ft=css syntax=css
+
 " Drupal ---------------------------------------------------{{{2
 au BufRead,BufNewFile *.install  set ft=php           syntax=php
 au BufRead,BufNewFile *.info     set ft=php           syntax=php
@@ -500,7 +502,7 @@ Plugin 'mxw/vim-jsx'
 
 " HTML
 Plugin 'mattn/emmet-vim'
-au FileType html,css,scss,sass,php,htmldjango EmmetInstall
+au FileType html,css,scss,sass,php,htmldjango,stylus EmmetInstall
 
 " Python
 " Plugin 'klen/python-mode'
@@ -518,7 +520,8 @@ Plugin 'avakhov/vim-yaml'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'vim-scripts/vim-coffee-script'
 Plugin 'ap/vim-css-color'
-Plugin 'leafgarland/typescript-vim'
+Plugin 'iloginow/vim-stylus'
+" Plugin 'leafgarland/typescript-vim'
 
 " PHP
 " Plugin 'vim-php/phpctags'
