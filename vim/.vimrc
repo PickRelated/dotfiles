@@ -202,7 +202,7 @@ augroup no_highlight
 nnoremap <esc> :noh<return><esc>
 augroup END
 
-nmap <leader>n :NERDTree<CR>
+nmap <leader>n :call NERDTreeToggleInCurDir()<CR>
 
 " Copy to buffer
 nmap Y "+yy
@@ -441,6 +441,19 @@ let g:NERDTreeWinSize = 40
 
 au FileType nerdtree nmap <buffer> l o
 au FileType nerdtree nmap <buffer> h x
+
+function! NERDTreeToggleInCurDir()
+  " If NERDTree is open in the current buffer
+  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+    exe ":NERDTreeClose"
+  else
+    if (expand("%:t") != '')
+      exe ":NERDTreeFind"
+    else
+      exe ":NERDTreeToggle"
+    endif
+  endif
+endfunction
 
 " NERDTree Git Plugin -----------------------------{{{2
 let g:NERDTreeIndicatorMapCustom = {
