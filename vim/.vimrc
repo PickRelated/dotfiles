@@ -213,14 +213,6 @@ nmap ]] ]]zz
 " Navigate to header/source
 " nmap <leader>gh :call NavigateToHeader()<CR>
 
-" Smart navigate to file under cursor for Bitrix
-nmap <leader>bg :call BitrixNavigateAuto()<CR>
-nmap <leader>bs :call BitrixNavigateStyle()<CR>
-nmap <leader>bj :call BitrixNavigateScript()<CR>
-nmap <leader>br :call BitrixNavigateResultModifier()<CR>
-nmap <leader>bt :call BitrixNavigateTemplate()<CR>
-nmap <leader>bc :call BitrixNavigateComponentEpilog()<CR>
-
 " Ruby on Rails navigation (vim-rails)
 let g:vimrubocop_keymap = 0
 nmap <leader>rmm :Emodel<space>
@@ -906,55 +898,6 @@ endfun
 " 		exe ":find " s:flipname
 " 	endif
 " endfun
-
-function! BitrixNavigateAuto()
-	" "bitrix:news.list","brand-list"
-	" "bitrix:news.list",""
-	" <?$APPLICATION->IncludeComponent("bitrix:news.list", "slider-main-page", Array(
-	let component_namespace	= matchstr(getline('.'), '\v.*"\zs.*\ze:')
-	let component_name		= matchstr(getline('.'), '\v:\zs[^"]*\ze"')
-	let template_name		= matchstr(getline('.'), '\v:[^"]*"[^"]*"\zs[^"]*')
-	let current_selection	= matchstr(expand('<cWORD>'), '\v"\zs[^"]*\ze')
-	let current_selection_d	= expand('<cword>')
-	echo current_selection == (component_namespace.':'.component_name) && current_selection_d != 'APPLICATION'
-
-	" Browsing component
-	if (component_namespace!='' && component_name!='')
-		if (template_name != '' && template_name != '.default' || component_namespace != 'bitrix')
-			if (current_selection == (component_namespace.':'.component_name) && current_selection_d != 'APPLICATION')
-				execute 'silent vsp local/components/'.component_namespace.'/'.component_name.'/component.php'
-			else
-				if (component_namespace == 'bitrix')
-					execute 'silent vsp local/templates/*/components/'.component_namespace.'/'.component_name.'/'.template_name.'/template.php'
-				else
-					execute 'silent vsp local/components/'.component_namespace.'/'.component_name.'/templates/.default/template.php'
-				endif
-			endif
-		else
-			execute 'silent vsp bitrix/components/'.component_namespace.'/'.component_name.'/templates/.default/template.php'
-		endif
-	endif
-endfun
-
-function! BitrixNavigateStyle()
-	execute 'silent vsp %:h/style.css'
-endfun
-
-function! BitrixNavigateScript()
-	execute 'silent vsp %:h/script.js'
-endfun
-
-function! BitrixNavigateResultModifier()
-	execute 'silent vsp %:h/result_modifier.php'
-endfun
-
-function! BitrixNavigateTemplate()
-	execute 'silent vsp %:h/template.php'
-endfun
-
-function! BitrixNavigateComponentEpilog()
-	execute 'silent vsp %:h/component_epilog.php'
-endfun
 
 command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
 function! QuickfixFilenames()
