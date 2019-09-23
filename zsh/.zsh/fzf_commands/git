@@ -11,6 +11,16 @@ fgc() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+# delete branches
+alias d='fgd'
+fgd() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -m -d $(( 2 + $(wc -l <<< "$branches") ))) &&
+  git branch -D $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
 # git log
 alias l='fgl'
 fgl() {
