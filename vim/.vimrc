@@ -289,7 +289,7 @@ imap <S-Tab> <Plug>snipMateBack
 imap <C-j> <Plug>snipMateNextOrTrigger
 imap <C-k> <Plug>snipMateBack
 
-nmap <leader>gs :Gstatus<CR>
+nmap <leader>gs :G<CR>
 nmap <leader>gd :Gvdiff<CR>
 nmap <leader>gb :Gblame -w<CR>
 nmap <leader>ge :Gedit<CR>
