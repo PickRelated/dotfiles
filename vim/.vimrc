@@ -499,16 +499,16 @@ au FileType html,css,scss,sass,php,htmldjango,stylus EmmetInstall
 " Plugin 'JarrodCTaylor/vim-python-test-runner'
 
 " Ruby
-Plugin 'tpope/vim-rails'
-Plugin 'ngmy/vim-rubocop'
+" Plugin 'tpope/vim-rails'
+" Plugin 'ngmy/vim-rubocop'
 
 " Misc syntax
 Plugin 'Shougo/vinarise.vim' " HEX viewer
 " Plugin 'tpope/vim-markdown' " takes 161ms of startup time
 " Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'avakhov/vim-yaml'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'vim-scripts/vim-coffee-script'
+" Plugin 'avakhov/vim-yaml'
+" Plugin 'digitaltoad/vim-jade'
+" Plugin 'vim-scripts/vim-coffee-script'
 Plugin 'ap/vim-css-color'
 Plugin 'iloginow/vim-stylus'
 " Plugin 'leafgarland/typescript-vim'
