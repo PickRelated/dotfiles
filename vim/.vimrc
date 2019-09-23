@@ -298,7 +298,7 @@ map <leader>gw :Gwrite<CR>
 map <leader>gp :Gpush<CR>
 map <leader>gg :GitGutterSignsToggle<CR>
 
-nmap <leader>cv :!chrome %<CR><CR>
+nmap <leader>cv :!open % -a Google\ Chrome<CR><CR>
 
 " Surround with console.log();
 nmap <leader>cl :.s/\v[ \t]+\zs([^;]*);*/console.log\(\1\)\;/<CR>:noh<CR>
