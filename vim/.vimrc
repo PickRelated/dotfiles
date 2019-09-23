@@ -9,6 +9,7 @@ set nocompatible			  " be iMproved, required
 set showcmd
 syntax on
 colorscheme pickrelated
+set nofixendofline
 
 set timeout ttimeoutlen=10 timeoutlen=300
 
