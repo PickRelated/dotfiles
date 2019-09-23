@@ -616,7 +616,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_extensions = ['tag', 'quickfix', 'changes', 'gitlog']
 
 " Calendar --------------{{{2
-nmap <leader>c :Calendar<CR>
+" nmap <leader>c :Calendar<CR>
 autocmd FileType calendar nmap <buffer> ]ghtii <Plug>(calendar_up)
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
@@ -624,6 +624,9 @@ let g:calendar_first_day = 'monday'
 
 " Gitgutter --------------{{{2
 nmap <leader>gr :GitGutterRevertHunk<CR>
+nmap <leader>hu :GitGutterUndoHunk<CR>
+nmap <leader>hs :GitGutterStageHunk<CR>
+nmap <leader>hp :GitGutterPreviewHunk<CR>
 set updatetime=100
 
 " Tagbar --------------{{{2
@@ -818,9 +821,9 @@ let g:SuperTabDefaultCompletionType  = 'context'
 let g:SuperTabCrMapping = 1
 
 " TComment -------------------------------{{{2
-let g:tcomment_mapleader2 = '<leader>c'
-nmap <leader>cc <leader>c_
-vmap <leader>cc <leader>c_
+" let g:tcomment_mapleader2 = '<leader>c'
+" nmap <leader>cc <leader>c_
+" vmap <leader>cc <leader>c_
 
 " vdebug -------------------------------{{{2
 if !exists('g:vdebug_options')
