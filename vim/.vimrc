@@ -11,6 +11,8 @@ syntax on
 colorscheme pickrelated
 set nofixendofline
 
+set mouse=a
+
 set wildignore+=.git,.idea,*.DS_Store,*.o
 set wildignore+=*.swp
 set wildignore+=bower_components,node_modules,dist,build
