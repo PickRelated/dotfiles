@@ -1,0 +1,40 @@
+# print line numbers
+-n
+
+--exclude=IAR
+--exclude=idea
+--exclude=bower_components
+--exclude=node_modules
+--exclude=functional-tests
+--exclude=tmp
+--exclude=dist
+
+--kinddef-javascript=i,import,Imports
+
+--_tabledef-javascript=main
+--_tabledef-javascript=vardef
+--_tabledef-javascript=imports
+
+######################################################################
+# Start
+######################################################################
+--_mtable-regex-javascript=main/(var|const|let|default) +(\[|{)*//{tenter=vardef}
+--_mtable-regex-javascript=main/(import) +(\[|{| )*//{tenter=imports}
+--_mtable-regex-javascript=main/.//
+######################################################################
+# Imports
+######################################################################
+--_mtable-regex-javascript=imports/([[:alnum:]]+) as ([[:alnum:]]+)/\2/i/ # import { a as b }
+#--_mtable-regex-javascript=imports/([[:alnum:]]+)/\1/i/
+######################################################################
+# Variables
+######################################################################
+--_mtable-regex-javascript=vardef/([[:alnum:]]+): *([[:alnum:]]+)/\2/v/ # const { a: b }
+--_mtable-regex-javascript=vardef/([[:alnum:]]+)/\1/v/
+######################################################################
+# Finish
+######################################################################
+--_mtable-regex-javascript=vardef/(]|}|=)//{tleave}
+--_mtable-regex-javascript=imports/(}|from)*//{tleave}
+--_mtable-regex-javascript=vardef/.//
+######################################################################

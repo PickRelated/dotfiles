@@ -5,7 +5,7 @@ const DEST = require('os').homedir();
 const MAPPING = [
   { module: 'ack', sources: ['.ackrc'], },
   { module: 'ag', sources: ['.agignore'], },
-  { module: 'ctags', sources: ['.ctags'], },
+  { module: 'ctags', sources: ['.ctags.d'], },
   { module: 'git', sources: ['.gitconfig'], },
   {
     module: 'vim',
