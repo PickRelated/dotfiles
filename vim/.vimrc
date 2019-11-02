@@ -547,6 +547,11 @@ let g:lightline = {
 
 " Sideways ------------------------------{{{2
 " Adds support of dia, caa etc
+omap aa <Plug>SidewaysArgumentTextobjA
+xmap aa <Plug>SidewaysArgumentTextobjA
+omap ia <Plug>SidewaysArgumentTextobjI
+xmap ia <Plug>SidewaysArgumentTextobjI
+
 nmap gh :SidewaysJumpLeft<CR>
 nmap gl :SidewaysJumpRight<CR>
 
