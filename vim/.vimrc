@@ -370,10 +370,14 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'stefandtw/quickfix-reflector.vim' " Make changes directly from quickfix list
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'terryma/vim-expand-region'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'rhysd/clever-f.vim'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'moll/vim-node'
 
 " HTML
 Plugin 'mattn/emmet-vim'
@@ -432,6 +436,7 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='fancy'
 set guifont=Ubuntu_Mono_derivative_Powerline:h16
+let g:airline_section_x=airline#section#create([''])
 let g:airline_section_y=airline#section#create(['filetype'])
 let g:airline_section_z=airline#section#create(['ffenc'])
 
@@ -578,6 +583,11 @@ let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_html_checkers=[]
 
 " Useful commands ------------------------------------------------{{{1
+nmap m <Plug>(expand_region_expand)
+nmap M <Plug>(expand_region_shrink)
+vmap m <Plug>(expand_region_expand)
+vmap M <Plug>(expand_region_shrink)
+
 " ga - show symbol hex code
 au FileType php imap ;; $
 au FileType php,javascript,typescript imap ;; <space>=><space>
