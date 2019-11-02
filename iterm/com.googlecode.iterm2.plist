@@ -37,6 +37,13 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x66-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>22</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x69-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -55,13 +62,6 @@
 		<dict>
 			<key>Action</key>
 			<integer>2</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x76-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -86,13 +86,6 @@
 			<key>Text</key>
 			<string>f</string>
 		</dict>
-		<key>0xf703-0x300000</key>
-		<dict>
-			<key>Action</key>
-			<integer>0</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
 	</dict>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
@@ -100,6 +93,8 @@
 	<true/>
 	<key>LeftCommand</key>
 	<integer>1</integer>
+	<key>LeftOption</key>
+	<integer>2</integer>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -941,15 +936,17 @@
 	<key>NoSyncInstallationId</key>
 	<string>30E9D3BD-4F53-4993-BC98-7AB936ACED8F</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>12</integer>
+	<integer>14</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>589476805.81791699</real>
+	<real>589795930.32818604</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
 	<true/>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
 		<key>0</key>
@@ -1770,6 +1767,15 @@
 	</dict>
 	<key>NoSyncSearchHistory2</key>
 	<array>
+		<string>node_module</string>
+		<string>menuTest</string>
+		<string>browserId</string>
+		<string>browser_id</string>
+		<string>wwww</string>
+		<string>desig</string>
+		<string>CCCCCCCC</string>
+		<string>mfrerender</string>
+		<string>rerender</string>
 		<string>somethi</string>
 	</array>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
@@ -1843,6 +1849,8 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
