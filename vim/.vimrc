@@ -147,10 +147,6 @@ vmap L $
 nmap H ^
 vmap H ^
 
-" Center screen on next and prev functions
-nmap [[ [[zz
-nmap ]] ]]zz
-
 " Ruby on Rails navigation (vim-rails)
 let g:vimrubocop_keymap = 0
 nmap <leader>rmm :Emodel<space>
