@@ -2,8 +2,13 @@
 # vim: filetype=zsh
 
 # PS line with pwd, git branch and stuff
+source ~/.zsh/util/touchbar.sh
 source ~/.zsh/.zsh_ps1
-precmd() { eval "$PROMPT_COMMAND" }
+
+precmd() {
+  eval "$PROMPT_COMMAND"
+  source ~/.zsh/util/touchbar.sh
+}
 
 # fzf default command
 export FZF_DEFAULT_COMMAND='ag -g . --ignore node_modules -U --color-path "1;36"'

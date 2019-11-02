@@ -1,4 +1,5 @@
 # If you come from bash you might have to change your $PATH.
+TOUCHBAR_GIT_ENABLED=true
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 HISTORY_IGNORE="[a-zA-Z]|[a-zA-Z][a-zA-Z]|[a-zA-Z][a-zA-Z][a-zA-Z]|[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z]" # ignore one key commands
@@ -64,7 +65,7 @@ ZSH_THEME=""
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+export plugins=(git zsh-iterm-touchbar)
 
 # source $ZSH/oh-my-zsh.sh
 
