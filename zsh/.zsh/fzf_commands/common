@@ -22,6 +22,6 @@ fs() {
 # command r (search zsh_history)
 alias h="fh"
 fh() {
-  cmd=$(cat ~/.zsh_history | sed -e 's/[^;]*;//' | uniq | fzf --tac --no-sort)
+  cmd=$(cat ~/.zsh_history | uniq | fzf --tac --sort --bind=ctrl-s:toggle-sort)
   eval $cmd
 }
