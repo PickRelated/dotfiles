@@ -232,6 +232,7 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>gp :Gpush<CR>
 nmap <leader>gg :GitGutterSignsToggle<CR>
 nmap <leader>gl :BCommits<CR>
+nmap <leader>gh :0Glog<CR>
 nmap <leader>gc :GFiles?<CR>
 
 nmap <leader>cv :!open % -a Google\ Chrome<CR><CR>
