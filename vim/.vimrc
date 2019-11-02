@@ -291,6 +291,29 @@ imap <C-v> <C-R>*
 " Multiple cursors
 nmap <leader>m :MultipleCursorsFind<space>
 
+imap <C-j> <Plug>snipMateNextOrTrigger
+
+" Quick surround
+nmap ' ysiw'
+nmap " ysiw"
+nmap ` ysiw`
+nmap ) ysiw)
+nmap ( ysiw(
+nmap ] ysiw]
+nmap [ ysiw[
+nmap } ysiw}
+nmap { ysiw{
+
+vmap ' S'
+" vmap " S"
+vmap ` S`
+vmap ) S)
+vmap ( S(
+vmap ] S]
+vmap [ S[
+vmap } S}
+vmap { S{
+
 " Jump to adjacent files --------------------------------------------------{{{1
 
 " General
