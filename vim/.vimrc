@@ -464,9 +464,14 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='fancy'
 set guifont=Ubuntu_Mono_derivative_Powerline:h16
-let g:airline_section_x=airline#section#create([''])
-let g:airline_section_y=airline#section#create(['filetype'])
-let g:airline_section_z=airline#section#create(['ffenc'])
+let g:airline_section_a=''
+let g:airline_section_b=''
+let g:airline_section_x=''
+let g:airline_section_y=''
+let g:airline_section_z=''
+" let g:airline_section_x=airline#section#create([''])
+" let g:airline_section_y=airline#section#create(['filetype'])
+" let g:airline_section_z=airline#section#create(['ffenc'])
 
 " ALE ---------------{{{2
 let g:airline#extensions#ale#enabled = 1
