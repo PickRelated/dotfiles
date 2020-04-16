@@ -6,9 +6,17 @@ tags
 /log
 /tmp
 /dist
+/widget/dist
+*.svg
+*.test.js
+package.json
+stats.html
 /reports
 /coverage
 *.sql
 package-lock.json
 yarn.lock
 *.log
+/www
+/platforms
+/plugins
