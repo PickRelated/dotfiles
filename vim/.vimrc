@@ -66,7 +66,7 @@ au VimResized * exe "normal! \<c-w>="
 let g:syntastic_cpp_include_dirs=['src/', 'lib/']
 let g:syntastic_c_config_file='.syntastic_c_config'
 let g:syntastic_cpp_config_file='.syntastic_cpp_config'
-let g:syntastic_javasctip_config_file='.eslint.config.js'
+" let g:syntastic_javasctipt_config_file='.eslintrc.json'
 " STM32 gcc StdPeriph Library problem
 let g:syntastic_cpp_gcc_quiet_messages = { "regex": 'Please select first' }
 
