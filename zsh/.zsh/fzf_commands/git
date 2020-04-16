@@ -17,7 +17,7 @@ fgd() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
-           fzf-tmux -m -d $(( 2 + $(wc -l <<< "$branches") ))) &&
+           fzf-tmux -m --bind=ctrl-l:toggle -d $(( 2 + $(wc -l <<< "$branches") ))) &&
   git branch -D $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
@@ -45,4 +45,24 @@ fglm() {
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
                 {}
 FZF-EOF"
+}
+
+# git stash pop
+alias p='fgsp'
+fgsp() {
+  result=$(echo $(
+    git stash list | \
+    fzf --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi'
+  ) | sed "s/:.*//")
+  [[ ! -z "$result" ]] && git stash pop $result
+}
+
+# git stash drop
+fgsd() {
+  local result
+  result=$(echo $(
+    git stash list |
+    fzf --multi --bind=ctrl-l:toggle --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi'
+  ) | sed "s/:.*//")
+  [[ ! -z "$result" ]] && git stash drop $result
 }
