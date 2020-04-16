@@ -1,0 +1,3 @@
+--exclude=.git
+--exclude=IAR
+--exclude=*.md

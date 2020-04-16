@@ -1,15 +1,19 @@
 # print line numbers
 -n
 
---exclude=IAR
 --exclude=idea
 --exclude=bower_components
 --exclude=node_modules
 --exclude=functional-tests
 --exclude=tmp
 --exclude=dist
+--exclude=*.json
+--exclude=*.xml
+--exclude=webpack*
+--exclude=babel*
 
 --kinddef-javascript=i,import,Imports
+--kinddef-javascript=e,export,Exports
 
 --_tabledef-javascript=main
 --_tabledef-javascript=vardef
@@ -18,19 +22,18 @@
 ######################################################################
 # Start
 ######################################################################
---_mtable-regex-javascript=main/(var|const|let|default) +(\[|{)*//{tenter=vardef}
 --_mtable-regex-javascript=main/(import) +(\[|{| )*//{tenter=imports}
+--_mtable-regex-javascript=main/(var|const|let) +(\[|{)*//{tenter=vardef}
 --_mtable-regex-javascript=main/.//
+######################################################################
+# Variables
+######################################################################
+--_mtable-regex-javascript=vardef/([[:alnum:]]+): *([[:alnum:]]+)/\2/C/ # const { a: b }
+--_mtable-regex-javascript=vardef/([[:alnum:]]+)/\1/C/
 ######################################################################
 # Imports
 ######################################################################
 --_mtable-regex-javascript=imports/([[:alnum:]]+) as ([[:alnum:]]+)/\2/i/ # import { a as b }
-#--_mtable-regex-javascript=imports/([[:alnum:]]+)/\1/i/
-######################################################################
-# Variables
-######################################################################
---_mtable-regex-javascript=vardef/([[:alnum:]]+): *([[:alnum:]]+)/\2/v/ # const { a: b }
---_mtable-regex-javascript=vardef/([[:alnum:]]+)/\1/v/
 ######################################################################
 # Finish
 ######################################################################
