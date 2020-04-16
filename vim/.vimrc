@@ -102,7 +102,19 @@ au BufRead,BufNewFile *.rabl     set ft=ruby          syntax=ruby
 
 au BufRead,BufNewFile *.lock     setlocal noeol binary
 
+
 au BufRead,BufNewFile *.styl     set ft=css syntax=css
+
+au BufRead,BufNewFile *.cpp     setlocal path=.,inc
+au BufRead,BufNewFile *.hpp     setlocal path=.,inc
+
+" Drupal ---------------------------------------------------{{{2
+au BufRead,BufNewFile *.install  set ft=php           syntax=php
+au BufRead,BufNewFile *.info     set ft=php           syntax=php
+au BufRead,BufNewFile *.module   set ft=php           syntax=php
+
+" PhpMyDirectory -------------------------------------------{{{2
+au BufRead,BufNewFile *.tpl      set ft=php           syntax=php
 
 " Spelling -----------------------------------------------------{{{1
 au FileType gitcommit setlocal spell
@@ -459,6 +471,12 @@ let g:airline_section_z=airline#section#create(['ffenc'])
 " ALE ---------------{{{2
 let g:airline#extensions#ale#enabled = 1
 let g:ale_c_parse_makefile = 1
+let g:ale_cpp_gcc_options = '-std=c++11 -I./inc -I./lib/STM32F10x_StdPeriph_Driver/inc -include stdint.h -include stdio.h -include stm32f10x_rcc.h'
+let g:ale_linters = {
+  \ 'cpp': ['gcc'],
+\ }
+" let g:ale_set_loclist = 0
+" let g:ale_set_quickfix = 1
 
 " Buffergator ---------------{{{2
 nmap gn :BuffergatorMruCycleNext<CR>
