@@ -11,12 +11,10 @@
 --ignore-dir=reports/
 --ignore-dir=coverage
 --ignore-dir=vendor
+--ignore-dir=www
+--ignore-dir=platforms
+--ignore-dir=plugins
 
 --ignore-dir=.sass-cache/
 --ignore-dir=.tmp/
---ignore-dir=wp-content/themes/ondeckprod/
---ignore-dir=wp-content/themes/ondeck/assets/css/
---ignore-dir=app/angular_client/build
---ignore-dir=app/angular_client/bin
---ignore-dir=app/angular_client/vendor
 --ignore-dir=exclude
