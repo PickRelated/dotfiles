@@ -384,12 +384,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tomtom/tcomment_vim'
 :source $VIMRUNTIME/macros/matchit.vim
-Plugin 'godlygeek/tabular'
+" Plugin 'godlygeek/tabular'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'lokaltog/vim-easymotion'
 Plugin 'mileszs/ack.vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'sjl/gundo.vim'
+" Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'danro/rename.vim'
@@ -403,12 +403,12 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'terryma/vim-expand-region'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'rhysd/clever-f.vim'
+" Plugin 'rhysd/clever-f.vim'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'moll/vim-node'
+" Plugin 'moll/vim-node'
 
 " HTML
 Plugin 'mattn/emmet-vim'
@@ -421,8 +421,8 @@ au FileType html,css,scss,sass,php,htmldjango,stylus EmmetInstall
 " Misc syntax
 " Plugin 'avakhov/vim-yaml'
 " Plugin 'digitaltoad/vim-jade'
-Plugin 'ap/vim-css-color'
-Plugin 'iloginow/vim-stylus'
+" Plugin 'ap/vim-css-color'
+" Plugin 'iloginow/vim-stylus'
 " Plugin 'leafgarland/typescript-vim'
 
 " Snipmate
