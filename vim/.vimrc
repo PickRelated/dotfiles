@@ -485,6 +485,8 @@ let g:ale_linters = {
 \ }
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix = 1
+nmap ]a :ALENext<CR>
+nmap [a :ALEPrevious<CR>
 
 " Buffergator ---------------{{{2
 nmap gn :BuffergatorMruCycleNext<CR>
