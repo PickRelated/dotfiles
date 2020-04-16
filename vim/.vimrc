@@ -404,6 +404,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'terryma/vim-expand-region'
 Plugin 'AndrewRadev/splitjoin.vim'
 " Plugin 'rhysd/clever-f.vim'
+Plugin 'prettier/vim-prettier'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
