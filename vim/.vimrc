@@ -416,7 +416,7 @@ Plugin 'mattn/emmet-vim'
 au FileType html,css,scss,sass,php,htmldjango,stylus EmmetInstall
 
 " Ruby
-" Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rails'
 " Plugin 'ngmy/vim-rubocop'
 
 " Misc syntax
