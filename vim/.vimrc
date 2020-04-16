@@ -453,7 +453,7 @@ let g:fzf_colors =
 " Make Ag search only in file contents and not the file names
 command! -bang -nargs=* Ag call fzf#vim#ag('', fzf#vim#with_preview({'options' : '--delimiter : --nth 4.. --color hl:3,hl+:226 --preview "highlight"'}, 'right:30%'), 0)
 
-command! -bang -nargs=* Files call fzf#vim#files('', fzf#vim#with_preview({'options' : '--tiebreak "end" --preview "highlight"'}, 'right:30%'), 0)
+command! -bang -nargs=* Files call fzf#vim#files('', fzf#vim#with_preview({'options' : '--tiebreak "length,end" --preview "highlight"'}, 'right:30%'), 0)
 
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
