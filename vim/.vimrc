@@ -633,7 +633,6 @@ let g:syntastic_html_checkers=[]
 
 " Useful commands ------------------------------------------------{{{1
 nmap m <Plug>(expand_region_expand)
-nmap M <Plug>(expand_region_shrink)
 vmap m <Plug>(expand_region_expand)
 vmap M <Plug>(expand_region_shrink)
 
