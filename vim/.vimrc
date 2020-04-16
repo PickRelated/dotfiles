@@ -11,6 +11,9 @@ syntax on
 colorscheme pickrelated
 set nofixendofline
 
+set undodir=~/.vim/undo-dir
+set undofile
+
 set mouse=a
 
 set wildignore+=.git,.idea,*.DS_Store,*.o
