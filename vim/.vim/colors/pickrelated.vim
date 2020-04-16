@@ -44,7 +44,6 @@ hi Title          ctermfg=7    ctermbg=NONE cterm=NONE
 hi Folded         ctermfg=220  ctermbg=239  cterm=NONE
 hi PreCondit      ctermfg=172  ctermbg=NONE cterm=NONE
 hi Include        ctermfg=111  ctermbg=NONE cterm=NONE
-hi StatusLineNC   ctermfg=8    ctermbg=187  cterm=NONE
 hi NonText        ctermfg=152  ctermbg=237  cterm=NONE
 hi DiffText       ctermfg=5    ctermbg=237  cterm=NONE
 hi ErrorMsg       ctermfg=7    ctermbg=1    cterm=bold
@@ -57,7 +56,8 @@ hi StorageClass   ctermfg=143  ctermbg=NONE cterm=NONE
 hi Todo           ctermfg=202  ctermbg=11   cterm=NONE
 hi Special        ctermfg=173  ctermbg=NONE cterm=NONE
 hi LineNr         ctermfg=3    ctermbg=NONE cterm=NONE
-hi StatusLine     ctermfg=NONE ctermbg=187  cterm=NONE
+hi StatusLine     ctermfg=68   ctermbg=237  cterm=NONE
+hi StatusLineNC   ctermfg=242  ctermbg=236  cterm=NONE
 hi Label          ctermfg=143  ctermbg=NONE cterm=NONE
 hi PMenu          ctermfg=15   ctermbg=0    cterm=NONE
 hi PMenuSel       ctermfg=NONE ctermbg=8    cterm=NONE
