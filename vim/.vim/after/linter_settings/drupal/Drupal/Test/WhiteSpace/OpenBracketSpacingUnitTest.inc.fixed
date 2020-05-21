@@ -1,7 +1,0 @@
-<?php
-
-/**
- * @file
- */
-
-test_function(array_keys($result['invite']));

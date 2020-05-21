@@ -1,3 +1,0 @@
-<?php
-
-define('WRONG_CONSTANT_NAME', 'test');
