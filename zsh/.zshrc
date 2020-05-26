@@ -87,6 +87,8 @@ source ~/.zsh/index
 
 # source ~/zsh-interactive-cd.plugin.zsh
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 alias vim='nvim'
 alias la='ls -lah'
 alias sz='source ~/.zshrc'
@@ -95,26 +97,11 @@ alias rs='rails server'
 alias gpo='git pull origin $(git branch | grep \* | sed "s/*\s*//g")'
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
-alias start='git flow feature start'
-
-alias nrd='npm run dev'
-
-alias adb="~/Dist/platform-tools/adb"
-alias fastboot="~/Dist/platform-tools/fastboot"
-
-srbenv() {
-  export PATH="$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init -)"
-}
-
-snvm() {
-  export NVM_DIR="$HOME/.nvm"
-  # . "$(brew --prefix nvm)/nvm.sh" # MacOS
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
-
-# export PATH="$PATH:/usr/local/Cellar/openvpn/2.4.4/sbin"
-
-export PATH="$PATH:$HOME/Dist/gcc-arm-none-eabi-7-2018-q2-update/bin"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home"
+
+# Add your exports in this file
+source ~/.zsh/exports
