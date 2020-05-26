@@ -32,7 +32,7 @@ fgl() {
                       xargs -I % sh -c 'git show --color=always % | delta --file-color=3 --hunk-color=3 | less -R') << 'FZF-EOF'
                       {}
 FZF-EOF" \
-      --bind ctrl-p:toggle-preview
+      --bind ctrl-p:toggle-preview \
       --bind "ctrl-m:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
                 xargs -I % sh -c 'git show --color=always % | delta --file-color=3 --hunk-color=3 | less -R') << 'FZF-EOF'
