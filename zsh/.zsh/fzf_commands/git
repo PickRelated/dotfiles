@@ -25,7 +25,8 @@ fgd() {
 alias l='fgl'
 fgl() {
   git log --graph --color=always \
-    --format="%C(auto)%h%d %s %C(black)%C(bold)%cr  %C(#303030)%an %ae" "$@" |
+    --date=format:'%a, %d %b %Y' --format="%ad"\
+    --format="%C(auto)%h%d %s %C(black)%C(bold)%cr  %C(#303030)%an %ae %ad" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
       --preview="(grep -o '[a-f0-9]\{7\}' | head -1 |
                       xargs -I % sh -c 'git show --color=always % | delta --file-color=3 --hunk-color=3 | less -R') << 'FZF-EOF'
