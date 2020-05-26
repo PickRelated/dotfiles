@@ -9,5 +9,8 @@
 	autocrlf = false
 	safecrlf = false
 	editor = /usr/bin/vim
+	pager = delta
 [gui]
 	encoding = utf-8
+[interactive]
+	diffFilter = delta --color-only
