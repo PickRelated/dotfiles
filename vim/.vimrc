@@ -59,6 +59,11 @@ set listchars=tab:·\ ,extends:,precedes:
 " Open splits on the right side
 set splitright
 
+" Interactively highlight search and show substitute
+if has('nvim')
+  set inccommand=split
+endif
+
 " Resize splits when window is resized
 au VimResized * exe "normal! \<c-w>="
 
