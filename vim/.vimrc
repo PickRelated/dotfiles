@@ -396,11 +396,12 @@ Plugin 'prettier/vim-prettier'
 " javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'leafOfTree/vim-vue-plugin'
 " Plugin 'moll/vim-node'
 
 " HTML
 Plugin 'mattn/emmet-vim'
-au FileType html,css,scss,sass,php,htmldjango,stylus EmmetInstall
+au FileType html,css,scss,sass,php,htmldjango,stylus,vue EmmetInstall
 
 " Ruby
 Plugin 'tpope/vim-rails'
@@ -620,6 +621,11 @@ let g:syntastic_c_remove_include_errors = 1
 " Angular
 let g:syntastic_html_checkers=[]
 
+" vue ----------------------------{{{2
+let g:vim_vue_plugin_load_full_syntax = 1
+let g:vim_vue_plugin_use_pug = 1
+let g:vim_vue_plugin_use_sass = 1
+
 " Useful commands ------------------------------------------------{{{1
 nmap m <Plug>(expand_region_expand)
 vmap m <Plug>(expand_region_expand)
@@ -627,7 +633,7 @@ vmap M <Plug>(expand_region_shrink)
 
 " ga - show symbol hex code
 au FileType php imap ;; $
-au FileType php,javascript,typescript imap ;; <space>=><space>
+au FileType php,javascript,vue,typescript imap ;; <space>=><space>
 au FileType c,cpp imap ;; ->
 
 au FileType php imap ,, <space>-><space>
