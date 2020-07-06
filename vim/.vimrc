@@ -258,9 +258,6 @@ nmap <leader>gc :GFiles?<CR>
 
 nmap <leader>cv :!open % -a Google\ Chrome<CR><CR>
 
-" Surround with console.log();
-nmap <leader>cl :.s/\v[ \t]+\zs([^;]*);*/console.log\(\1\)\;/<CR>:noh<CR>
-
 " Fold/unfold block
 nmap zl za
 nmap zh zc
