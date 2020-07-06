@@ -486,7 +486,7 @@ nmap <leader>gr :GitGutterRevertHunk<CR>
 nmap <leader>hu :GitGutterUndoHunk<CR>
 nmap <leader>hs :GitGutterStageHunk<CR>
 nmap <leader>hp :GitGutterPreviewHunk<CR>
-set updatetime=100
+set updatetime=200
 
 " Emmet -----------{{{2
 let g:user_emmet_install_global=0
