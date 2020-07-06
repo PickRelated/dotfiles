@@ -208,8 +208,8 @@ nmap <leader>ra :RuboCop .<CR>
 nmap <leader>so :so ~/.vimrc<CR>
 nmap <leader>pi :PluginInstall<CR>
 
-let mapleader = ' '
-nnoremap <Space> <Nop>
+nmap <Space> <leader>
+vmap <Space> <leader>
 
 " Change ; to : and ;; to ;
 nmap ; :
