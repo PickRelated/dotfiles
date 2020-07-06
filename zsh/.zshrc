@@ -89,6 +89,7 @@ source ~/.zsh/index
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+alias vi='nvim'
 alias vim='nvim'
 alias la='ls -lah'
 alias sz='source ~/.zshrc'
