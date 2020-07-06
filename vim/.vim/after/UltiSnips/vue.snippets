@@ -1,0 +1,33 @@
+snippet vue
+<template lang="pug">
+  .`!p snip.rv = re.sub('([A-Z])', r'-\1', t[1]).strip('-').lower()`
+    h1 Hello from $1
+</template>
+
+<script>
+export default {
+  name: '${1:NewComponent}',
+  components: {
+  },
+  props: {
+  },
+  data() {
+    return {
+    }
+  },
+  computed: {
+    ...mapGetters([]),
+  },
+  created() {
+  },
+  methods: {
+    ...mapActions([]),
+  },
+}
+</script>
+
+<style lang="sass" scoped>
+  .`!p snip.rv = re.sub('([A-Z])', r'-\1', t[1]).strip('-').lower()`
+    color: red
+</style>
+endsnippet

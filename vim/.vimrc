@@ -291,7 +291,7 @@ nmap <leader>sv :e ~/.vimrc<CR>
 nmap <leader>st :e ~/.tmux.conf<CR>
 nmap <leader>sb :e ~/.bashrc<CR>
 nmap <leader>sz :e ~/.zshrc<CR>
-nmap <leader>ss :e ~/.vim/after/snippets<CR>
+nmap <leader>ss :e ~/.vim/after/UltiSnips<CR>
 nmap <leader>sc :e ~/.ctags<CR>
 nmap <leader>sa :e ~/.agignore<CR>
 nmap <leader>si :e ~/.i3/config<CR>
@@ -308,8 +308,6 @@ imap <C-v> <C-R>*
 
 " Multiple cursors
 nmap <leader>m :MultipleCursorsFind<space>
-
-imap <C-j> <Plug>snipMateNextOrTrigger
 
 " Quick surround
 nmap ' ysiw'
@@ -415,9 +413,7 @@ Plugin 'digitaltoad/vim-pug'
 " Plugin 'leafgarland/typescript-vim'
 
 " Snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 call vundle#end()			 " required
@@ -620,6 +616,9 @@ let g:syntastic_c_remove_include_errors = 1
 
 " Angular
 let g:syntastic_html_checkers=[]
+
+" UltiSnips ------------------------------{{{2
+let g:UltiSnipsExpandTrigger="<C-j>"
 
 " vue ----------------------------{{{2
 let g:vim_vue_plugin_load_full_syntax = 1

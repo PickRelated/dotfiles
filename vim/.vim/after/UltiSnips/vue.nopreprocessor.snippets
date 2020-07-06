@@ -1,0 +1,30 @@
+snippet vue
+<template>
+  <div class="`!p snip.rv = re.sub('([A-Z])', r'-\1', t[1]).strip('-').lower()`">
+    <h1>Hello from $1</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  name: '${1:NewComponent}',
+  components: {
+  },
+  props: {
+  },
+  methods: {
+  },
+  created: {
+  },
+  computed: {
+  },
+
+}
+</script>
+
+<style scoped>
+  .`!p snip.rv = re.sub('([A-Z])', r'-\1', t[1]).strip('-').lower()` {
+
+  }
+</style>
+endsnippet
