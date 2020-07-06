@@ -20,3 +20,4 @@ yarn.lock
 /www
 /platforms
 /plugins
+id_rsa*
