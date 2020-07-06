@@ -216,25 +216,10 @@ nmap ; :
 vmap ; :
 
 nmap <leader>t :!ctags -R .<CR><CR>
-nmap <C-\> :Tagss<CR>
+nnoremap <C-\> <C-]>
+nmap <C-]> :Tagss<CR>
 command! -bang Tagss
   \ call fzf#vim#tags('^' . expand('<cword>'), {
-  \     'down': '40%',
-  \     'options': '--with-nth 1,2
-  \                 --reverse
-  \                 --prompt "> "
-  \                 --preview-window="50%"
-  \                 --exact
-  \                 --select-1
-  \                 --exit-0
-  \                 +i
-  \                 --preview "
-  \                     tail -n +\$(echo {3} | tr -d \";\\\"\") {2} |
-  \                     head -n 16"'
-  \ })
-nmap <C-]> :BTagss<CR>
-command! -bang BTagss
-  \ call fzf#vim#buffer_tags('^' . expand('<cword>'), {
   \     'down': '40%',
   \     'options': '--with-nth 1,2
   \                 --reverse
