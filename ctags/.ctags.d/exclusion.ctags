@@ -1,3 +1,15 @@
 --exclude=.git
 --exclude=IAR
 --exclude=*.md
+--exclude=assets
+
+--exclude=idea
+--exclude=bower_components
+--exclude=node_modules
+--exclude=functional-tests
+--exclude=tmp
+--exclude=dist
+--exclude=*.json
+--exclude=*.xml
+--exclude=webpack*
+--exclude=babel*

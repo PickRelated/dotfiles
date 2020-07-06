@@ -1,17 +1,6 @@
 # print line numbers
 -n
 
---exclude=idea
---exclude=bower_components
---exclude=node_modules
---exclude=functional-tests
---exclude=tmp
---exclude=dist
---exclude=*.json
---exclude=*.xml
---exclude=webpack*
---exclude=babel*
-
 --kinddef-javascript=i,import,Imports
 --kinddef-javascript=e,export,Exports
 
