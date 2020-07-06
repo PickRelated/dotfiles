@@ -8,7 +8,7 @@
 [core]
 	autocrlf = false
 	safecrlf = false
-	editor = /usr/bin/vim
+	editor = nvim
 	pager = delta
 [gui]
 	encoding = utf-8
