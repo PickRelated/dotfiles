@@ -399,7 +399,6 @@ Plugin 'leafOfTree/vim-vue-plugin'
 
 " HTML
 Plugin 'mattn/emmet-vim'
-au FileType html,css,scss,sass,php,htmldjango,stylus,vue EmmetInstall
 
 " Ruby
 Plugin 'tpope/vim-rails'
@@ -491,6 +490,8 @@ set updatetime=200
 " Emmet -----------{{{2
 let g:user_emmet_install_global=0
 let g:user_emmet_expandabbr_key = '<C-e>'
+
+au FileType html,css,scss,sass,php,htmldjango,stylus,vue EmmetInstall
 
 " Easy motion ---------------------------{{{2
 let g:EasyMotion_smartcase=1
