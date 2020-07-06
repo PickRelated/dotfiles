@@ -390,6 +390,8 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'AndrewRadev/splitjoin.vim'
 " Plugin 'rhysd/clever-f.vim'
 Plugin 'prettier/vim-prettier'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
@@ -410,10 +412,6 @@ Plugin 'digitaltoad/vim-pug'
 " Plugin 'ap/vim-css-color'
 " Plugin 'iloginow/vim-stylus'
 " Plugin 'leafgarland/typescript-vim'
-
-" Snipmate
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 
 call vundle#end()			 " required
 filetype plugin indent on	 " required
