@@ -214,9 +214,6 @@ vmap * y/<C-R>"<CR>
 " Paste from current register/buffer in insert mode
 imap <C-v> <C-R>*
 
-" Multiple cursors
-nmap <leader>m :MultipleCursorsFind<space>
-
 " Quick surround
 nmap ' ysiw'
 nmap " ysiw"
@@ -512,6 +509,9 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Markdown ------------------------------{{{2
 au BufNewFile,BufReadPost *.md set filetype=markdown spell
+
+" Multiple cursors ------------------------------{{{2
+nmap <leader>m :MultipleCursorsFind<space>
 
 " Powerline ------------------------------{{{2
 " Powerline config (only when lightline plugin installed)
