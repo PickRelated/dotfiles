@@ -184,17 +184,6 @@ nmap <leader>n :call NERDTreeToggleInCurDir()<CR>
 nmap Y "+yy
 vmap Y "+y
 
-nmap <leader>gs :G<CR>
-nmap <leader>gd :Gvdiff<CR>
-nmap <leader>gb :Gblame -w<CR>
-nmap <leader>ge :Gedit<CR>
-nmap <leader>gw :Gwrite<CR>
-nmap <leader>gp :Gpush<CR>
-nmap <leader>gg :GitGutterSignsToggle<CR>
-nmap <leader>gl :BCommits<CR>
-nmap <leader>gh :0Glog<CR>
-nmap <leader>gc :GFiles?<CR>
-
 nmap <leader>cv :!open % -a Google\ Chrome<CR><CR>
 
 " Fold/unfold block
@@ -429,6 +418,18 @@ let g:user_emmet_install_global=0
 let g:user_emmet_expandabbr_key = '<C-e>'
 
 au FileType html,css,scss,sass,php,htmldjango,stylus,vue EmmetInstall
+
+" Fugitive -----------{{{2
+nmap <leader>gs :G<CR>
+nmap <leader>gd :Gvdiff<CR>
+nmap <leader>gb :Gblame -w<CR>
+nmap <leader>ge :Gedit<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>gp :Gpush<CR>
+nmap <leader>gg :GitGutterSignsToggle<CR>
+nmap <leader>gl :BCommits<CR>
+nmap <leader>gh :0Glog<CR>
+nmap <leader>gc :GFiles?<CR>
 
 " Easy motion ---------------------------{{{2
 let g:EasyMotion_smartcase=1
