@@ -5,7 +5,7 @@
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono
 set noswapfile
 set nobackup
-set nocompatible			  " be iMproved, required
+set nocompatible " be iMproved, required
 set showcmd
 syntax on
 colorscheme pickrelated
@@ -60,14 +60,6 @@ endif
 
 " Resize splits when window is resized
 au VimResized * exe "normal! \<c-w>="
-
-" Include dirs for syntastic
-let g:syntastic_cpp_include_dirs=['src/', 'lib/']
-let g:syntastic_c_config_file='.syntastic_c_config'
-let g:syntastic_cpp_config_file='.syntastic_cpp_config'
-" let g:syntastic_javasctipt_config_file='.eslintrc.json'
-" STM32 gcc StdPeriph Library problem
-let g:syntastic_cpp_gcc_quiet_messages = { "regex": 'Please select first' }
 
 set foldmethod=marker
 if has("folding")
@@ -581,34 +573,6 @@ nmap gl :SidewaysJumpRight<CR>
 nmap gL <Plug>SidewaysRight
 nmap gH <Plug>SidewaysLeft
 
-" Syntastic ----------------------------{{{2
-let g:syntastic_enable_signs=1
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-
-" let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-let g:syntastic_php_checkers=[]
-
-let g:syntastic_scss_checkers = ['sass']
-let g:syntastic_sass_checkers = ['sass']
-let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_ruby_checkers = []
-let g:syntastic_eruby_checkers = []
-
-nmap <leader>st :SyntasticCheck<CR>
-
-" Do not shout if included file is absent
-let g:syntastic_c_remove_include_errors = 1
-
-" Angular
-let g:syntastic_html_checkers=[]
 
 " UltiSnips ------------------------------{{{2
 let g:UltiSnipsExpandTrigger="<C-j>"
