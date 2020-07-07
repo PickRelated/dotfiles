@@ -301,7 +301,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'stefandtw/quickfix-reflector.vim' " Make changes directly from quickfix list
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'terryma/vim-expand-region'
+Plugin 'terryma/vim-expand-region' " Expand visual selection with m key
 Plugin 'AndrewRadev/splitjoin.vim'
 " Plugin 'rhysd/clever-f.vim'
 Plugin 'prettier/vim-prettier'
