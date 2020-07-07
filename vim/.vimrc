@@ -182,9 +182,6 @@ nmap <leader>d :windo diffthis<CR>
 nmap <leader>D :diffoff!<CR>
 nmap <leader>du :diffupdate<CR>
 
-nmap <leader>A :Ack <cword>
-nmap <leader>a :Ag<CR>
-
 " Quickfix list
 nmap ]q :cnext<CR>
 nmap [q :cprev<CR>
@@ -345,6 +342,9 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+nmap <leader>A :Ack <cword>
+nmap <leader>a :Ag<CR>
 
 " Make Ag search only in file contents and not the file names
 command! -bang -nargs=* Ag call fzf#vim#ag('', fzf#vim#with_preview({'options' : '--delimiter : --nth 4.. --color hl:3,hl+:226 --preview "highlight"'}, 'right:30%'), 0)
