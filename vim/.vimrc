@@ -91,24 +91,13 @@ au BufRead,BufNewFile *.ttm        set ft=c             syntax=c
 au BufRead,BufNewFile *.mjml       set ft=html          syntax=html
 au BufRead,BufNewFile *.handlebars set ft=html          syntax=html
 
-au BufRead,BufNewFile *.jst.ejs  set ft=html          syntax=html
-au BufRead,BufNewFile *.rabl     set ft=ruby          syntax=ruby
+au BufRead,BufNewFile *.jst.ejs    set ft=html          syntax=html
+au BufRead,BufNewFile *.rabl       set ft=ruby          syntax=ruby
 
-au BufRead,BufNewFile *.lock     setlocal noeol binary
+au BufRead,BufNewFile *.styl       set ft=css syntax=css
 
-
-au BufRead,BufNewFile *.styl     set ft=css syntax=css
-
-au BufRead,BufNewFile *.cpp     setlocal path=.,inc
-au BufRead,BufNewFile *.hpp     setlocal path=.,inc
-
-" Drupal ---------------------------------------------------{{{2
-au BufRead,BufNewFile *.install  set ft=php           syntax=php
-au BufRead,BufNewFile *.info     set ft=php           syntax=php
-au BufRead,BufNewFile *.module   set ft=php           syntax=php
-
-" PhpMyDirectory -------------------------------------------{{{2
-au BufRead,BufNewFile *.tpl      set ft=php           syntax=php
+au BufRead,BufNewFile *.cpp       setlocal path=.,inc
+au BufRead,BufNewFile *.hpp       setlocal path=.,inc
 
 " Spelling -----------------------------------------------------{{{1
 au FileType gitcommit setlocal spell
