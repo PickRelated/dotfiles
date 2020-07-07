@@ -16,12 +16,6 @@ set undofile
 
 set mouse=a
 
-set wildignore+=.git,.idea,*.DS_Store,*.o
-set wildignore+=*.swp
-set wildignore+=bower_components,node_modules,dist,build
-set wildignore+=public/js,public/css
-set wildignore+=tmp
-
 set timeout ttimeoutlen=10 timeoutlen=300
 
 set fileencodings=utf8,cp1251
