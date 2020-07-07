@@ -261,6 +261,13 @@ au BufRead,BufNewFile,BufEnter *.hpp nmap <leader>gh :e %:h/../src/%:t:r.cpp<CR>
 au BufRead,BufNewFile,BufEnter *.cpp nmap <leader>ii :e %:h/../inc/%:t:r.hpp<CR>
 au BufRead,BufNewFile,BufEnter *.hpp nmap <leader>ii :e %:h/../src/%:t:r.cpp<CR>
 
+" Special mappings ------------------------------------------------{{{1
+" ga - show symbol hex code
+au FileType php imap ;; $
+au FileType php,javascript,vue,typescript imap ;; <space>=><space>
+au FileType c,cpp imap ;; ->
+
+au FileType php imap ,, <space>-><space>
 
 " Plugins --------------------------------------------------{{{1
 filetype off " required
@@ -579,10 +586,3 @@ let g:vim_vue_plugin_load_full_syntax = 1
 let g:vim_vue_plugin_use_pug = 1
 let g:vim_vue_plugin_use_sass = 1
 
-" Useful commands ------------------------------------------------{{{1
-" ga - show symbol hex code
-au FileType php imap ;; $
-au FileType php,javascript,vue,typescript imap ;; <space>=><space>
-au FileType c,cpp imap ;; ->
-
-au FileType php imap ,, <space>-><space>
