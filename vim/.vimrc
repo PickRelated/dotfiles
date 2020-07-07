@@ -280,6 +280,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-rhubarb' " Enables :GBrowse for fugitive
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tomtom/tcomment_vim'
