@@ -161,8 +161,6 @@ augroup no_highlight
 nnoremap <esc> :noh<return><esc>
 augroup END
 
-nmap <leader>n :call NERDTreeToggleInCurDir()<CR>
-
 " Copy to buffer
 nmap Y "+yy
 vmap Y "+y
@@ -465,6 +463,8 @@ let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeAutoCenter = 1
 let g:NERDTreeWinSize = 40
+
+nmap <leader>n :call NERDTreeToggleInCurDir()<CR>
 
 au FileType nerdtree nmap <buffer> l o
 au FileType nerdtree nmap <buffer> h x
