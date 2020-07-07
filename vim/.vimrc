@@ -269,6 +269,9 @@ au FileType c,cpp imap ;; ->
 
 au FileType php imap ,, <space>-><space>
 
+" VIM Terminal ------------------------------------------------{{{1
+tmap <Esc><Esc> <C-\><C-n>
+
 " Plugins --------------------------------------------------{{{1
 filetype off " required
 
