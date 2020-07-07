@@ -15,6 +15,12 @@ syntax on
 colorscheme pickrelated
 set nofixendofline
 
+set autoindent
+set smartindent
+
+set et ci pi sts=2 sw=2 ts=2
+
+
 set undodir=~/.vim/undo-dir
 set undofile
 
@@ -106,12 +112,6 @@ au BufRead,BufNewFile *.hpp       setlocal path=.,inc
 " Spelling -----------------------------------------------------{{{1
 au FileType gitcommit setlocal spell
 au FileType jade setlocal spell
-
-" Indents ---------------------------------------------------{{{1
-set autoindent
-set smartindent
-
-set et ci pi sts=2 sw=2 ts=2
 
 " Search ---------------------------------------------------{{{1
 set hlsearch " highlight search and * and #
