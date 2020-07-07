@@ -155,23 +155,6 @@ nmap ; :
 vmap ; :
 
 nmap <leader>t :!ctags -R .<CR><CR>
-nnoremap <C-\> <C-]>
-nmap <C-]> :Tagss<CR>
-command! -bang Tagss
-  \ call fzf#vim#tags('^' . expand('<cword>'), {
-  \     'down': '40%',
-  \     'options': '--with-nth 1,2
-  \                 --reverse
-  \                 --prompt "> "
-  \                 --preview-window="50%"
-  \                 --exact
-  \                 --select-1
-  \                 --exit-0
-  \                 +i
-  \                 --preview "
-  \                     tail -n +\$(echo {3} | tr -d \";\\\"\") {2} |
-  \                     head -n 16"'
-  \ })
 
 " Reset highlight
 augroup no_highlight
@@ -418,6 +401,25 @@ let g:user_emmet_install_global=0
 let g:user_emmet_expandabbr_key = '<C-e>'
 
 au FileType html,css,scss,sass,php,htmldjango,stylus,vue EmmetInstall
+
+" fzf -----------{{{2
+nnoremap <C-\> <C-]>
+nmap <C-]> :Tagss<CR>
+command! -bang Tagss
+  \ call fzf#vim#tags('^' . expand('<cword>'), {
+  \     'down': '40%',
+  \     'options': '--with-nth 1,2
+  \                 --reverse
+  \                 --prompt "> "
+  \                 --preview-window="50%"
+  \                 --exact
+  \                 --select-1
+  \                 --exit-0
+  \                 +i
+  \                 --preview "
+  \                     tail -n +\$(echo {3} | tr -d \";\\\"\") {2} |
+  \                     head -n 16"'
+  \ })
 
 " Fugitive -----------{{{2
 nmap <leader>gs :G<CR>
