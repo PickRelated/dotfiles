@@ -1,4 +1,5 @@
 " vim: foldmethod=marker
+" vim: foldlevel=0
 " Options --------------------------------------------------{{{1
 " Font used is Ubuntu Mono Plus Nerd File Types Mono Plus Octicons
 " It has correct triangles and font spacing. Icons is just bonus
