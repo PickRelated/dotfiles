@@ -109,6 +109,8 @@ au BufRead,BufNewFile *.styl       set ft=css syntax=css
 au BufRead,BufNewFile *.cpp       setlocal path=.,inc
 au BufRead,BufNewFile *.hpp       setlocal path=.,inc
 
+au BufNewFile,BufReadPost *.md set filetype=markdown spell
+
 " Spelling -----------------------------------------------------{{{1
 au FileType gitcommit setlocal spell
 au FileType jade setlocal spell
@@ -506,9 +508,6 @@ let g:NERDTreeIndicatorMapCustom = {
 	\ "Clean"     : "✔︎",
 	\ "Unknown"   : "?"
 \ }
-
-" Markdown ------------------------------{{{2
-au BufNewFile,BufReadPost *.md set filetype=markdown spell
 
 " Multiple cursors ------------------------------{{{2
 nmap <leader>m :MultipleCursorsFind<space>
