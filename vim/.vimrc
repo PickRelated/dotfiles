@@ -3,6 +3,10 @@
 " Font used is Ubuntu Mono Plus Nerd File Types Mono Plus Octicons
 " It has correct triangles and font spacing. Icons is just bonus
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono
+
+nmap <Space> <leader>
+vmap <Space> <leader>
+
 set noswapfile
 set nobackup
 set nocompatible " be iMproved, required
@@ -145,9 +149,6 @@ vmap H ^
 " Hotkeys --------------------------------------------------{{{1
 nmap <leader>so :so ~/.vimrc<CR>
 nmap <leader>pi :PluginInstall<CR>
-
-nmap <Space> <leader>
-vmap <Space> <leader>
 
 " Change ; to : and ;; to ;
 nmap ; :
