@@ -420,6 +420,11 @@ let g:user_emmet_expandabbr_key = '<C-e>'
 
 au FileType html,css,scss,sass,php,htmldjango,stylus,vue EmmetInstall
 
+" Expand Region -----------{{{2
+nmap m <Plug>(expand_region_expand)
+vmap m <Plug>(expand_region_expand)
+vmap M <Plug>(expand_region_shrink)
+
 " Fugitive -----------{{{2
 nmap <leader>gs :G<CR>
 nmap <leader>gd :Gvdiff<CR>
@@ -575,10 +580,6 @@ let g:vim_vue_plugin_use_pug = 1
 let g:vim_vue_plugin_use_sass = 1
 
 " Useful commands ------------------------------------------------{{{1
-nmap m <Plug>(expand_region_expand)
-vmap m <Plug>(expand_region_expand)
-vmap M <Plug>(expand_region_shrink)
-
 " ga - show symbol hex code
 au FileType php imap ;; $
 au FileType php,javascript,vue,typescript imap ;; <space>=><space>
