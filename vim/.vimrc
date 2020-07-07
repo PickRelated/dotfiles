@@ -150,7 +150,7 @@ nmap H ^
 vmap H ^
 
 " Hotkeys --------------------------------------------------{{{1
-nmap <leader>so :so ~/.vimrc<CR>
+nmap <leader>so :so $MYVIMRC<CR>
 nmap <leader>pi :PluginInstall<CR>
 
 " Change ; to : and ;; to ;
