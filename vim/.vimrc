@@ -142,43 +142,6 @@ vmap L $
 nmap H ^
 vmap H ^
 
-" Ruby on Rails navigation (vim-rails)
-let g:vimrubocop_keymap = 0
-nmap <leader>rmm :Emodel<space>
-nmap <leader>rcc :Econtroller<space>
-nmap <leader>rvv :Eview<space>
-nmap <leader>rhh :Ehelper<space>
-nmap <leader>ree :Eenvironment<space>
-nmap <leader>rff :Efunctionaltest<space>
-nmap <leader>rii :Einitializer<space>
-nmap <leader>rjj :Ejavascript<space>
-nmap <leader>rss :Eserializer<space>
-nmap <leader>ruu :Eunittest<space>
-nmap <leader>rll :Elayout<space>
-
-nmap <leader>rm :Emodel<CR>
-nmap <leader>rc :Econtroller<CR>
-nmap <leader>rv :Eview<space>
-nmap <leader>rh :Ehelper<CR>
-nmap <leader>re :Eenvironment<CR>
-nmap <leader>rf :Efunctionaltest<CR>
-nmap <leader>ri :Einitializer<CR>
-nmap <leader>rj :Ejavascript<CR>
-nmap <leader>rs :Eserializer<CR>
-nmap <leader>ru :Eunittest<CR>
-nmap <leader>rl :Elayout<CR>
-nmap <leader>rr :e config/routes.rb<CR>
-
-nmap <leader>rti :Eintegrationtest<CR>
-nmap <leader>rtf :Efixtures<CR>
-
-nmap <leader>rg :e Gemfile<CR>
-" Test current scope only
-nmap <leader>rt :Espec<CR>
-nmap <leader>rtt :Rake spec<CR>
-nmap <leader>rb :RuboCop<CR>
-nmap <leader>ra :RuboCop .<CR>
-
 " Hotkeys --------------------------------------------------{{{1
 nmap <leader>so :so ~/.vimrc<CR>
 nmap <leader>pi :PluginInstall<CR>
@@ -548,6 +511,43 @@ let g:lightline = {
 \}
 " To insert, press <C-v> then type 'u' then type HEX code
 " 
+
+" Rails ------------------------------{{{2
+let g:vimrubocop_keymap = 0
+nmap <leader>rmm :Emodel<space>
+nmap <leader>rcc :Econtroller<space>
+nmap <leader>rvv :Eview<space>
+nmap <leader>rhh :Ehelper<space>
+nmap <leader>ree :Eenvironment<space>
+nmap <leader>rff :Efunctionaltest<space>
+nmap <leader>rii :Einitializer<space>
+nmap <leader>rjj :Ejavascript<space>
+nmap <leader>rss :Eserializer<space>
+nmap <leader>ruu :Eunittest<space>
+nmap <leader>rll :Elayout<space>
+
+nmap <leader>rm :Emodel<CR>
+nmap <leader>rc :Econtroller<CR>
+nmap <leader>rv :Eview<space>
+nmap <leader>rh :Ehelper<CR>
+nmap <leader>re :Eenvironment<CR>
+nmap <leader>rf :Efunctionaltest<CR>
+nmap <leader>ri :Einitializer<CR>
+nmap <leader>rj :Ejavascript<CR>
+nmap <leader>rs :Eserializer<CR>
+nmap <leader>ru :Eunittest<CR>
+nmap <leader>rl :Elayout<CR>
+nmap <leader>rr :e config/routes.rb<CR>
+
+nmap <leader>rti :Eintegrationtest<CR>
+nmap <leader>rtf :Efixtures<CR>
+
+nmap <leader>rg :e Gemfile<CR>
+" Test current scope only
+nmap <leader>rt :Espec<CR>
+nmap <leader>rtt :Rake spec<CR>
+nmap <leader>rb :RuboCop<CR>
+nmap <leader>ra :RuboCop .<CR>
 
 " Sideways ------------------------------{{{2
 " Adds support of dia, caa etc
