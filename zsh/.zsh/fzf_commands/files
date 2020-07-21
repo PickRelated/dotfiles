@@ -4,7 +4,7 @@
 # cd to selected directory
 alias f='fc'
 fc() {
-  dir=$(ag -g . --ignore node_modules -U | sed -e 's:/[^/]*$::' | uniq | fzf)
+  dir=$(ag -g . --ignore node_modules -U | sed -e 's:/[^/]*$::' | uniq | fzf --header="cd into directory")
   cd "$dir"
 }
 
@@ -16,7 +16,7 @@ fr() {
     | awk '{ print "\033[0m" $9 " \033[38;5;236m[" $6 " " $7 "]"; }'\
     | sed s/\\/\.git//g\
     | sed "s|${rep_dir}\/||g" |\
-    fzf --ansi --no-sort)
+    fzf --ansi --no-sort --header="repositories list")
   dir=$(echo $dir | sed "s/ \[.*//g")
   cd "$rep_dir/$dir"
 }

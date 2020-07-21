@@ -7,7 +7,7 @@ fgc() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m --header="checkout branch") &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
@@ -17,7 +17,7 @@ fgd() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
-           fzf-tmux -m --bind=ctrl-l:toggle -d $(( 2 + $(wc -l <<< "$branches") ))) &&
+           fzf-tmux -m --bind=ctrl-l:toggle -d $(( 2 + $(wc -l <<< "$branches") )) --header="delete branches") &&
   git branch -D $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
@@ -27,7 +27,7 @@ fgl() {
   git log --graph --color=always \
     --date=format:'%a, %d %b %Y' --format="%ad"\
     --format="%C(auto)%h%d %s %C(black)%C(bold)%cr  %C(#303030)%an %ae %ad" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --header="git log"\
       --preview="(grep -o '[a-f0-9]\{7\}' | head -1 |
                       xargs -I % sh -c 'git show --color=always % | delta --file-color=3 --hunk-color=3 | less -R') << 'FZF-EOF'
                       {}
@@ -45,7 +45,7 @@ alias lm='fglm'
 fglm() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" master.. |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --header="git log only differense with master branch"\
       --bind "ctrl-m:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
                 xargs -I % sh -c 'git show --color=always % | delta | less -R') << 'FZF-EOF'
@@ -58,7 +58,7 @@ alias p='fgsp'
 fgsp() {
   result=$(echo $(
     git stash list | \
-    fzf --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi'
+    fzf --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi' --header="git stash pop"
   ) | sed "s/:.*//")
   [[ ! -z "$result" ]] && git stash pop $result
 }
@@ -68,7 +68,7 @@ fgsd() {
   local result
   result=$(echo $(
     git stash list |
-    fzf --multi --bind=ctrl-l:toggle --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi'
+    fzf --multi --bind=ctrl-l:toggle --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi' --header="git stash drop"
   ) | sed "s/:.*//")
   [[ ! -z "$result" ]] && git stash drop $result
 }

@@ -4,7 +4,7 @@
 # kill process
 fkill() {
   local pid
-  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  pid=$(ps -ef | sed 1d | fzf -m --header="kill process" | awk '{print $2}')
 
   if [ "x$pid" != "x" ]
   then
@@ -15,13 +15,13 @@ fkill() {
 # ssh to known hosts
 fs() {
   local host
-  host=$(tac ~/.ssh/known_hosts | sed -e 's/ .*//' -e 's/^[^[:alpha:]]*//g' -e 's/[^[:alpha:]]*$//g' -e 's/^ *$//g' -e '/^$/d' | fzf)
+  host=$(tac ~/.ssh/known_hosts | sed -e 's/ .*//' -e 's/^[^[:alpha:]]*//g' -e 's/[^[:alpha:]]*$//g' -e 's/^ *$//g' -e '/^$/d' | fzf --header="ssh into host")
   ssh $(echo ubuntu@$host)
 }
 
 # command r (search zsh_history)
 alias h="fh"
 fh() {
-  cmd=$(cat ~/.zsh_history | awk '!x[$0]++' | fzf --tac --sort --bind=ctrl-s:toggle-sort)
+  cmd=$(cat ~/.zsh_history | awk '!x[$0]++' | fzf --tac --sort --bind=ctrl-s:toggle-sort --header="execute command from history")
   eval $cmd
 }

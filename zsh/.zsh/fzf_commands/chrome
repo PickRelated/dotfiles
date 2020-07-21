@@ -19,10 +19,10 @@ fch() {
     "select substr(title, 1, $cols), url
      from urls order by last_visit_time desc" |
   awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
-  fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs $open > /dev/null 2> /dev/null
+  fzf --ansi --multi --header="chrome history" | sed 's#.*\(https*://\)#\1#' | xargs $open > /dev/null 2> /dev/null
 }
 
 # Chrome bookmarks
 fcb() {
-  ruby ~/.zsh/util/chrome_bookmarks.rb | fzf --ansi | awk '{print $NF}' | xargs open > /dev/null 2> /dev/null
+  ruby ~/.zsh/util/chrome_bookmarks.rb | fzf --ansi --header="chrome bookmarks" | awk '{print $NF}' | xargs open > /dev/null 2> /dev/null
 }
