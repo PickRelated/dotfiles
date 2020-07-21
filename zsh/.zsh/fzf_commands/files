@@ -16,7 +16,7 @@ fr() {
     | awk '{ print "\033[0m" $9 " \033[38;5;236m[" $6 " " $7 "]"; }'\
     | sed s/\\/\.git//g\
     | sed "s|${rep_dir}\/||g" |\
-    fzf --ansi --no-sort --header="repositories list")
-  dir=$(echo $dir | sed "s/ \[.*//g")
+    fzf --ansi --no-sort --header="repositories list"\
+    | sed "s/ \[.*//g")
   cd "$rep_dir/$dir"
 }
