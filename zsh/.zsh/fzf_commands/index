@@ -3,10 +3,11 @@
 
 # fzf default command
 export FZF_DEFAULT_COMMAND='ag -g . --ignore node_modules -U --color-path "1;36"'
-export FZF_DEFAULT_OPTS='
+export FZF_DEFAULT_OPTS="
+  --history=$HOME/.fzf_history
   --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
   --color info:108,prompt:109,spinner:108,pointer:168,marker:168
-'
+"
 
 source ~/.zsh/fzf_commands/chrome
 source ~/.zsh/fzf_commands/common
