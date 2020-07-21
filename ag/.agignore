@@ -6,9 +6,7 @@ tags
 /log
 /tmp
 /dist
-/widget/dist
 *.svg
-*.test.js
 package.json
 stats.html
 /reports
@@ -17,7 +15,4 @@ stats.html
 package-lock.json
 yarn.lock
 *.log
-/www
-/platforms
-/plugins
 id_rsa*
