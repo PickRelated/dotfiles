@@ -1,0 +1,11 @@
+extends javascript
+
+snippet react
+import s from './$1.module.sass'
+
+const ${1:NewComponent} = () => {
+  return <h1>hello from $1</h1>
+}
+
+export default $1
+endsnippet
