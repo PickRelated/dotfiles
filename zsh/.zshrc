@@ -99,6 +99,8 @@ alias gpo='git pull origin $(git branch | grep \* | sed "s/*\s*//g")'
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
 
+export PAGER=vimpager
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export ANDROID_HOME="$HOME/Library/Android/sdk"
