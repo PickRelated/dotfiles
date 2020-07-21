@@ -17,5 +17,6 @@ fr() {
     | sed s/\\/\.git//g\
     | sed "s|${rep_dir}\/||g" |\
     fzf --ansi --no-sort)
+  dir=$(echo $dir | sed "s/ \[.*//g")
   cd "$rep_dir/$dir"
 }
