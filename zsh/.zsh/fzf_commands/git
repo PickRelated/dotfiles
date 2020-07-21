@@ -17,7 +17,7 @@ fgd() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
-           fzf-tmux -m --bind=ctrl-l:toggle -d $(( 2 + $(wc -l <<< "$branches") )) --header="delete branches") &&
+           fzf-tmux -m -d $(( 2 + $(wc -l <<< "$branches") )) --header="delete branches") &&
   git branch -D $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
@@ -68,7 +68,7 @@ fgsd() {
   local result
   result=$(echo $(
     git stash list |
-    fzf --multi --bind=ctrl-l:toggle --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi' --header="git stash drop"
+    fzf --multi --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi' --header="git stash drop"
   ) | sed "s/:.*//")
   [[ ! -z "$result" ]] && git stash drop $result
 }
