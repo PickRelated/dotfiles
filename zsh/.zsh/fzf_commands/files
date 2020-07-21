@@ -12,8 +12,10 @@ fc() {
 alias r='fr'
 fr() {
   rep_dir=~/rep
-  reps=$(ls -d $rep_dir/*/.git 2> /dev/null | sed s/\\/\.git//g | sed "s|${rep_dir}\/||g")
-  subreps=$(ls -d $rep_dir/*/*/.git 2> /dev/null | sed s/\\/\.git//g | sed "s|${rep_dir}\/||g")
-  dir=$(echo "$reps\n$subreps" | fzf --no-sort)
+  dir=$(ls -ldt $rep_dir/*/*/.git $rep_dir/*/.git 2> /dev/null\
+    | awk '{ print "\033[0m" $9 " \033[38;5;236m[" $6 " " $7 "]"; }'\
+    | sed s/\\/\.git//g\
+    | sed "s|${rep_dir}\/||g" |\
+    fzf --ansi --no-sort)
   cd "$rep_dir/$dir"
 }
