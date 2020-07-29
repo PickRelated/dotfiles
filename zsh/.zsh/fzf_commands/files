@@ -4,8 +4,12 @@
 # cd to selected directory
 alias f='fc'
 fc() {
-  dir=$(ag -g . --ignore node_modules -U | sed -e 's:/[^/]*$::' | uniq | fzf --header="cd into directory")
-  cd "$dir"
+  cd $(\
+  ag -g . --ignore node_modules -U\
+  | sed -e 's:/[^/]*$::'\
+  | uniq\
+  | fzf --header="cd into directory"\
+  )
 }
 
 # Find all repos in ~/rep
@@ -15,8 +19,8 @@ fr() {
   dir=$(ls -ldt $rep_dir/*/*/.git $rep_dir/*/.git 2> /dev/null\
     | awk '{ print "\033[0m" $9 " \033[38;5;236m[" $6 " " $7 "]"; }'\
     | sed s/\\/\.git//g\
-    | sed "s|${rep_dir}\/||g" |\
-    fzf --ansi --no-sort --header="repositories list"\
+    | sed "s|${rep_dir}\/||g"\
+    | fzf --ansi --no-sort --header="repositories list"\
     | sed "s/ \[.*//g")
   cd "$rep_dir/$dir"
 }

@@ -24,5 +24,8 @@ fch() {
 
 # Chrome bookmarks
 fcb() {
-  ruby ~/.zsh/util/chrome_bookmarks.rb | fzf --ansi --header="chrome bookmarks" | awk '{print $NF}' | xargs open > /dev/null 2> /dev/null
+  ruby ~/.zsh/util/chrome_bookmarks.rb\
+  | fzf --ansi --header="chrome bookmarks"\
+  | awk '{print $NF}'\
+  | xargs open > /dev/null 2> /dev/null
 }
