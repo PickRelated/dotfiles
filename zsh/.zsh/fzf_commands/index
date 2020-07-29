@@ -2,7 +2,7 @@
 # vim: filetype=zsh
 
 # fzf default command
-export FZF_DEFAULT_COMMAND='ag -g . --ignore node_modules -U --color-path "1;36"'
+export FZF_DEFAULT_COMMAND='ag --hidden -g . -U --color-path "1;36"'
 export FZF_DEFAULT_OPTS="
   --bind=ctrl-l:toggle
   --history=$HOME/.fzf-history
