@@ -461,7 +461,7 @@ vmap <Leader>k <Plug>(easymotion-k)
 vmap <Leader>l <Plug>(easymotion-w)
 
 " NERDTree -----------------------------{{{2
-let NERDTreeIgnore = ['^lang$', '__pycache__', '^tags$', 'ctags', '.*\.iml', '\.idea', '^vendor$', '^node_modules$', '^bower_components$', '^dist$', 'pyc$', 'yarn-error.log', 'yarn.lock', 'tmp', '^log$', 'coverage', 'bin', 'platforms', 'plugins', '.git', '^build$', '.cache', 'uploads', '.DS_Store', 'id_rsa']
+let NERDTreeIgnore = ['^lang$', '__pycache__', '^tags$', '.*\.iml', '\.idea', '^vendor$', '^node_modules$', '^bower_components$', '^dist$', 'pyc$', 'yarn-error.log', 'yarn.lock', 'tmp', '^log$', 'coverage', 'bin', 'platforms', 'plugins', '.git', '^build$', '.cache', 'uploads', '.DS_Store', 'id_rsa']
 let NERDTreeShowHidden = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
