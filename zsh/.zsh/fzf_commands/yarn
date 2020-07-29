@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# vim: filetype=zsh
+
+# execute npm script
+alias y='fy'
+fy() {
+  print -z "yarn" $(\
+  cat package.json\
+  | jq '.scripts'\
+  | tail -n +2\
+  | head -n +2\
+  | sed "s/[\",]//g"\
+  | sed "s/^ *//"\
+  | fzf --header="npm scripts"\
+  | sed "s/:.*//"\
+  )
+}
+
+# remove dependencies
+alias yu='fyu'
+fyu() {
+  print -z "yarn uninstall" $(\
+  cat package.json\
+  | jq '.dependencies, .devDependencies'\
+  | sed "s/[\",]//g"\
+  | sed "s/^ *//"\
+  | sed "s/^[\s{}]*$//"\
+  | fzf --multi --header="npm scripts"\
+  | sed "s/:.*//"\
+  )
+}
