@@ -201,7 +201,7 @@ nmap <leader>st :e ~/.tmux.conf<CR>
 nmap <leader>sb :e ~/.bashrc<CR>
 nmap <leader>sz :e ~/.zshrc<CR>
 nmap <leader>ss :e ~/.vim/after/UltiSnips<CR>
-nmap <leader>sc :e ~/.ctags<CR>
+nmap <leader>sc :e ~/.ctags.d/<CR>
 nmap <leader>sa :e ~/.agignore<CR>
 nmap <leader>si :e ~/.i3/config<CR>
 nmap <leader>sx :e ~/.Xresources<CR>
