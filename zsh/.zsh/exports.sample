@@ -11,12 +11,7 @@ snvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 }
 
-# export PATH="$PATH:/usr/local/Cellar/openvpn/2.4.4/sbin"
-
 export PATH="$PATH:$HOME/Dist/gcc-arm-none-eabi-7-2018-q2-update/bin"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export PATH="${PATH}:${HOME}/Dist"
-alias adb="~/Dist/platform-tools/adb"
-alias fastboot="~/Dist/platform-tools/fastboot"
-alias ag="ag --hidden"
-alias t="htop"
+export PAGER=vimpager

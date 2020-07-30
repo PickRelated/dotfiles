@@ -38,12 +38,3 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 alias vi='nvim'
 alias vim='nvim'
-# TODO: Replace with sh script respectinv vim file to try command on
-# alias vimp="vim --cmd 'profile start vimrc.profile' --cmd 'profile! file ~/.vimrc' && cat vimrc.profile | grep '0\.\d\d[^0]' && rm vimrc.profile" # Profile vim loading time
-
-export PAGER=vimpager
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home"
