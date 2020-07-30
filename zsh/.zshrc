@@ -10,6 +10,7 @@ setopt hist_ignore_dups    # Don't record an entry that was just recorded again.
 setopt hist_find_no_dups   # Do not display a line previously found.
 setopt hist_ignore_space   # Don't record an entry starting with a space.
 setopt hist_reduce_blanks  # Remove superfluous blanks before recording entry.
+setopt autocd
 
 # tab suggestions
 zmodload zsh/complist
