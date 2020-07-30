@@ -62,8 +62,8 @@ alias p='fzf_git_stash_pop'
 alias fgsp='fzf_git_stash_pop'
 fzf_git_stash_pop() {
   result=$(echo $(
-    git stash list | \
-    fzf --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi' --header="git stash pop"
+    git stash list --format="%C(reset)%gD:%gs %C(yellow)%cr" --color=always | \
+    fzf --ansi --preview='git stash show -p $(echo {1} | sed -e s/:\.\*//) | highlight --syntax=diff -O ansi' --header="git stash pop"
   ) | sed "s/:.*//")
   [[ ! -z "$result" ]] && git stash pop $result
 }
@@ -73,8 +73,8 @@ alias fgsd='fzf_git_stash_drop'
 fzf_git_stash_drop() {
   local result
   result=$(echo $(
-    git stash list |
-    fzf --multi --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi' --header="git stash drop"
+    git stash list --format="%C(reset)%gD:%gs %C(yellow)%cr" --color=always | \
+    fzf --ansi --preview='git stash show -p $(echo {1} | sed -e s/:\.\*//) | highlight --syntax=diff -O ansi' --header="git stash drop"
   ) | sed "s/:.*//")
   [[ ! -z "$result" ]] && git stash drop $result
 }
