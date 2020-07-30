@@ -7,6 +7,7 @@ const MAPPING = [
   { module: 'ag', sources: ['.agignore'], },
   { module: 'ctags', sources: ['.ctags.d'], },
   { module: 'git', sources: ['.gitconfig'], },
+  { module: 'htop', sources: ['.config/htop/htoprc'], },
   {
     module: 'vim',
     sources: [
