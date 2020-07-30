@@ -21,6 +21,17 @@ bindkey -M menuselect '^k' vi-up-line-or-history
 bindkey -M menuselect '^l' vi-forward-char
 bindkey -M menuselect '^j' vi-down-line-or-history
 
+# turn CTRL-z into a toggle switch
+ctrlz() {
+  if [[ $#BUFFER == 0 ]]; then
+    fg >/dev/null 2>&1 && zle redisplay
+  else
+    zle push-input
+  fi
+}
+zle -N ctrlz
+bindkey '^Z' ctrlz
+
 source ~/.zsh/index
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
