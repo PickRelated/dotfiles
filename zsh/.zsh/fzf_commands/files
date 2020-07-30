@@ -2,8 +2,9 @@
 # vim: filetype=zsh
 
 # cd to selected directory
-alias f='fc'
-fc() {
+alias f='fzf_cd'
+alias fc='fzf_cd'
+fzf_cd() {
   cd $(\
   ag -g . --ignore node_modules -U\
   | sed -e 's:/[^/]*$::'\
@@ -13,8 +14,9 @@ fc() {
 }
 
 # Find all repos in ~/rep
-alias r='fr'
-fr() {
+alias r='fzf_cd_rep'
+alias fr='fzf_cd_rep'
+fzf_cd_rep() {
   rep_dir=~/rep
   dir=$(ls -ldt $rep_dir/*/*/.git $rep_dir/*/.git 2> /dev/null\
     | awk '{ print "\033[0m" $9 " \033[38;5;236m[" $6 " " $7 "]"; }'\

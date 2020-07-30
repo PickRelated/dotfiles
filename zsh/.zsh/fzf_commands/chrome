@@ -2,7 +2,9 @@
 # vim: filetype=zsh
 
 # Chrome history
-fch() {
+alias ch='fzf_chrome_history'
+alias fch='fzf_chrome_history'
+fzf_chrome_history() {
   local cols sep google_history open
   cols=$(( COLUMNS / 3 ))
   sep='{::}'
@@ -23,7 +25,9 @@ fch() {
 }
 
 # Chrome bookmarks
-fcb() {
+alias cb='fzf_chrome_bookmarks'
+alias fcb='fzf_chrome_bookmarks'
+fzf_chrome_bookmarks() {
   ruby ~/.zsh/util/chrome_bookmarks.rb\
   | fzf --ansi --header="chrome bookmarks"\
   | awk '{print $NF}'\

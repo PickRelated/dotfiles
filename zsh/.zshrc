@@ -17,13 +17,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 alias vi='nvim'
 alias vim='nvim'
-alias la='ls -lah'
-alias sz='source ~/.zshrc'
-alias du='du -d 1 -h'
-alias rs='rails server'
-alias gpo='git pull origin $(git branch | grep \* | sed "s/*\s*//g")'
-alias gpm="git pull origin master"
-alias gpd="git pull origin develop"
+# TODO: Replace with sh script respectinv vim file to try command on
+# alias vimp="vim --cmd 'profile start vimrc.profile' --cmd 'profile! file ~/.vimrc' && cat vimrc.profile | grep '0\.\d\d[^0]' && rm vimrc.profile" # Profile vim loading time
 
 export PAGER=vimpager
 

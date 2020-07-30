@@ -4,6 +4,7 @@
 # PS line with pwd, git branch and stuff
 source ~/.zsh/util/touchbar.sh
 source ~/.zsh/.zsh_ps1
+source ~/.zsh/aliases
 
 precmd() {
   eval "$PROMPT_COMMAND"

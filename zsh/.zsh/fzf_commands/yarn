@@ -2,8 +2,9 @@
 # vim: filetype=zsh
 
 # execute npm script
-alias y='fy'
-fy() {
+alias y='fzf_yarn'
+alias fy='fzf_yarn'
+fzf_yarn() {
   print -z "yarn" $(\
   cat package.json\
   | jq '.scripts'\
@@ -17,8 +18,9 @@ fy() {
 }
 
 # remove dependencies
-alias yu='fyu'
-fyu() {
+alias yu='fzf_yarn_uninstall'
+alias fyuu='fzf_yarn_uninstall'
+fzf_yarn_uninstall() {
   print -z "yarn uninstall" $(\
   cat package.json\
   | jq '.dependencies, .devDependencies'\

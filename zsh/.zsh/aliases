@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# vim: filetype=zsh
+
+autoload -Uz compinit && compinit
+globalias() {
+  if [[ $LBUFFER =~ '[a-zA-Z0-9]+$' ]]; then
+    zle _expand_alias
+    zle expand-word
+  fi
+  zle self-insert
+}
+zle -N globalias
+bindkey " " globalias # space key to expand globalalias
+bindkey "^[ " magic-space # ESC space to skip expanding
+bindkey -M isearch " " magic-space # normal space during searches
+
+# aliases
+alias ag="ag --hidden"
+alias t="htop"
+alias la='ls -lah'
+alias sz='source ~/.zshrc'
+alias du='du -d 1 -h'
+alias rs='rails server'
+alias gpo='git pull origin $(git branch | grep \* | sed "s/*\s*//g")'
+alias gpm="git pull origin master"
+alias gpd="git pull origin develop"
+
+# global aliases work even when not at the beginning of line
+alias -g g="| grep "
+alias -g s="| sed \"s/"
+alias -g ne="| 2> /dev/null"

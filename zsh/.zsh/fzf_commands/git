@@ -3,7 +3,8 @@
 
 # checkout git branch
 alias c='fgc'
-fgc() {
+alias fgc='fzf_git_checkout'
+fzf_git_checkout() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
@@ -12,8 +13,9 @@ fgc() {
 }
 
 # delete branches
-alias d='fgd'
-fgd() {
+alias d='fzf_git_delte_branches'
+alias fgd='fzf_git_delte_branches'
+fzf_git_delte_branches() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
@@ -22,8 +24,9 @@ fgd() {
 }
 
 # git log
-alias l='fgl'
-fgl() {
+alias l='fzf_git_log'
+alias fgl='fzf_git_log'
+fzf_git_log() {
   git log --graph --color=always \
     --date=format:'%a, %d %b %Y' --format="%ad"\
     --format="%C(auto)%h%d %s %C(black)%C(bold)%cr  %C(#303030)%an %ae %ad" "$@" |
@@ -41,8 +44,9 @@ FZF-EOF"
 }
 
 # git log only difference with master
-alias lm='fglm'
-fglm() {
+alias lm='fzf_git_diff_with_master_only'
+alias fglmm='fzf_git_diff_with_master_only'
+fzf_git_diff_with_master_only() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" master.. |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --header="git log only differense with master branch"\
@@ -54,8 +58,9 @@ FZF-EOF"
 }
 
 # git stash pop
-alias p='fgsp'
-fgsp() {
+alias p='fzf_git_stash_pop'
+alias fgsp='fzf_git_stash_pop'
+fzf_git_stash_pop() {
   result=$(echo $(
     git stash list | \
     fzf --preview='git stash show -p $(echo {1} | sed -e s/:$//) | highlight --syntax=diff -O ansi' --header="git stash pop"
@@ -64,7 +69,8 @@ fgsp() {
 }
 
 # git stash drop
-fgsd() {
+alias fgsd='fzf_git_stash_drop'
+fzf_git_stash_drop() {
   local result
   result=$(echo $(
     git stash list |

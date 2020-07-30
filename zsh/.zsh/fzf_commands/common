@@ -2,7 +2,9 @@
 # vim: filetype=zsh
 
 # kill process
-fkill() {
+alias k='fzf_kill_process'
+alias fkill='fzf_kill_process'
+fzf_kill_process() {
   local pid
   pid=$(ps -ef | sed 1d | fzf -m --header="kill process" | awk '{print $2}')
 
@@ -12,16 +14,10 @@ fkill() {
   fi
 }
 
-# ssh to known hosts
-fs() {
-  local host
-  host=$(tac ~/.ssh/known_hosts | sed -e 's/ .*//' -e 's/^[^[:alpha:]]*//g' -e 's/[^[:alpha:]]*$//g' -e 's/^ *$//g' -e '/^$/d' | fzf --header="ssh into host")
-  ssh $(echo ubuntu@$host)
-}
-
 # command r (search zsh_history)
-alias h="fh"
-fh() {
+alias h="fzf_history"
+alias fh="fzf_history"
+fzf_history() {
   print -z $(\
   cat ~/.zsh_history\
   | awk '!x[$0]++'\
