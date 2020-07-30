@@ -11,6 +11,15 @@ setopt hist_find_no_dups   # Do not display a line previously found.
 setopt hist_ignore_space   # Don't record an entry starting with a space.
 setopt hist_reduce_blanks  # Remove superfluous blanks before recording entry.
 
+# tab suggestions
+zmodload zsh/complist
+zstyle ':completion:*' menu select # better list completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case-insensitive tab completion
+bindkey -M menuselect '^h' vi-backward-char # use hjkl keys to navigate between suggestions
+bindkey -M menuselect '^k' vi-up-line-or-history
+bindkey -M menuselect '^l' vi-forward-char
+bindkey -M menuselect '^j' vi-down-line-or-history
+
 source ~/.zsh/index
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
