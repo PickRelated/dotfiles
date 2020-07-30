@@ -47,6 +47,3 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home"
-
-# Add your exports in this file
-source ~/.zsh/exports

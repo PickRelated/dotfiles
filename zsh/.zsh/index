@@ -5,6 +5,7 @@
 source ~/.zsh/util/touchbar.sh
 source ~/.zsh/.zsh_ps1
 source ~/.zsh/aliases
+source ~/.zsh/exports
 
 precmd() {
   eval "$PROMPT_COMMAND"
