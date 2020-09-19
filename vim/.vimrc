@@ -299,7 +299,7 @@ Plugin 'danro/rename.vim'
 Plugin 'w0rp/ale'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'AndrewRadev/sideways.vim'
-Plugin 'terryma/vim-multiple-cursors'
+Plugin 'mg979/vim-visual-multi'
 Plugin 'stefandtw/quickfix-reflector.vim' " Make changes directly from quickfix list
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
