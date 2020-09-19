@@ -328,7 +328,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'ap/vim-css-color'
 " Plugin 'iloginow/vim-stylus'
-" Plugin 'leafgarland/typescript-vim'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()			 " required
 filetype plugin indent on	 " required
