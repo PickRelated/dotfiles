@@ -21,6 +21,6 @@ fzf_history() {
   print -z $(\
   cat ~/.zsh_history\
   | awk '!x[$0]++'\
-  | fzf --tac --sort --bind=ctrl-s:toggle-sort --header="execute command from history"\
+  | fzf --tac --no-sort --bind=ctrl-s:toggle-sort --header="execute command from history"\
   )
 }
