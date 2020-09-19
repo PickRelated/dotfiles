@@ -17,3 +17,8 @@ package-lock.json
 yarn.lock
 *.log
 id_rsa*
+.nuxt
+static
+fonts
+build
+*.pem
