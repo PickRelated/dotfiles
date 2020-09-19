@@ -487,7 +487,7 @@ function! NERDTreeToggleInCurDir()
 endfunction
 
 " NERDTree Git Plugin -----------------------------{{{2
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeIndicatorGitStatusMapCustom = {
 	\ "Modified"  : "",
 	\ "Staged"    : "",
 	\ "Untracked" : "",
@@ -499,7 +499,7 @@ let g:NERDTreeIndicatorMapCustom = {
 	\ "Unknown"   : "?"
 \ }
 
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeIndicatorGitStatusMapCustom = {
 	\ "Modified"  : "~",
 	\ "Staged"    : "V",
 	\ "Untracked" : "+",
