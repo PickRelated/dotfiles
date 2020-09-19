@@ -15,3 +15,8 @@ source ~/.zsh/fzf_commands/common
 source ~/.zsh/fzf_commands/files
 source ~/.zsh/fzf_commands/git
 source ~/.zsh/fzf_commands/yarn
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^n' fzf-completion
