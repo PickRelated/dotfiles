@@ -2,7 +2,7 @@
 # vim: filetype=zsh
 
 # kill process
-alias k='fzf_kill_process'
+qalias k='fzf_kill_process'
 alias fkill='fzf_kill_process'
 fzf_kill_process() {
   local pid
@@ -15,12 +15,10 @@ fzf_kill_process() {
 }
 
 # command r (search zsh_history)
-alias h="fzf_history"
+zalias h="fzf_history"
 alias fh="fzf_history"
 fzf_history() {
-  print -z $(\
   cat ~/.zsh_history\
   | awk '!x[$0]++'\
-  | fzf --tac --no-sort --bind=ctrl-s:toggle-sort --header="execute command from history"\
-  )
+  | fzf --tac --no-sort --bind=ctrl-s:toggle-sort --header="execute command from history"
 }

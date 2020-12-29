@@ -3,20 +3,35 @@
 
 # fzf default command
 export FZF_DEFAULT_COMMAND='ag --hidden -g . -U --color-path "1;36"'
+# ctrl-m === enter
 export FZF_DEFAULT_OPTS="
   --bind=ctrl-l:toggle
+  --bind=ctrl-m:accept
   --history=$HOME/.fzf-history
+  --no-hscroll
   --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
   --color info:108,prompt:109,spinner:108,pointer:168,marker:168
+  --height=10
 "
 
+source ~/.zsh/fzf_commands/alias-expand
 source ~/.zsh/fzf_commands/chrome
 source ~/.zsh/fzf_commands/common
 source ~/.zsh/fzf_commands/files
 source ~/.zsh/fzf_commands/git
+source ~/.zsh/fzf_commands/previews
 source ~/.zsh/fzf_commands/yarn
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+start() {
+  if [[ -f "package-lock.json" ]]; then
+    npm run start
+  elif [[ -f "yarn.lock" ]]; then
+    yarn start
+  fi
+}
+
 export FZF_COMPLETION_TRIGGER=''
-bindkey '^n' fzf-completion
+bindkey '^I' expand-or-complete
+bindkey '^J' fzf_completion

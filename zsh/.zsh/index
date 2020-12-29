@@ -4,7 +4,6 @@
 # PS line with pwd, git branch and stuff
 source ~/.zsh/util/touchbar.sh
 source ~/.zsh/.zsh_ps1
-source ~/.zsh/aliases
 source ~/.zsh/exports
 
 precmd() {
@@ -14,3 +13,5 @@ precmd() {
 
 # fzf commands
 source ~/.zsh/fzf_commands/index
+
+source ~/.zsh/aliases

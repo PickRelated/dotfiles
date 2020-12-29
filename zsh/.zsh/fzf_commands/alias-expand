@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# vim: filetype=zsh
+
+globalias() {
+  if [[ $LBUFFER =~ '[a-zA-Z0-9]+$' ]]; then
+    zle _expand_alias
+    zle expand-word
+  fi
+  zle self-insert
+}
+zle -N globalias
+
+typeset -a no_whitespace_aliases
+no_whitespace_aliases=()
+nwalias() {
+  alias $@
+  args="$@"
+  args=${args%%\=*}
+  no_whitespace_aliases+=(${args##* })
+}
+
+# triggered by whitespace
+typeset -a quick_aliases
+quick_aliases=()
+qalias() {
+  alias $@
+  args="$@"
+  args=${args%%\=*}
+  quick_aliases+=(${args##* })
+}
+
+# triggered by whitespace. performs print -z
+typeset -a minus_z_aliases
+minus_z_aliases=()
+zalias() {
+  alias $@
+  args="$@"
+  args=${args%%\=*}
+  minus_z_aliases+=(${args##* })
+}
+
+expand-alias() {
+  [[ $LBUFFER =~ "(^${(j:$|^:)no_whitespace_aliases}$)" ]]; noWhitespace=$?
+  [[ $LBUFFER =~ "(^${(j:$|^:)quick_aliases}$)" ]]; quick=$?
+  [[ $LBUFFER =~ "(^${(j:$|^:)minus_z_aliases}$)" ]]; minusz=$?
+  if [[ "$quick" = "0" ]]; then
+    zle globalias
+    EXPANDED_COMMAND=$LBUFFER
+    zle backward-kill-line
+    eval $EXPANDED_COMMAND
+    zle backward-kill-line
+    osascript -e 'tell application "System Events" to key code 76'
+  elif [[ "$minusz" = "0" ]]; then
+    zle globalias
+    output=$(eval $LBUFFER)
+    zle backward-kill-line
+    osascript -e 'tell application "System Events" to key code 76'
+    print -z $output
+  elif [[ "$noWhitespace" = "0" ]]; then
+    zle globalias
+    zle backward-delete-char
+  else
+    zle globalias
+  fi
+}
+zle -N expand-alias

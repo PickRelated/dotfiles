@@ -2,19 +2,19 @@
 # vim: filetype=zsh
 
 # cd to selected directory
-alias f='fzf_cd'
-alias fc='fzf_cd'
+qalias f='fzf_cd'
+# alias fc='fzf_cd'
 fzf_cd() {
-  cd $(\
-  ag -g . --ignore node_modules -U\
-  | sed -e 's:/[^/]*$::'\
-  | uniq\
-  | fzf --header="cd into directory"\
+  dir=$(ag -g . --ignore node_modules -U\
+    | sed -e 's:/[^/]*$::'\
+    | uniq\
+    | fzf --header="cd into directory"\
   )
+  [[ ! -z "$dir" ]] && cd $dir
 }
 
 # Find all repos in ~/rep
-alias r='fzf_cd_rep'
+qalias r='fzf_cd_rep'
 alias fr='fzf_cd_rep'
 fzf_cd_rep() {
   rep_dir=~/rep

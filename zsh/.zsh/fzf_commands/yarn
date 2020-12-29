@@ -2,18 +2,19 @@
 # vim: filetype=zsh
 
 # execute npm script
-alias y='fzf_yarn'
+qalias y='fzf_yarn'
 alias fy='fzf_yarn'
 fzf_yarn() {
   print -z "yarn" $(\
   cat package.json\
   | jq '.scripts'\
   | tail -n +2\
-  | head -n +2\
+  | ghead -n -1\
+  | sed "s/\":/ >>>/g"\
   | sed "s/[\",]//g"\
   | sed "s/^ *//"\
   | fzf --header="npm scripts"\
-  | sed "s/:.*//"\
+  | sed "s/ >>>.*//"\
   )
 }
 
