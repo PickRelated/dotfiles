@@ -585,6 +585,9 @@ nmap gH <Plug>SidewaysLeft
 " UltiSnips ------------------------------{{{2
 let g:UltiSnipsExpandTrigger="<C-j>"
 
+" visual-multi ----------------------------{{{2
+let g:VM_maps = {}
+let g:VM_maps["Select Operator"] = 'v'
 " vue ----------------------------{{{2
 let g:vim_vue_plugin_load_full_syntax = 1
 let g:vim_vue_plugin_use_pug = 1
