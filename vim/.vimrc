@@ -309,6 +309,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
