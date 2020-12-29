@@ -22,3 +22,5 @@ static
 fonts
 build
 *.pem
+fixtures
+platforms
