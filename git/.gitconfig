@@ -14,3 +14,5 @@
 	encoding = utf-8
 [interactive]
 	diffFilter = delta --color-only
+[init]
+	defaultBranch = master
