@@ -1,0 +1,7 @@
+clear Control
+clear Mod1
+add Control = Alt_L Alt_R
+add Mod1 = Control_L Control_R
+
+clear Lock
+keysym Caps_Lock = Escape

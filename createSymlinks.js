@@ -24,6 +24,7 @@ const MAPPING = [
       '.config/nvim/spell',
     ],
   },
+  { module: 'xmodmap', sources: ['.Xmodmap'], },
   { module: 'zsh', sources: ['.zsh', '.zshrc'], },
 ];
 
