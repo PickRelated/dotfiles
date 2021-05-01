@@ -403,7 +403,7 @@ let g:ale_c_parse_makefile = 1
 let g:ale_cpp_gcc_options = '-std=c++11 -I./inc -I./lib/STM32F10x_StdPeriph_Driver/inc -include stdint.h -include stdio.h -include stm32f10x_rcc.h'
 let g:ale_linters = {}
 let g:ale_linters.cpp = ['gcc']
-let g:ale_linters.vue = ['eslint']
+let g:ale_linters.vue = ['vls']
 
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix = 1
