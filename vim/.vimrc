@@ -409,6 +409,9 @@ let g:ale_cpp_gcc_options = '-std=c++11 -I./inc -I./lib/STM32F10x_StdPeriph_Driv
 let g:ale_linters = {}
 let g:ale_linters.cpp = ['gcc']
 let g:ale_linters.vue = ['vls']
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint', 'prettier']
+let g:ale_fix_on_save = 0
 
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix = 1
