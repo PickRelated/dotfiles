@@ -5,6 +5,7 @@
 	default = current
 [pull]
 	default = matching
+	ff = only
 [core]
 	autocrlf = false
 	safecrlf = false
