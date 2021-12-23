@@ -2,13 +2,13 @@
 # vim: filetype=zsh
 
 # PS line with pwd, git branch and stuff
-source ~/.zsh/util/touchbar.sh
+# source ~/.zsh/util/touchbar.sh
 source ~/.zsh/.zsh_ps1
 source ~/.zsh/exports
 
 precmd() {
   eval "$PROMPT_COMMAND"
-  source ~/.zsh/util/touchbar.sh
+  # source ~/.zsh/util/touchbar.sh
 }
 
 # fzf commands
