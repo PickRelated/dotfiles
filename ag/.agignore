@@ -18,6 +18,8 @@ yarn.lock
 *.log
 id_rsa*
 .nuxt
+.cache
+.next
 static
 fonts
 build
