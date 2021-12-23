@@ -5,6 +5,9 @@
 " It has correct triangles and font spacing. Icons is just bonus
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono
 
+nnoremap ]t :keeppattern /TODO<CR>:noh<CR>
+nnoremap [t :keeppattern ?TODO<CR>:noh<CR>
+
 nmap <Space> <leader>
 vmap <Space> <leader>
 
