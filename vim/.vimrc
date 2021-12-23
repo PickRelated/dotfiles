@@ -113,6 +113,8 @@ au BufRead,BufNewFile *.styl       set ft=css syntax=css
 au BufRead,BufNewFile *.cpp       setlocal path=.,inc
 au BufRead,BufNewFile *.hpp       setlocal path=.,inc
 
+au BufRead,BufNewFile *.yml       setlocal nospell
+
 au BufNewFile,BufReadPost *.md set filetype=markdown spell
 
 " Spelling -----------------------------------------------------{{{1
