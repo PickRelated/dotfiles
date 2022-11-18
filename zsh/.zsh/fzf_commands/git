@@ -6,7 +6,7 @@ git_branch() {
 }
 
 git_branch_task() {
-  echo $(git_branch | sed "s/.*\([A-Za-z]\{2\}-[0-9X]\{1,4\}\).*/\"\1 -/")
+  echo $(git_branch | sed "s/.*\([A-Za-z]\{2\}-[0-9X]\{1,4\}\).*/\"\1 -/" | sed "s/[A-Za-z]\{3,\}/\"/")
 }
 
 _fzf_complete_git() {
