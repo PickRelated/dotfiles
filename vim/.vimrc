@@ -114,6 +114,7 @@ au BufRead,BufNewFile *.cpp       setlocal path=.,inc
 au BufRead,BufNewFile *.hpp       setlocal path=.,inc
 
 au BufRead,BufNewFile *.yml       setlocal nospell
+au BufRead,BufNewFile .env        set ft=yaml nospell syntax=sh
 
 au BufNewFile,BufReadPost *.md set filetype=markdown spell
 
