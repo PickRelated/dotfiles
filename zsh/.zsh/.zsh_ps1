@@ -106,7 +106,7 @@ function form_ps {
     PS1="$PS1 $git_branch"
 
     if [ ! -z "$(parse_git_tag)" ]; then
-      git_tag="$RTARROW \$(parse_git_tag)"
+      git_tag="$RTARROW $(parse_git_tag)"
       PS1="$PS1 $git_tag"
     fi
 
