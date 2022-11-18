@@ -4,6 +4,8 @@ tags
 /node_modules
 /.idea
 /vendor
+/cache
+*.bak
 /log
 /tmp
 /dist

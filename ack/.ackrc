@@ -10,6 +10,7 @@
 --ignore-dir=tmp/
 --ignore-dir=dist/
 --ignore-dir=reports/
+--ignore-dir=cache/
 --ignore-dir=coverage
 --ignore-dir=vendor
 --ignore-dir=www
