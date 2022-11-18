@@ -449,13 +449,13 @@ vmap M <Plug>(expand_region_shrink)
 " Fugitive -----------{{{2
 nmap <leader>gs :G<CR>
 nmap <leader>gd :Gvdiff<CR>
-nmap <leader>gb :Gblame -w<CR>
+nmap <leader>gb :Git blame -w<CR>
 nmap <leader>ge :Gedit<CR>
 nmap <leader>gw :Gwrite<CR>
-nmap <leader>gp :Gpush<CR>
+nmap <leader>gp :Git push<CR>
 nmap <leader>gg :GitGutterSignsToggle<CR>
 nmap <leader>gl :BCommits<CR>
-nmap <leader>gh :0Glog<CR>
+nmap <leader>gh :0Gclog<CR>
 nmap <leader>gc :GFiles?<CR>
 
 " Easy motion ---------------------------{{{2
