@@ -452,7 +452,11 @@ vmap M <Plug>(expand_region_shrink)
 
 " Fugitive -----------{{{2
 nmap <leader>gs :G<CR>
-nmap <leader>gd :Gvdiff<CR>
+nmap <leader>gd :Gvdiffsplit!<CR>
+" Use remote diff (HEAD)
+nmap <leader>dh d2o<CR>
+" Use local diff
+nmap <leader>dl d3o<CR>
 nmap <leader>gb :Git blame -w<CR>
 nmap <leader>ge :Gedit<CR>
 nmap <leader>gw :Gwrite<CR>
