@@ -213,6 +213,9 @@ nmap <leader>sa :e ~/.agignore<CR>
 nmap <leader>si :e ~/.i3/config<CR>
 nmap <leader>sx :e ~/.Xresources<CR>
 
+" Edit todo files
+nmap <leader>ta :e ~/toask.txt<CR>
+
 " C-w replacement
 nmap <leader>w <C-w>
 
