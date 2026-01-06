@@ -7,18 +7,6 @@ bindkey "^[ " magic-space # ESC space to skip expanding
 bindkey -M isearch " " magic-space # normal space during searches
 
 # aliases
-alias ag="ag --hidden"
-alias t="htop"
 alias la='ls -lah'
 alias sz='source ~/.zshrc'
 alias du='du -d 1 -h'
-alias rs='rails server'
-alias gp='git push origin $(git branch | grep \* | sed "s/*\s*//g")'
-alias gpm="git pull origin master"
-alias gpd="git pull origin develop"
-alias gsp="git stash pop"
-
-# global aliases work even when not at the beginning of line
-alias -g g="| grep "
-alias -g s="| sed \"s/"
-alias -g ne="| 2> /dev/null"
