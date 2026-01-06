@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 # vim: filetype=zsh
 
-# PS line with pwd, git branch and stuff
-# source ~/.zsh/util/touchbar.sh
+autoload -U add-zsh-hook
+
 source ~/.zsh/.zsh_ps1
 source ~/.zsh/exports
+source ~/.zsh/hooks
+source ~/.zsh/fzf_commands/index
+source ~/.zsh/aliases
 
 precmd() {
   eval "$PROMPT_COMMAND"
-  # source ~/.zsh/util/touchbar.sh
 }
-
-# fzf commands
-source ~/.zsh/fzf_commands/index
-
-source ~/.zsh/aliases

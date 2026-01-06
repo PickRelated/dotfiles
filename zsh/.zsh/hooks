@@ -1,0 +1,7 @@
+run_nvm() {
+  if [ -f .nvmrc ]; then
+    nvm use
+  fi
+}
+
+add-zsh-hook chpwd run_nvm
