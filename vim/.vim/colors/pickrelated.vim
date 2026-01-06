@@ -33,6 +33,7 @@ let g:colors_name = "pickrelated"
 "hi CTagsClass -- no settings --
 "hi TabLine -- no settings --
 "hi clear -- no settings --
+set notgc
 hi Normal         ctermfg=252  ctermbg=236  cterm=NONE
 hi CursorLine     ctermfg=NONE ctermbg=238  cterm=NONE
 hi SpellBad       ctermfg=9    ctermbg=238  cterm=underline
@@ -83,6 +84,7 @@ hi PreProc        ctermfg=172  ctermbg=NONE cterm=NONE
 hi Visual         ctermfg=228  ctermbg=64   cterm=NONE
 hi MoreMsg        ctermfg=29   ctermbg=NONE cterm=NONE
 hi VertSplit      ctermfg=8    ctermbg=187  cterm=NONE
+hi WinSeparator   ctermfg=8    ctermbg=187  cterm=NONE
 hi Exception      ctermfg=143  ctermbg=NONE cterm=NONE
 hi Keyword        ctermfg=143  ctermbg=NONE cterm=NONE
 hi Type           ctermfg=229  ctermbg=NONE cterm=NONE
