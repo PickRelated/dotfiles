@@ -2,7 +2,7 @@
 # vim: filetype=zsh
 
 # Chrome history
-alias ch='fzf_chrome_history'
+qalias ch='fzf_chrome_history'
 alias fch='fzf_chrome_history'
 fzf_chrome_history() {
   local cols sep google_history open
