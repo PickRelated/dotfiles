@@ -4,7 +4,7 @@
 [push]
 	default = current
 [pull]
-	default = matching
+	default = current
 	ff = only
 [core]
 	autocrlf = false
