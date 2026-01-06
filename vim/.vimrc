@@ -335,7 +335,7 @@ Plugin 'tpope/vim-rails'
 " Plugin 'ngmy/vim-rubocop'
 
 " Misc syntax
-" Plugin 'avakhov/vim-yaml'
+Plugin 'avakhov/vim-yaml'
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'ap/vim-css-color'
 " Plugin 'iloginow/vim-stylus'
