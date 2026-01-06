@@ -6,7 +6,7 @@ git_branch() {
 }
 
 git_branch_task() {
-  echo $(git_branch | sed "s/.*\([A-Za-z]\{2\}-[0-9X]\{1,4\}\).*/\"\1 -/" | sed "s/[A-Za-z]\{3,\}/\"/")
+  echo \"$(git_branch | grep -o "[A-Za-z]\+-[0-9Xx]\+") - 
 }
 
 _fzf_complete_git() {
@@ -23,6 +23,7 @@ _fzf_complete_git() {
 }
 
 zalias gc='echo "git commit -m $(git_branch_task) "'
+zalias gcb='echo "git checkout -b igor/DNA-"'
 
 # checkout git branch
 qalias c='fzf_git_checkout'
@@ -71,21 +72,7 @@ fzf_git_log() {
 FZF-EOF" \
     --bind ctrl-p:toggle-preview |
 
-    sed "s/.* \([a-z0-9]\{7\}\) .*/\1/"
-}
-
-# git log only difference with master
-alias lm='fzf_git_diff_with_master_only'
-alias fglmm='fzf_git_diff_with_master_only'
-fzf_git_diff_with_master_only() {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" master.. |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --header="git log only differense with master branch"\
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | delta | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF"
+    sed "s/[^a-z0-9]*\([a-z0-9]\{8\}\) .*/\1/"
 }
 
 # git stash pop
