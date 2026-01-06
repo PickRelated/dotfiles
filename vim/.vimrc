@@ -320,20 +320,16 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'leafOfTree/vim-vue-plugin'
-" Plugin 'moll/vim-node'
 
 " HTML
 Plugin 'mattn/emmet-vim'
 
 " Ruby
 Plugin 'tpope/vim-rails'
-" Plugin 'ngmy/vim-rubocop'
 
 " Misc syntax
 Plugin 'avakhov/vim-yaml'
 Plugin 'digitaltoad/vim-pug'
-" Plugin 'ap/vim-css-color'
-" Plugin 'iloginow/vim-stylus'
 Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()			 " required
