@@ -1,6 +1,5 @@
-tags
+# Add .ignore file to your project to ignore patterns locally
 /.git
-/bower_components
 /node_modules
 /.idea
 /vendor
@@ -10,7 +9,6 @@ tags
 /tmp
 /dist
 *.svg
-package.json
 stats.html
 /reports
 /coverage
@@ -18,13 +16,8 @@ stats.html
 package-lock.json
 yarn.lock
 *.log
-id_rsa*
 .nuxt
 .cache
 .next
 static
 fonts
-build
-*.pem
-fixtures
-platforms
