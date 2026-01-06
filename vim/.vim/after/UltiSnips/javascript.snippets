@@ -31,6 +31,11 @@ snippet ce
 console.error(${0:${VISUAL}})
 endsnippet
 
+snippet ct
+console.time('${1:time}')
+console.timeEnd('$1')
+endsnippet
+
 snippet promise
 return new Promise((resolve, reject) => {
   ${0:${VISUAL}}
