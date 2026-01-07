@@ -10,3 +10,4 @@ bindkey -M isearch " " magic-space # normal space during searches
 alias la='ls -lah'
 alias sz='source ~/.zshrc'
 alias du='du -d 1 -h'
+alias gp='git push origin $(git branch | grep \* | sed "s/*\s*//g")'
