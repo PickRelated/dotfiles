@@ -6,6 +6,7 @@ const MAPPING = [
   { module: 'ack', sources: ['.ackrc'], },
   { module: 'ag', sources: ['.agignore'], },
   { module: 'ctags', sources: ['.ctags.d'], },
+  { module: 'ghostty', sources: [ '.config/ghostty/config' ], },
   { module: 'git', sources: ['.gitconfig'], },
   { module: 'htop', sources: ['.config/htop/htoprc'], },
   {

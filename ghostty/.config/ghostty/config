@@ -1,0 +1,66 @@
+# Reload with Ctrl + Shift + ,
+
+font-family = "Monaco"
+font-family = "FiraCode"
+# font-family = "Monaco"
+# font-family = "Roboto Mono"
+# font-family = "DejaVu Sans Mono"
+# font-family = UbuntuMonoPatched
+# font-family = UbuntuMonoAwesome
+font-size = 14
+adjust-cell-width = -0%
+
+# No heading
+window-decoration = false
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Key bindings
+keybind = ctrl+t=new_tab
+keybind = ctrl+w=close_tab
+keybind = ctrl+i=next_tab
+keybind = ctrl+u=previous_tab
+keybind = ctrl+shift+i=move_tab:1
+keybind = ctrl+shift+u=move_tab:-1
+
+# Status line text
+palette = 0=#000000
+# Red
+palette = 1=#ff0000
+# Green
+palette = 2=#00ff00
+# Yellow
+palette = 3=#ffff00
+# Blue
+palette = 4=#0000ff
+# Magenta
+palette = 5=#ff00ff
+# Cyan?
+palette = 6=#ff0000
+# White
+palette = 7=#ffffff
+# Vim nerdtree separator
+palette = 8=#000000
+# Bright Red
+palette = 9=#ff0000
+# Bright Green
+palette = 10=#ff0000
+# Bright Yellow (highlighted line number)
+palette = 11=#ffffff
+# Bright Blue
+palette = 12=#ff0000
+# Bright Magenta
+palette = 13=#ff0000
+# Bright Cyan
+palette = 14=#ff0000
+# Bright White
+palette = 15=#ffffff
+background = #111
+foreground = #eee
+cursor-color = #fff
+cursor-text = #000
+selection-background = #ffffff
+selection-foreground = #000
