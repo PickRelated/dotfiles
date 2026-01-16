@@ -1,24 +1,21 @@
 #!/usr/bin/env bash
 # vim: filetype=zsh
 
-srbenv() {
-  export PATH="$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init -)"
-}
-
-snvm() {
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if [ -f .nvmrc ]; then
   nvm use
 fi
 
-export PATH="$PATH:$HOME/Dist/gcc-arm-none-eabi-7-2018-q2-update/bin"
+export PATH="$HOME/.fzf/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PAGER=vimpager
 
 export CLICOLOR=1
 export LSCOLORS='Exkxcxdxbxegedabagacad'
+
+# Linux only
+# setxkbmap -option caps:escape
+# setxkbmap -option ctrl:swap_lalt_lctl
