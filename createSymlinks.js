@@ -9,6 +9,7 @@ const MAPPING = [
   { module: 'ghostty', sources: [ '.config/ghostty/config' ], },
   { module: 'git', sources: ['.gitconfig'], },
   { module: 'htop', sources: ['.config/htop/htoprc'], },
+  { module: 'i3', sources: [ '.config/i3/config' ], },
   {
     module: 'vim',
     sources: [
