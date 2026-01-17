@@ -124,7 +124,7 @@ bindsym $mod+r mode "resize"
 
 bar {
   # status_command i3status
-  status_command exec /home/pin/.config/i3/statusbar.sh
+  status_command exec ~/.config/i3/statusbar.sh
 }
 
 exec google-chrome
