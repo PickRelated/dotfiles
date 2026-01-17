@@ -3,10 +3,8 @@
 
 # fzf default command
 export FZF_DEFAULT_COMMAND='ag --hidden -g . -U --color-path "1;36"'
-# ctrl-m === enter
 export FZF_DEFAULT_OPTS="
   --bind=ctrl-l:toggle
-  --bind=ctrl-m:accept
   --history=$HOME/.fzf-history
   --no-hscroll
   --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
@@ -14,13 +12,14 @@ export FZF_DEFAULT_OPTS="
   --height=10
 "
 
-source ~/.zsh/fzf_commands/alias-expand
-source ~/.zsh/fzf_commands/chrome
-source ~/.zsh/fzf_commands/common
-source ~/.zsh/fzf_commands/files
-source ~/.zsh/fzf_commands/git
-source ~/.zsh/fzf_commands/previews
-source ~/.zsh/fzf_commands/yarn
+autoload -Uz compinit && compinit
+bindkey " " expand-alias # space key to expand globalalias
+# bindkey "^[ " magic-space # ESC space to skip expanding
+# TODO: figure out wtf it does bindkey -M isearch " " magic-space # normal space during searches
+source ~/.zsh/aliases/alias-expand
+source ~/.zsh/aliases/git
+source ~/.zsh/aliases/previews
+source ~/.zsh/aliases/system
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -34,4 +33,3 @@ start() {
 
 export FZF_COMPLETION_TRIGGER=''
 bindkey '^I' expand-or-complete
-bindkey '^J' fzf_completion

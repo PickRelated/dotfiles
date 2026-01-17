@@ -48,13 +48,12 @@ expand-alias() {
     EXPANDED_COMMAND=$LBUFFER
     zle backward-kill-line
     eval $EXPANDED_COMMAND
-    zle backward-kill-line
-    osascript -e 'tell application "System Events" to key code 76'
+    zle accept-line
   elif [[ "$minusz" = "0" ]]; then
     zle globalias
     output=$(eval $LBUFFER)
     zle backward-kill-line
-    osascript -e 'tell application "System Events" to key code 76'
+    zle accept-line
     print -z $output
   elif [[ "$noWhitespace" = "0" ]]; then
     zle globalias

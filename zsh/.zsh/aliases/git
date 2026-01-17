@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
 # vim: filetype=zsh
 
+rep_dir=~/rep
+
+alias gp='git push origin $(git branch | grep \* | sed "s/*\s*//g")'
+
+qalias r='fzf_cd_rep'
+fzf_cd_rep() {
+  dir=$(ls -ldt $rep_dir/*/*/.git $rep_dir/*/.git 2> /dev/null\
+    | awk '{ print "\033[0m" $9 " \033[38;5;236m[" $6 " " $7 "]"; }'\
+    | sed s/\\/\.git//g\
+    | sed "s|${rep_dir}\/||g"\
+    | fzf --ansi --no-sort --header="repositories list"\
+    | sed "s/ \[.*//g")
+  [[ ! -z "$dir" ]] && cd "$rep_dir/$dir"
+}
+
 git_branch() {
   echo $(git branch --show-current)
 }
@@ -25,9 +40,7 @@ _fzf_complete_git() {
 zalias gc='echo "git commit -m $(git_branch_task) "'
 zalias gcb='echo "git checkout -b igor/DNA-"'
 
-# checkout git branch
 qalias c='fzf_git_checkout'
-alias fgc='fzf_git_checkout'
 fzf_git_checkout() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
@@ -36,9 +49,7 @@ fzf_git_checkout() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# delete branches
 qalias d='fzf_git_delte_branches'
-alias fgd='fzf_git_delte_branches'
 fzf_git_delte_branches() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
@@ -47,9 +58,7 @@ fzf_git_delte_branches() {
   git branch -D $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# git log
 qalias l='fzf_git_log'
-alias fgl='fzf_git_log'
 fzf_git_log() {
   git log \
     --graph \
@@ -67,7 +76,7 @@ fzf_git_log() {
     --header="git log" \
     --height=100\
     --preview="(grep -o '[a-f0-9]\{7\}' | head -1 |
-                      xargs -I % sh -c 'git show --color=always % | delta --file-color=3 --hunk-color=3 | less -R') << 'FZF-EOF'
+                      xargs -I % sh -c 'git show --color=always % | delta | less -R') << 'FZF-EOF'
                       {}
 FZF-EOF" \
     --bind ctrl-p:toggle-preview |
@@ -75,7 +84,6 @@ FZF-EOF" \
     sed "s/[^a-z0-9]*\([a-z0-9]\{8\}\) .*/\1/"
 }
 
-# git stash pop
 qalias p='fzf_git_stash_pop'
 alias fgsp='fzf_git_stash_pop'
 fzf_git_stash_pop() {
@@ -86,7 +94,6 @@ fzf_git_stash_pop() {
   [[ ! -z "$result" ]] && git stash pop $result
 }
 
-# git stash drop
 alias fgsd='fzf_git_stash_drop'
 fzf_git_stash_drop() {
   local result

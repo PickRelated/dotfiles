@@ -40,6 +40,7 @@ ctrlz() {
 }
 zle -N ctrlz
 bindkey '^Z' ctrlz
+bindkey '^[[1;5D' backward-kill-word
 
 source ~/.zsh/index
 

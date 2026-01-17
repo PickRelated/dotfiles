@@ -1,48 +1,15 @@
 #!/usr/bin/env bash
 # vim: filetype=zsh
 
-if [ -z $USE_POWERLINE_BASH ]; then
-  USE_POWERLINE_BASH=1
-fi
+PC=''
+FOLDER=''
+BRANCH=''
+FILE=''
+PLUS=''
+MINUS=''
 
-if [ -z $FONT_NAMESPACE_FILE ]; then
-  FONT_NAMESPACE_FILE=~/.fonts/UbuntuMonoAwesome.sh
-fi
-
-# if [ -z $AWESOME_GLYPHS_LOADED ]; then
-  if [ -f $FONT_NAMESPACE_FILE ]; then
-    . $FONT_NAMESPACE_FILE
-    PC=$(echo -e "\u$AWESOME_DESKTOP")
-    FOLDER=$(echo -e "\u$AWESOME_FOLDER_CLOSE")
-    BRANCH=$(echo -e "\u$AWESOME_CODE_FORK")
-    FILE=$(echo -e "\u$AWESOME_FILE")
-    PLUS=$(echo -e "\u$AWESOME_PLUS")
-    MINUS=$(echo -e "\u$AWESOME_MINUS")
-  else
-    # refer to http://mathew-kurian.github.io/CharacterMap/
-    # PC=''
-    PC=''
-    FOLDER=''
-    BRANCH=''
-    FILE=''
-    PLUS=''
-    MINUS=''
-    # PC=''
-    # FOLDER=''
-    # BRANCH=''
-    # FILE=''
-    # PLUS=''
-    # MINUS=''
-  fi
-# fi
-
-if [ ! -z $USE_POWERLINE_BASH ]; then
-  RARROW=''
-  RTARROW=''
-else
-  RARROW=' '
-  RTARROW=' '
-fi
+RARROW=''
+RTARROW=''
 
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/[()]//g'
@@ -67,15 +34,6 @@ function diff_ins {
 function diff_del {
   git diff --shortstat | sed 's/[^0-9]/ /g' | awk '{print $3}'
 }
-
-# rst='\033[0m'
-# highcolor='\033[1m'
-# inv='\033[7m'
-# black=('\033[30m' '\033[40m')
-# red=('\033[31m' '\033[41m')
-# green=('\033[32m' '\033[42m')
-# yellow=('\033[33m' '\033[43m')
-# blue=('\033[34m' '\033[44m')
 
 autoload -U colors && colors
 color1=("$bg[green]")
@@ -125,3 +83,8 @@ function form_ps {
 }
 PROMPT_COMMAND=form_ps
 RPROMPT='%*'
+
+
+precmd() {
+  eval "$PROMPT_COMMAND"
+}
