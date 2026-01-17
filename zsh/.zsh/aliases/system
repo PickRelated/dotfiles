@@ -5,8 +5,7 @@ alias la='ls -lah'
 alias sz='source ~/.zshrc'
 alias du='du -d 1 -h'
 
-# kill process
-qalias k='fzf_kill_process'
+call_alias k='fzf_kill_process'
 fzf_kill_process() {
   local pid
   pid=$(ps -ef | sed 1d | fzf -m --header="kill process" | awk '{print $2}')
@@ -17,8 +16,7 @@ fzf_kill_process() {
   fi
 }
 
-# command r (search zsh_history)
-zalias h="fzf_history"
+print_alias h="fzf_history"
 fzf_history() {
   cat ~/.zsh_history\
   | awk '!x[$0]++'\

@@ -10,54 +10,41 @@ globalias() {
 }
 zle -N globalias
 
-typeset -a no_whitespace_aliases
-no_whitespace_aliases=()
-nwalias() {
-  alias $@
-  args="$@"
-  args=${args%%\=*}
-  no_whitespace_aliases+=(${args##* })
-}
-
 # triggered by whitespace
-typeset -a quick_aliases
-quick_aliases=()
-qalias() {
+typeset -a call_aliases
+call_aliases=()
+call_alias() {
   alias $@
   args="$@"
   args=${args%%\=*}
-  quick_aliases+=(${args##* })
+  call_aliases+=(${args##* })
 }
 
 # triggered by whitespace. performs print -z
-typeset -a minus_z_aliases
-minus_z_aliases=()
-zalias() {
+typeset -a print_aliases
+print_aliases=()
+print_alias() {
   alias $@
   args="$@"
   args=${args%%\=*}
-  minus_z_aliases+=(${args##* })
+  print_aliases+=(${args##* })
 }
 
 expand-alias() {
-  [[ $LBUFFER =~ "(^${(j:$|^:)no_whitespace_aliases}$)" ]]; noWhitespace=$?
-  [[ $LBUFFER =~ "(^${(j:$|^:)quick_aliases}$)" ]]; quick=$?
-  [[ $LBUFFER =~ "(^${(j:$|^:)minus_z_aliases}$)" ]]; minusz=$?
-  if [[ "$quick" = "0" ]]; then
+  [[ $LBUFFER =~ "(^${(j:$|^:)call_aliases}$)" ]]; is_quick_alias=$?
+  [[ $LBUFFER =~ "(^${(j:$|^:)print_aliases}$)" ]]; is_print_alias=$?
+  if [[ "$is_quick_alias" = "0" ]]; then
     zle globalias
     EXPANDED_COMMAND=$LBUFFER
     zle backward-kill-line
     eval $EXPANDED_COMMAND
     zle accept-line
-  elif [[ "$minusz" = "0" ]]; then
+  elif [[ "$is_print_alias" = "0" ]]; then
     zle globalias
     output=$(eval $LBUFFER)
     zle backward-kill-line
     zle accept-line
     print -z $output
-  elif [[ "$noWhitespace" = "0" ]]; then
-    zle globalias
-    zle backward-delete-char
   else
     zle globalias
   fi
