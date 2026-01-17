@@ -2,9 +2,7 @@
 
 set $mod Mod4
 
-font pango:Monaco 16
-# font pango:UbuntuMonoPatched 16
-# font pango:FiraCode 16
+font pango: Monaco, MononokiNerdFontPropo 16
 default_border none
 
 exec --no-startup-id dex --autostart --environment i3

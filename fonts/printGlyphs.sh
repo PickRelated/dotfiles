@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 [
-  { start: 0xe0a0, end: 0xe0b3 },
-  { start: 0xf005, end: 0xf2c6 },
-  { start: 0xf442, end: 0xf4af },
+  { start: 0x23fb, end: 0x23fe },
+  { start: 0x23fb, end: 0xf1af0 },
 ].forEach(({ start, end }) => {
   console.log()
   process.stdout.write(' ')
