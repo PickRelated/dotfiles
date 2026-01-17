@@ -10,7 +10,7 @@ globalias() {
 }
 zle -N globalias
 
-# triggered by whitespace
+# immediately calls expanded alias
 typeset -a call_aliases
 call_aliases=()
 call_alias() {
@@ -20,7 +20,7 @@ call_alias() {
   call_aliases+=(${args##* })
 }
 
-# triggered by whitespace. performs print -z
+# prints output of fzf command
 typeset -a print_aliases
 print_aliases=()
 print_alias() {
@@ -31,9 +31,9 @@ print_alias() {
 }
 
 expand-alias() {
-  [[ $LBUFFER =~ "(^${(j:$|^:)call_aliases}$)" ]]; is_quick_alias=$?
+  [[ $LBUFFER =~ "(^${(j:$|^:)call_aliases}$)" ]]; is_call_alias=$?
   [[ $LBUFFER =~ "(^${(j:$|^:)print_aliases}$)" ]]; is_print_alias=$?
-  if [[ "$is_quick_alias" = "0" ]]; then
+  if [[ "$is_call_alias" = "0" ]]; then
     zle globalias
     EXPANDED_COMMAND=$LBUFFER
     zle backward-kill-line
@@ -46,7 +46,11 @@ expand-alias() {
     zle accept-line
     print -z $output
   else
+    alias_value=$(alias "$LBUFFER")
     zle globalias
+    if [[ -n "$alias_value" ]]; then
+      zle backward-delete-char
+    fi
   fi
 }
 zle -N expand-alias

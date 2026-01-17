@@ -16,15 +16,11 @@ fzf_cd_rep() {
   [[ ! -z "$dir" ]] && cd "$rep_dir/$dir"
 }
 
-git_branch() {
-  echo $(git branch --show-current)
+print_alias gc='expand_git_commit_message'
+expand_git_commit_message() {
+ echo -n "git commit -m \"$(git branch --show-current | grep -o "[A-Z]\+-[0-9X]\+" | sed -r "s/^(.+)$/\1 - /")"
 }
 
-git_branch_task() {
-  echo \"$(git_branch | grep -o "[A-Za-z]\+-[0-9Xx]\+") - 
-}
-
-alias gc="git commit -m $(git_branch_task)"
 alias gcb='git checkout -b igor/DNA-'
 
 call_alias c='fzf_git_checkout'
