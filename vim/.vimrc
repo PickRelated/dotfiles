@@ -484,8 +484,8 @@ vmap <Leader>l <Plug>(easymotion-w)
 " NERDTree -----------------------------{{{2
 let NERDTreeIgnore = ['^lang$', '__pycache__', '^tags$', '.*\.iml', '^vendor$', '^node_modules$', '^bower_components$', '^dist-ts$', '^dist$', 'pyc$', 'yarn-error.log', 'yarn.lock', 'tmp', '^log$', 'coverage', '^bin$', 'platforms', '^\..*', '.sqlite$']
 let NERDTreeShowHidden = 1
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeAutoCenter = 1
 let g:NERDTreeWinSize = 40
 
