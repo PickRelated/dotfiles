@@ -40,7 +40,20 @@ ctrlz() {
 }
 zle -N ctrlz
 bindkey '^Z' ctrlz
-bindkey '^[[1;5D' backward-kill-word
+
+# Ctrl + Arrows
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+# Alt + Arrows
+bindkey '^[[1;9D' beginning-of-line
+bindkey '^[[1;9C' end-of-line
+
+# Ctrl + Backspace
+bindkey '^H' backward-kill-word
+
+# Alt + Backspace
+bindkey '^[^H' backward-kill-line
 
 source ~/.zsh/index
 
