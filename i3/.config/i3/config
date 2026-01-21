@@ -73,8 +73,8 @@ bindsym $mod+e layout toggle split
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: "
 set $ws2 "2: "
-set $ws3 "3"
-set $ws4 "4"
+set $ws3 "3: "
+set $ws4 "4: "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -85,6 +85,8 @@ set $ws10 "10"
 # use xprop to figure out application class
 assign [class="Google-chrome"] $ws1
 assign [class="ghostty"] $ws2
+assign [class="Slack"] $ws3
+assign [class="Telegram"] $ws4
 
 bindsym $mod+i workspace next
 bindsym $mod+u workspace prev
@@ -123,9 +125,13 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+r mode "resize"
 
 bar {
-  # status_command i3status
-  status_command exec ~/.config/i3/statusbar.sh
+  workspace_min_width 80
+  status_command i3blocks
+  padding 0 10px 0 0
+
 }
 
 exec google-chrome
 exec ghostty
+exec slack
+exec telegram
