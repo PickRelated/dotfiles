@@ -119,6 +119,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+r mode "resize"
 
 bindsym Print --release exec gnome-screenshot -a -c
+bindsym Ctrl+Print --release exec gnome-screenshot -c
 
 bar {
   workspace_min_width 80
