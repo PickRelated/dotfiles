@@ -8,14 +8,15 @@ const MAPPING = [
   { module: 'ack', sources: ['.ackrc'] },
   { module: 'ag', sources: ['.agignore'] },
   { module: 'ctags', sources: ['.ctags.d'] },
-  { module: 'fonts', sources: ['.config/ghostty/config'] },
+  {
+    module: 'fonts',
+    sources: ['.fonts/Monaco.ttf', '.fonts/MononokiNerdFontPropo-Regular.ttf'],
+  },
   { module: 'ghostty', sources: ['.config/ghostty/config'] },
   { module: 'git', sources: ['.gitconfig'] },
   { module: 'htop', sources: ['.config/htop/htoprc'] },
-  {
-    module: 'i3',
-    sources: ['.config/i3/config', '.config/i3/statusbar.sh'],
-  },
+  { module: 'i3', sources: ['.config/i3'] },
+  { module: 'i3blocks', sources: ['.config/i3blocks'] },
   {
     module: 'vim',
     sources: ['.vimrc', '.vim/after', '.vim/colors', '.vim/spell'],
@@ -40,6 +41,9 @@ const relink = ({ from, to }) => {
 }
 
 const symlink = ({ from, to }) => {
+  const toDir = to.replace(/\/[a-zA-Z0-9-_.]+$/, '')
+  fs.mkdirSync(toDir, { recursive: true })
+
   fs.symlink(from, to, (err) => {
     if (!fs.existsSync(from)) {
       return console.error(
