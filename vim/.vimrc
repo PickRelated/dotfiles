@@ -175,7 +175,11 @@ augroup END
 nmap Y "+yy
 vmap Y "+y
 
-nmap <leader>cv :!open % -a Google\ Chrome<CR><CR>
+if system("uname") == "Linux\n"
+  nmap <leader>cv :!google-chrome %<CR><CR>
+else
+  nmap <leader>cv :!open % -a Google\ Chrome<CR><CR>
+endif
 
 " Fold/unfold block
 nmap zl za
