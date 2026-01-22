@@ -26,5 +26,5 @@ fzf_history() {
 call_alias g="fzf_glyphs"
 fzf_glyphs() {
   cat ~/.fonts/NerdFontGlyphDB.txt\
-  | fzf --tac --no-sort --bind=ctrl-s:toggle-sort --header="search glyphs"
+  | fzf --tac --bind=ctrl-s:toggle-sort --header="search glyphs"
 }
