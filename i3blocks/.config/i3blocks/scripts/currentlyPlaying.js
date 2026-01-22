@@ -12,7 +12,7 @@ fetch('http://websockets.pickrelated.com/history?id=ietatarin@gmail.com').then(
         return
       }
       const likeIcon = song.isLiked === 'true' ? ' ' : ''
-      const songText = `${song.artist} - ${song.track}${likeIcon}`
+      const songText = `󰝚 ${song.artist} - ${song.track}${likeIcon}`
       output({ full_text: songText })
     })
   },
