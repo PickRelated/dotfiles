@@ -1,16 +1,5 @@
 separator_block_width=20
 
-[click]
-full_text=Click me!
-command=echo "Got clicked with button $button"
-color=#F79494
-
-# Guess the weather hourly
-[weather]
-command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-interval=3600
-color=#A4C2F4
-
 [currentlyPlaying]
 command=node ~/.config/i3blocks/scripts/currentlyPlaying.js
 interval=5
