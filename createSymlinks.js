@@ -10,7 +10,7 @@ const MAPPING = [
   { module: 'ctags', sources: ['.ctags.d'] },
   {
     module: 'fonts',
-    sources: ['.fonts/Monaco.ttf', '.fonts/MononokiNerdFontPropo-Regular.ttf'],
+    sources: ['.fonts/Monaco.ttf', '.fonts/MononokiNerdFontPropo-Regular.ttf', '.fonts/updateNerdPhontGlyphDB.js', '.fonts/NerdFontGlyphDB.txt'],
   },
   { module: 'ghostty', sources: ['.config/ghostty/config'] },
   { module: 'git', sources: ['.gitconfig'] },
