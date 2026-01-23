@@ -1,3 +1,0 @@
--n
-
---regex-javascript=/addScope\(('|")([[:alnum:]]+)/\2/C/

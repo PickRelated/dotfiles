@@ -1,9 +1,0 @@
-# print line numbers
--n
-
---exclude=vue.config.js
-
---langdef=vue
---langmap=vue:.vue
-
---regex-vue=/name: +('|")([[:alnum:]]+)/\2/C/

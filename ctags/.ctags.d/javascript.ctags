@@ -1,5 +1,10 @@
+# vim ft=conf
+
 # print line numbers
 -n
+
+--languages=JavaScript
+--langmap=JavaScript:.js.jsx
 
 --kinddef-javascript=i,import,Imports
 --kinddef-javascript=e,export,Exports

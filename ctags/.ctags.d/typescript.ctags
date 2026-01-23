@@ -1,0 +1,22 @@
+# vim ft=conf
+
+# print line numbers
+-n
+
+--exclude=dist-ts
+--exclude=*.test.ts
+
+--languages=TypeScript
+--langmap=TypeScript:.ts.tsx
+--language-force=TypeScript
+
+" Function declarations
+--regex-TypeScript=/^[ \t]*function[ \t]+([a-zA-Z0-9_]+)[ \t]*\(/\\1/f,function/
+
+" Constants (top-level const)
+--regex-TypeScript=/^[ \t]*const[ \t]*\[\([a-zA-Z0-9_]*setLastViewedDogUuid[a-zA-Z0-9_]*\),[ \t]*\([a-zA-Z0-9_]*\)\]/\1/c,const/
+--regex-TypeScript=/^[ \t]*const[ \t]*\[\([a-zA-Z0-9_]*setLastViewedDogUuid[a-zA-Z0-9_]*\),[ \t]*\([a-zA-Z0-9_]*\)\]/\2/c,const/
+
+
+--exclude=.git
+--exclude=node_modules

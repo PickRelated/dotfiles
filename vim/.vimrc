@@ -370,7 +370,7 @@ command! -bang -nargs=* Files call fzf#vim#files('', fzf#vim#with_preview({'opti
 nnoremap <C-\> <C-]>
 nmap <C-]> :Tagss<CR>
 command! -bang Tagss
-  \ call fzf#vim#tags('^' . expand('<cword>'), {
+  \ call fzf#vim#tags(expand('<cword>'), {
   \     'down': '40%',
   \     'options': '--with-nth 1,2
   \                 --reverse
