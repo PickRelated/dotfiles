@@ -2,6 +2,7 @@
 --exclude=IAR
 --exclude=*.md
 --exclude=assets
+--exclude=dist-ts
 
 --exclude=idea
 --exclude=bower_components

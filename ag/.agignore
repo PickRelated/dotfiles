@@ -21,3 +21,4 @@ yarn.lock
 .next
 static
 fonts
+dist-ts/
