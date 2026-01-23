@@ -164,7 +164,7 @@ nmap <leader>pi :PluginInstall<CR>
 nmap ; :
 vmap ; :
 
-nmap <leader>t :!ctags .<CR><CR>
+nmap <leader>t :!ctags -R<CR><CR>
 
 " Reset highlight
 augroup no_highlight
