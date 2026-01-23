@@ -405,23 +405,23 @@ let g:airline_section_z=''
 
 " ALE ---------------{{{2
 let g:airline#extensions#ale#enabled = 1
-let g:ale_c_parse_makefile = 1
-let g:ale_cpp_gcc_options = '-std=c++11 -I./inc -I./lib/STM32F10x_StdPeriph_Driver/inc -include stdint.h -include stdio.h -include stm32f10x_rcc.h'
+let g:ale_sass_sasslint_executable = 'sass-lint'
+let g:ale_fix_on_save = 0
+
 let g:ale_linters = {}
 let g:ale_linters.cpp = ['gcc']
-
+let g:ale_linters.javascript = ['biome']
 let g:ale_linters.typescript = ['eslint', 'tsserver']
 let g:ale_linters.typescriptreact = ['eslint', 'tslint', 'tsserver']
 let g:ale_linters.sass = ['stylelint']
+
 let g:ale_fixers = {}
 let g:ale_fixers.json = ['prettier', 'eslint']
-let g:ale_fixers.javascript = ['prettier', 'eslint']
+let g:ale_fixers.javascript = ['biome']
 let g:ale_fixers.typescript = ['prettier', 'eslint']
 let g:ale_fixers.typescriptreact = ['prettier', 'eslint']
-let g:ale_sass_sasslint_executable = 'sass-lint'
 let g:ale_fixers.sass = ['stylelint']
 let g:ale_fixers.yaml = ['prettier']
-let g:ale_fix_on_save = 0
 
 nmap <leader>e :ALEFix<CR>
 " let g:ale_set_loclist = 0
