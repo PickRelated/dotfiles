@@ -1,4 +1,5 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+exec setxkbmap -option -option caps:escape -option ctrl:swap_lalt_lctl -option grp:ctrl_space_toggle
 
 set $mod Mod4
 

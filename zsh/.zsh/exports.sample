@@ -15,8 +15,3 @@ export PAGER=vimpager
 
 export CLICOLOR=1
 export LSCOLORS='Exkxcxdxbxegedabagacad'
-
-# Linux only
-# setxkbmap -option caps:escape
-# setxkbmap -option ctrl:swap_lalt_lctl
-# setxkbmap -option grp:ctrl_space_toggle
