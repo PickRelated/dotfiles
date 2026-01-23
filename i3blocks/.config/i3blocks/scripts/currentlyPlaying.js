@@ -8,7 +8,7 @@ fetch('http://websockets.pickrelated.com/history?id=ietatarin@gmail.com').then(
       const songs = json.filter(({ event }) => event === 'song') || []
       const song = songs.pop()?.payload || {}
       if (!song.playbackStatus) {
-        output({ full_text: '  ', color: '#0a0a0a' })
+        output({ full_text: '', color: '#0a0a0a' })
         return
       }
       const likeIcon = song.isLiked === 'true' ? ' ' : ''

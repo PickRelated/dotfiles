@@ -1,4 +1,4 @@
-separator_block_width=20
+separator_block_width=40
 
 [currentlyPlaying]
 command=node ~/.config/i3blocks/scripts/currentlyPlaying.js
