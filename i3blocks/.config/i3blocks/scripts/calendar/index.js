@@ -10,6 +10,8 @@ const time = (time) => moment(time).format('HH:mm')
 
 // Redefined by args
 const config = {
+  // Get credentials here: https://console.cloud.google.com/apis/credentials?project=calendar-access-485211
+  // If you lost the json file - create a new secret and download JSON
   credentialsFile: path.resolve(
     __dirname,
     'client_secret_103062495224-lchderfunqefj4l3gmdj0nbml48cjecd.apps.googleusercontent.com.json',
@@ -29,20 +31,9 @@ args.forEach((arg) => {
   config[camelCaseKey] = value
 })
 
-// Load credentials
-let credentials
-
-try {
-  const credentialsData = fs.readFileSync(config.credentialsFile, 'utf8')
-  credentials = JSON.parse(credentialsData)
-} catch (error) {
-  console.error(`Error reading credentials file: ${error.message}`)
-  process.exit(1)
-}
-
 const calendaddy = new Calendaddy({
   dataFolder: config.dataFolder,
-  credentials: credentials.web,
+  credentialsFile: config.credentialsFile,
 })
 
 const main = async () => {
