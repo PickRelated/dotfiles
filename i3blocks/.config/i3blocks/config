@@ -1,5 +1,15 @@
 separator_block_width=40
 
+[calendarPersonal]
+command=node ~/.config/i3blocks/scripts/calendar/index.js --email="ietatarin@gmail.com"
+interval=600
+format=json
+
+[calendarWork]
+command=node ~/.config/i3blocks/scripts/calendar/index.js --email="igor.tatarintsev@embarkvet.com"
+interval=600
+format=json
+
 [currentlyPlaying]
 command=node ~/.config/i3blocks/scripts/currentlyPlaying.js
 interval=5
