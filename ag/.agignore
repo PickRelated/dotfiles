@@ -1,6 +1,6 @@
 # Add .ignore file to your project to ignore patterns locally
 /.git
-/node_modules
+node_modules
 /.idea
 /vendor
 /cache
