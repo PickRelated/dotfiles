@@ -88,5 +88,5 @@ fzf_git_stash_drop() {
 
 call_alias gh='fzf_git_hub'
 fzf_git_hub() {
-  open "https://github.com/$(git remote show origin -n | grep Fetch | sed -e 's/.*://')"
+  open "https://github.com/$(git remote show origin -n | grep Fetch | sed -e 's/.*://' | sed -e 's/.git//')/pulls"
 }
