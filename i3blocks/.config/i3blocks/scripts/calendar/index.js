@@ -48,7 +48,7 @@ const main = async () => {
       events
         .map(
           (event) =>
-            `${event.summary.substring(0, 20).trim()} (${time(event.start)}-${time(event.end)})`,
+            `${event.summary.replace('Barkivists', '').substring(0, 20).trim()} (${time(event.start)}-${time(event.end)})`,
         )
         .join(' | '),
       primaryCalendar.backgroundColor,
