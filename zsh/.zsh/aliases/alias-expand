@@ -48,9 +48,10 @@ expand-alias() {
   else
     alias_value=$(alias "$LBUFFER")
     zle globalias
-    if [[ -n "$alias_value" ]]; then
-      zle backward-delete-char
-    fi
+    # trim last whitespace
+    # if [[ -n "$alias_value" ]]; then
+    #   zle backward-delete-char
+    # fi
   fi
 }
 zle -N expand-alias
