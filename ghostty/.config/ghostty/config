@@ -13,6 +13,8 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
+clipboard-paste-protection = false
+
 # Key bindings
 keybind = ctrl+f=start_search
 keybind = ctrl+t=new_tab
