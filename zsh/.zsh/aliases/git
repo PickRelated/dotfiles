@@ -67,7 +67,7 @@ FZF-EOF" \
     sed "s/[^a-z0-9]*\([a-z0-9]\{8\}\) .*/\1/"
 }
 
-call_alias sp='fzf_git_stash_pop'
+call_alias p='fzf_git_stash_pop'
 fzf_git_stash_pop() {
   result=$(echo $(
     git stash list --format="%C(reset)%gD:%gs %C(yellow)%cr" --color=always | \
