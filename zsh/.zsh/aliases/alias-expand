@@ -30,8 +30,19 @@ print_alias() {
   print_aliases+=(${args##* })
 }
 
+# prints output of fzf command without whitespace
+typeset -a print_aliases_no_whitespace
+print_aliases_no_whitespace=()
+print_alias_no_whitespace() {
+  alias $@
+  args="$@"
+  args=${args%%\=*}
+  print_aliases_no_whitespace+=(${args##* })
+}
+
 expand-alias() {
   [[ $LBUFFER =~ "(^${(j:$|^:)call_aliases}$)" ]]; is_call_alias=$?
+  [[ $LBUFFER =~ "(^${(j:$|^:)print_aliases_no_whitespace}$)" ]]; is_print_alias_no_whitespace=$?
   [[ $LBUFFER =~ "(^${(j:$|^:)print_aliases}$)" ]]; is_print_alias=$?
   if [[ "$is_call_alias" = "0" ]]; then
     zle globalias
@@ -39,6 +50,13 @@ expand-alias() {
     zle backward-kill-line
     eval $EXPANDED_COMMAND
     zle accept-line
+  elif [[ "$is_print_alias_no_whitespace" = "0" ]]; then
+    alias_value=$(alias "$LBUFFER")
+    zle globalias
+    # trim last whitespace
+    if [[ -n "$alias_value" ]]; then
+      zle backward-delete-char
+    fi
   elif [[ "$is_print_alias" = "0" ]]; then
     zle globalias
     output=$(eval $LBUFFER)
@@ -48,10 +66,6 @@ expand-alias() {
   else
     alias_value=$(alias "$LBUFFER")
     zle globalias
-    # trim last whitespace
-    # if [[ -n "$alias_value" ]]; then
-    #   zle backward-delete-char
-    # fi
   fi
 }
 zle -N expand-alias

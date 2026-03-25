@@ -21,7 +21,7 @@ expand_git_commit_message() {
  echo -n "git commit -m \"$(git branch --show-current | grep -o "[A-Z]\+-[0-9X]\+" | sed -r "s/^(.+)$/\1 - /")"
 }
 
-alias gcb='git checkout -b igor/DNA-'
+print_alias_no_whitespace gcb='git checkout -b igor/DNA-'
 
 call_alias c='fzf_git_checkout'
 fzf_git_checkout() {
