@@ -15,3 +15,4 @@ export PAGER=vimpager
 
 export CLICOLOR=1
 export LSCOLORS='Exkxcxdxbxegedabagacad'
+alias ctags='node ~/.ctags.d/ctags.js'
