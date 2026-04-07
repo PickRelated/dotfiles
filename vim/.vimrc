@@ -164,7 +164,8 @@ nmap <leader>pi :PluginInstall<CR>
 nmap ; :
 vmap ; :
 
-nmap <leader>t :!node ~/.ctags.d/ctags.js<CR>
+nmap <leader>tg :!node ~/.ctags.d/ctags.js<CR>
+nmap <leader>ta :call FzfTags()<CR>
 
 " Reset highlight
 augroup no_highlight
@@ -219,7 +220,7 @@ nmap <leader>sg :e ~/.config/ghostty/config<CR>
 nmap <leader>sx :e ~/.Xresources<CR>
 
 " Edit todo files
-nmap <leader>ta :e ~/toask.txt<CR>
+nmap <leader>td :e ~/todo.txt<CR>
 
 " C-w replacement
 nmap <leader>w <C-w>
@@ -380,9 +381,9 @@ command! -bang -nargs=* Ag call fzf#vim#ag('', fzf#vim#with_preview({'options' :
 
 command! -bang -nargs=* Files call fzf#vim#files('', fzf#vim#with_preview({'options' : '--tiebreak "length,end" --preview "highlight"'}, 'right:30%'), 0)
 
-nmap gt :call JumpOrFzfTag()<CR>
-noremap <C-]> :call JumpOrFzfTag()<CR>
-function! JumpOrFzfTag()
+nmap gt :call JumpOrFzfTags()<CR>
+noremap <C-]> :call JumpOrFzfTags()<CR>
+function! JumpOrFzfTags()
   " Save current cursor position
   let cur_pos = getpos('.')
 
@@ -391,22 +392,25 @@ function! JumpOrFzfTag()
 
   " If cursor didn't move, call your FZF tags function
   if getpos('.') ==# cur_pos
-    call fzf#vim#tags(
-          \ expand('<cword>'),
-          \ {
-          \     'down': '40%',
-          \     'options': '--with-nth 1,2
-          \                 --reverse
-          \                 --preview-window="50%"
-          \                 --exact
-          \                 --select-1
-          \                 --exit-0
-          \                 +i
-          \                 --preview "
-          \                     tail -n +\$(echo {3} | tr -d \";\\\"\") {2} |
-          \                     head -n 16"'
-          \ })
+    call FzfTags()
   endif
+endfunction
+function! FzfTags()
+  call fzf#vim#tags(
+        \ expand('<cword>'),
+        \ {
+        \     'down': '40%',
+        \     'options': '--with-nth 1,2
+        \                 --reverse
+        \                 --preview-window="50%"
+        \                 --exact
+        \                 --select-1
+        \                 --exit-0
+        \                 +i
+        \                 --preview "
+        \                     tail -n +\$(echo {3} | tr -d \";\\\"\") {2} |
+        \                     head -n 16"'
+        \ })
 endfunction
 
 nmap <leader>b :Buffers<CR>
