@@ -433,16 +433,23 @@ let g:ale_fix_on_save = 0
 
 let g:ale_linters = {}
 let g:ale_linters.cpp = ['gcc']
+" let g:ale_linters.javascript = ['biome']
 let g:ale_linters.javascript = ['biome']
-let g:ale_linters.typescript = ['eslint', 'tsserver']
-let g:ale_linters.typescriptreact = ['eslint', 'tslint', 'tsserver']
+let g:ale_linters.javascriptreact = ['biome']
+" let g:ale_linters.typescript = ['eslint', 'tsserver']
+let g:ale_linters.typescript = ['biome', 'eslint', 'tslint', 'tsserver']
+let g:ale_linters.typescriptreact = ['biome', 'eslint', 'tslint', 'tsserver']
+" let g:ale_linters.typescriptreact = ['biome']
 let g:ale_linters.sass = ['stylelint']
 
 let g:ale_fixers = {}
 let g:ale_fixers.json = ['prettier', 'eslint']
+" let g:ale_fixers.javascript = ['biome']
 let g:ale_fixers.javascript = ['biome']
-let g:ale_fixers.typescript = ['prettier', 'eslint']
-let g:ale_fixers.typescriptreact = ['prettier', 'eslint']
+let g:ale_fixers.javascriptreact = ['biome']
+let g:ale_fixers.typescript = ['biome']
+" let g:ale_fixers.typescriptreact = ['prettier', 'eslint']
+let g:ale_fixers.typescriptreact = ['biome']
 let g:ale_fixers.sass = ['stylelint']
 let g:ale_fixers.yaml = ['prettier']
 
