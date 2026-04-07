@@ -164,7 +164,7 @@ nmap <leader>pi :PluginInstall<CR>
 nmap ; :
 vmap ; :
 
-nmap <leader>t :!ctags -R<CR><CR>
+nmap <leader>t :!node ~/.ctags.d/ctags.js<CR>
 
 " Reset highlight
 augroup no_highlight

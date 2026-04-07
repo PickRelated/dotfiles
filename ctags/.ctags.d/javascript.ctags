@@ -1,37 +1,13 @@
-# vim ft=conf
+# vim: ft=conf
 
-# print line numbers
+# Show line numbers
 -n
+# Delete all fields after line numbers
+# --fields=
+# Generate tags from filenames
+--extras=+f
 
---languages=JavaScript
---langmap=JavaScript:.js.jsx
-
---kinddef-javascript=i,import,Imports
---kinddef-javascript=e,export,Exports
-
---_tabledef-javascript=main
---_tabledef-javascript=vardef
---_tabledef-javascript=imports
-
-######################################################################
-# Start
-######################################################################
---_mtable-regex-javascript=main/(import) +(\[|{| )*//{tenter=imports}
---_mtable-regex-javascript=main/(var|const|let) +(\[|{)*//{tenter=vardef}
---_mtable-regex-javascript=main/.//
-######################################################################
-# Variables
-######################################################################
---_mtable-regex-javascript=vardef/([[:alnum:]]+): *([[:alnum:]]+)/\2/C/ # const { a: b }
---_mtable-regex-javascript=vardef/([[:alnum:]]+)/\1/C/
-######################################################################
-# Imports
-######################################################################
---_mtable-regex-javascript=imports/([[:alnum:]]+) as ([[:alnum:]]+)/\2/i/ # import { a as b }
-######################################################################
-# Finish
-######################################################################
---_mtable-regex-javascript=vardef/(]|}|=)//{tleave}
---_mtable-regex-javascript=imports/(}|from)*//{tleave}
---_mtable-regex-javascript=vardef/.//
-######################################################################
+# Disable default const tags
+--kinds-JavaScript=-C
+# Override default const tags and call them consts instead of C. Notice [ \t][^r]. There can not be two or more spaces before require.
+--regex-JavaScript=/\b(const|let|var)[ \t]+([a-zA-Z0-9_]+)[ \t]=[ \t][^r]/\2/consts/
