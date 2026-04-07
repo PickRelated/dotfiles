@@ -10,13 +10,13 @@ try {
 // Postprocess tags
 let tags = fs.readFileSync("tags", "utf8").split("\n");
 tags = tags.map((line) => {
-  if (line.match(/^index.js/)) {
+  if (line.match(/^[^\.]+.js/)) {
     try {
       const folder = line
-        .match(/^index.js[ \t ]+(.+)\/index\.js/)[1]
+        .replace(/[^\t]+\t([^\t]+)\t.*/, '$1')
         .split("/")
-        .pop();
-      return line.replace("index.js", folder);
+        .slice(-2)[0]
+      return line.replace("index", folder).replace('.js', '');
     } catch {
       console.error("Error processing line");
     }
