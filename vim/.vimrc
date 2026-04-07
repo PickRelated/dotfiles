@@ -380,23 +380,33 @@ command! -bang -nargs=* Ag call fzf#vim#ag('', fzf#vim#with_preview({'options' :
 
 command! -bang -nargs=* Files call fzf#vim#files('', fzf#vim#with_preview({'options' : '--tiebreak "length,end" --preview "highlight"'}, 'right:30%'), 0)
 
-nnoremap <C-\> <C-]>
-nmap <C-]> :Tagss<CR>
-command! -bang Tagss
-  \ call fzf#vim#tags("'" . expand('<cword>') . "'", {
-  \     'down': '40%',
-  \     'options': '--with-nth 1,2
-  \                 --reverse
-  \                 --prompt "> "
-  \                 --preview-window="50%"
-  \                 --exact
-  \                 --select-1
-  \                 --exit-0
-  \                 +i
-  \                 --preview "
-  \                     tail -n +\$(echo {3} | tr -d \";\\\"\") {2} |
-  \                     head -n 16"'
-  \ })
+noremap <C-]> :call JumpOrFzfTag()<CR>
+function! JumpOrFzfTag()
+  " Save current cursor position
+  let cur_pos = getpos('.')
+
+  " Try the original Ctrl-] behavior (non-recursive)
+  silent! execute "normal! \<C-]>"
+
+  " If cursor didn't move, call your FZF tags function
+  if getpos('.') ==# cur_pos
+    call fzf#vim#tags(
+          \ expand('<cword>'),
+          \ {
+          \     'down': '40%',
+          \     'options': '--with-nth 1,2
+          \                 --reverse
+          \                 --preview-window="50%"
+          \                 --exact
+          \                 --select-1
+          \                 --exit-0
+          \                 +i
+          \                 --preview "
+          \                     tail -n +\$(echo {3} | tr -d \";\\\"\") {2} |
+          \                     head -n 16"'
+          \ })
+  endif
+endfunction
 
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
