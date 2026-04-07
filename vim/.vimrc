@@ -380,6 +380,7 @@ command! -bang -nargs=* Ag call fzf#vim#ag('', fzf#vim#with_preview({'options' :
 
 command! -bang -nargs=* Files call fzf#vim#files('', fzf#vim#with_preview({'options' : '--tiebreak "length,end" --preview "highlight"'}, 'right:30%'), 0)
 
+nmap gt :call JumpOrFzfTag()<CR>
 noremap <C-]> :call JumpOrFzfTag()<CR>
 function! JumpOrFzfTag()
   " Save current cursor position
