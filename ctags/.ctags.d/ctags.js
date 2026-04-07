@@ -1,7 +1,11 @@
 const { execSync } = require("child_process");
 const fs = require("fs");
 
-execSync("ctags -R .", { stdio: "inherit" });
+try {
+  execSync("/opt/homebrew/bin/ctags -R .", { stdio: "inherit" });
+} catch {
+  execSync("ctags -R .", { stdio: "inherit" });
+}
 
 // Postprocess tags
 let tags = fs.readFileSync("tags", "utf8").split("\n");
