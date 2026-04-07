@@ -10,7 +10,7 @@ try {
 // Postprocess tags
 let tags = fs.readFileSync("tags", "utf8").split("\n");
 tags = tags.map((line) => {
-  if (line.match(/^[^\.]+.js/)) {
+  if (line.match(/^[^\t]+.js/)) {
     try {
       const folder = line
         .replace(/[^\t]+\t([^\t]+)\t.*/, '$1')
