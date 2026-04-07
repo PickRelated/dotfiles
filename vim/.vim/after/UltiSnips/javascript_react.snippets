@@ -9,3 +9,13 @@ const ${1:NewComponent} = () => {
 
 export default $1
 endsnippet
+
+snippet ue
+useEffect(() => {
+  ${1:${VISUAL}}
+},[])
+endsnippet
+
+snippet us
+const [${1:${VISUAL}}, set${1/\w+/\u$0/}] = useState(${2:false})
+endsnippet
