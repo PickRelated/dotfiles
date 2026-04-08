@@ -46,10 +46,19 @@ const main = async () => {
   if (events.length) {
     output(
       events
-        .map(
-          (event) =>
-            `${event.summary.replace('Barkivists', '').substring(0, 20).trim()} (${time(event.start)}-${time(event.end)})`,
-        )
+        .map((event) => {
+          let text = event.summary
+
+          text = text.replace('Barkivists', '')
+
+          text = text.replace('\'s birthday', ' ')
+
+          text = text.substring(0, 20).trim()
+          if (!event.isAllDay) {
+            text += ` (${time(event.start)}-${time(event.end)})`
+          }
+          return text
+        })
         .join(' | '),
       primaryCalendar.backgroundColor,
     )
