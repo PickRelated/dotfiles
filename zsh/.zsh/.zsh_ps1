@@ -39,13 +39,17 @@ autoload -U colors && colors
 
 precmd() {
   if [ ! -z "$(is_vpn_on)" ];then
-    PS1="$fg[black]$bg[green]   "
+    PS1="$fg[black]$bg[green]   %n@%M "
   else
-    PS1="$fg[black]$bg[green]   "
+    PS1="$fg[black]$bg[green]   %n@%M "
   fi
 
   if [ ! -z "$(parse_node_version)" ]; then
-    PS1+=" 󰎙 $(parse_node_version) "
+    if [[ "$(parse_node_version)" == "$(nvm current | sed s/v//)" ]]; then
+      PS1+=" 󰎙 $(parse_node_version) "
+    else
+      PS1+=" 󰎙 $fg[red]$(parse_node_version) "
+    fi
   fi
 
   PS1+="$fg[green]$bg[yellow]"
