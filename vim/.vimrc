@@ -211,7 +211,7 @@ nmap [W :lfirst<CR>
 nmap <leader>sv :e ~/.vimrc<CR>
 nmap <leader>st :e ~/.tmux.conf<CR>
 nmap <leader>sb :e ~/.bashrc<CR>
-nmap <leader>sz :e ~/.zshrc<CR>
+nmap <leader>sz :e ~/.zsh/exports<CR>
 nmap <leader>ss :e ~/.vim/after/UltiSnips<CR>
 nmap <leader>sc :e ~/.ctags.d/<CR>
 nmap <leader>sa :e ~/.agignore<CR>
