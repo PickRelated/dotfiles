@@ -1,10 +1,11 @@
 run_nvm() {
   if [ -f .nvmrc ]; then
-    nvm use
+    nvm use > /dev/null
   fi
 }
 
 add-zsh-hook chpwd run_nvm
+run_nvm
 
 # Update Ghostty tab title to git repo name (or current folder)
 set_ghostty_title() {
