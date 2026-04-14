@@ -17,6 +17,10 @@ Enable next flags in chrome://flags
 * WebGL Developer Extensions
 * WebGL Draft Extensions
 
+Disable google login prompt in Chrome (do this on every account)
+================================================================
+https://myaccount.google.com/connections/settings?pli=1
+
 keyd
 ====
 sudo mkdir /etc/keyd
