@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # vim: filetype=zsh
 
+function is_vpn_on {
+  ps aux | grep '[o]penvpn'
+}
+
 function parse_node_version {
   if [ -f .nvmrc ]; then
     cat .nvmrc
@@ -34,7 +38,11 @@ function diff_del {
 autoload -U colors && colors
 
 precmd() {
-  PS1="$fg[black]$bg[green]   %n@%M "
+  if [ ! -z "$(is_vpn_on)" ];then
+    PS1="$fg[black]$bg[green]   "
+  else
+    PS1="$fg[black]$bg[green]   "
+  fi
 
   if [ ! -z "$(parse_node_version)" ]; then
     PS1+=" 󰎙 $(parse_node_version) "
