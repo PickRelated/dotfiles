@@ -135,3 +135,4 @@ exec ghostty
 exec slack
 exec telegram
 exec AWS\ VPN\ Client
+exec keyd-application-mapper -d

@@ -218,6 +218,7 @@ nmap <leader>sa :e ~/.agignore<CR>
 nmap <leader>si :e ~/.config/i3/config<CR>
 nmap <leader>sg :e ~/.config/ghostty/config<CR>
 nmap <leader>sx :e ~/.Xresources<CR>
+nmap <leader>sk :e ~/.config/keyd/app.conf<CR>
 
 " Edit todo files
 nmap <leader>td :e ~/todo.txt<CR>

@@ -17,6 +17,7 @@ const MAPPING = [
   { module: 'htop', sources: ['.config/htop/htoprc'] },
   { module: 'i3', sources: ['.config/i3'] },
   { module: 'i3blocks', sources: ['.config/i3blocks'] },
+  { module: 'keyd', sources: ['.config/keyd/app.conf'] },
   {
     module: 'vim',
     sources: ['.vimrc', '.vim/after', '.vim/colors', '.vim/spell'],
