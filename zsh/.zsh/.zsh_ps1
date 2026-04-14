@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 # vim: filetype=zsh
 
-PC=''
-FOLDER=''
-BRANCH=''
-FILE=''
-PLUS=''
-MINUS=''
-
-RARROW=''
-RTARROW=''
+function parse_node_version {
+  if [ -f .nvmrc ]; then
+    cat .nvmrc
+  fi
+}
 
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/[()]//g'
@@ -36,55 +32,36 @@ function diff_del {
 }
 
 autoload -U colors && colors
-color1=("$bg[green]")
-color2=("$bg[yellow]")
-color3=("$bg[blue]")
-color4=("$bg[red]")
 
-start="$reset_color$fg[black]${color1[1]}"
-text="$fg[black]"
-zone1="$fg[black]$bg[green]"
-zone2="$fg[black]$bg[yellow]"
-zone3="$fg[white]$bg[blue]"
-zone4="$fg[black]$bg[red]"
-del1_2="$fg[green]$bg[yellow]$RARROW"
-del2_0="$reset_color$fg[yellow]$RARROW"
-del2_3="$fg[yellow]$bg[blue]$RARROW"
-del3_0="$reset_color$fg[blue]$RARROW"
-del3_4="$fg[blue]$bg[red]$RARROW"
-del4_0="$reset_color$fg[red]$RARROW"
+precmd() {
+  PS1="$fg[black]$bg[green]   %n@%M "
 
-function form_ps {
-  host="$zone1 $PC  %n@%M $del1_2"
-  dir="$zone2$FOLDER  %~ "
-  PS1="$host $dir"
+  if [ ! -z "$(parse_node_version)" ]; then
+    PS1+=" 󰎙 $(parse_node_version) "
+  fi
+
+  PS1+="$fg[green]$bg[yellow]"
+  PS1+="$fg[black]   %~ "
 
   if [ ! -z "$(parse_git_branch)" ]; then
-    git_branch="$del2_3$zone3 $BRANCH $(parse_git_branch)"
-    PS1="$PS1 $git_branch"
+    PS1+="$fg[yellow]$bg[blue]"
+    PS1+="$fg[white]  $(parse_git_branch) "
 
     if [ ! -z "$(parse_git_tag)" ]; then
-      git_tag="$RTARROW $(parse_git_tag)"
-      PS1="$PS1 $git_tag"
+      PS1+=" $(parse_git_tag) "
     fi
 
     if [ ! -z "$(parse_git_diff)" ]; then
-      git_diff="$del3_4$zone4 $FILE  $(diff_files) $PLUS  $(diff_ins) $MINUS  $(diff_del) $del4_0"
-      PS1="$PS1 $git_diff"
+      PS1+="$fg[blue]$bg[red]"
+      PS1+="$fg[black]   $(diff_files)   $(diff_ins)   $(diff_del) "
+      PS1+="$reset_color$fg[red]"
     else
-      PS1="$PS1 $del3_0"
+      PS1+="$reset_color$fg[blue]"
     fi
 
   else
-    PS1="$PS1 $del2_0"
+    PS1+="$reset_color$fg[yellow]"
   fi
 
-  PS1="$PS1$reset_color$(echo '\n$') "
-}
-PROMPT_COMMAND=form_ps
-RPROMPT='%*'
-
-
-precmd() {
-  eval "$PROMPT_COMMAND"
+  PS1+="$reset_color$(echo '\n$') "
 }
