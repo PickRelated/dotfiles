@@ -454,7 +454,7 @@ let g:ale_fixers.javascript = ['biome']
 let g:ale_fixers.javascriptreact = ['biome']
 let g:ale_fixers.typescript = ['biome']
 " let g:ale_fixers.typescriptreact = ['prettier', 'eslint']
-let g:ale_fixers.typescriptreact = ['biome']
+let g:ale_fixers.typescriptreact = ['biome', 'prettier', 'eslint']
 let g:ale_fixers.sass = ['stylelint']
 let g:ale_fixers.yaml = ['prettier']
 
