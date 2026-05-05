@@ -11,6 +11,7 @@
 	safecrlf = false
 	editor = nvim
 	pager = delta
+	excludesFile = ~/.gitignore
 [gui]
 	encoding = utf-8
 [interactive]

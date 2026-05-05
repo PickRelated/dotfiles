@@ -13,7 +13,7 @@ const MAPPING = [
     sources: ['.fonts/Monaco.ttf', '.fonts/MononokiNerdFontPropo-Regular.ttf', '.fonts/updateNerdPhontGlyphDB.js', '.fonts/NerdFontGlyphDB.txt'],
   },
   { module: 'ghostty', sources: ['.config/ghostty/config'] },
-  { module: 'git', sources: ['.gitconfig'] },
+  { module: 'git', sources: ['.gitconfig', '.gitignore'] },
   { module: 'htop', sources: ['.config/htop/htoprc'] },
   { module: 'i3', sources: ['.config/i3'] },
   { module: 'i3blocks', sources: ['.config/i3blocks'] },
