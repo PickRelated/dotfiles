@@ -86,7 +86,7 @@ fzf_git_stash_drop() {
   [[ ! -z "$result" ]] && git stash drop $result
 }
 
-call_alias gh='fzf_git_hub'
+call_alias gho='fzf_git_hub'
 fzf_git_hub() {
   open "https://github.com/$(git remote show origin -n | grep Fetch | sed -e 's/.*://' | sed -e 's/.git//')/pulls"
 }
