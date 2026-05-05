@@ -207,6 +207,13 @@ nmap [w :lprev<CR>
 nmap ]W :llast<CR>
 nmap [W :lfirst<CR>
 
+" Copy current file name to clipboard
+if has("mac") || has("gui_macvim") || has("gui_mac")
+  nnoremap <leader>e5 :let @*=expand("%")<CR>
+elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
+  nnoremap <leader>e5 :let @+=expand("%")<CR>
+endif
+
 " Edit settigs files
 nmap <leader>sv :e ~/.vimrc<CR>
 nmap <leader>st :e ~/.tmux.conf<CR>
