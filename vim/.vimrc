@@ -346,15 +346,7 @@ Plugin 'avakhov/vim-yaml'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'leafgarland/typescript-vim'
 
-" Avante dependencies
-Plugin 'nvim-lua/plenary.nvim'
-Plugin 'MunifTanjim/nui.nvim'
-Plugin 'yetone/avante.nvim'
-" Avante optional dependencies
-Plugin 'nvim-tree/nvim-web-devicons'
-Plugin 'ibhagwan/fzf-lua'
-Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plugin 'MeanderingProgrammer/render-markdown.nvim'
+Plugin 'neovim/nvim-lspconfig'
 
 call vundle#end()			 " required
 filetype plugin indent on	 " required
@@ -471,46 +463,6 @@ nmap <leader>e :ALEFix<CR>
 " let g:ale_set_quickfix = 1
 nmap ]a :ALENext<CR>
 nmap [a :ALEPrevious<CR>
-
-" Avante ---------------{{{2
-lua << EOF
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "Avante",
-  callback = function()
-    -- Keep Avante filetype but add markdown syntax
-    vim.b.markdown_fenced_languages = {'typescript', 'tsx', 'javascript', 'python', 'lua', 'json'}
-    vim.cmd('runtime! syntax/markdown.vim')
-    vim.bo.syntax = 'markdown'
-  end,
-})
-require('avante').setup({
-  provider = "claude",
-  mode = "legacy",
-  providers = {
-    claude = {
-      endpoint = "https://api.anthropic.com",
-      model = "claude-sonnet-4-20250514",
-      api_key_name = "ANTHROPIC_API_KEY", -- reads from env var
-    }
-  },
-  file_selector = {
-    provider = "fzf",
-  },
-  behaviour = {
-    auto_suggestions = false,  -- Disable automatic suggestions
-    auto_apply_diff_after_generation = false,  -- Don't auto-apply diffs
-    auto_set_highlight_group = true,
-    -- auto_set_keymaps = true,
-  },
-  system_prompt = [[]],
-  windows = {
-    -- wrap = true,
-    -- diff = "unified",  -- show as unified diff instead of raw text
-    sidebar_header = { rounded = false },
-    ask = { start_insert = false },
-  },
-})
-EOF
 
 " Buffergator ---------------{{{2
 nmap gn :BuffergatorMruCycleNext<CR>
@@ -688,27 +640,6 @@ nmap gl :SidewaysJumpRight<CR>
 
 nmap gL <Plug>SidewaysRight
 nmap gH <Plug>SidewaysLeft
-
-
-" Treesitter ------------------------------{{{2
-lua << EOF
-require('nvim-treesitter').setup({
-  ensure_installed = { "lua", "python", "javascript", "markdown", "markdown_inline", "typescript", "tsx" },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "Avante",
-  callback = function()
-    -- Keep Avante filetype but add markdown syntax
-    vim.b.markdown_fenced_languages = {'typescript', 'tsx', 'javascript', 'python', 'lua', 'json'}
-    vim.cmd('runtime! syntax/markdown.vim')
-    vim.bo.syntax = 'markdown'
-  end,
-})
-EOF
 
 " UltiSnips ------------------------------{{{2
 let g:UltiSnipsExpandTrigger="<C-j>"
