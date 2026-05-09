@@ -7,6 +7,7 @@ const DEST = require('node:os').homedir()
 const MAPPING = [
   { module: 'ack', sources: ['.ackrc'] },
   { module: 'ag', sources: ['.agignore'] },
+  { module: 'claude', sources: ['.claude/settings.json', '.claude/CLAUDE.md'] },
   { module: 'ctags', sources: ['.ctags.d'] },
   {
     module: 'fonts',

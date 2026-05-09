@@ -1,0 +1,18 @@
+{
+  "extraKnownMarketplaces": {
+    "embarkvet-claude-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "embarkvetlabs/embarkvet-claude-plugins"
+      }
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(gh pr list *)",
+      "Bash(gh pr view *)",
+      "Bash(npm install*)",
+      "Bash(yarn install*)"
+    ]
+  }
+}
