@@ -1,4 +1,5 @@
 {
+  "disableAutoMode": "disable",
   "extraKnownMarketplaces": {
     "embarkvet-claude-plugins": {
       "source": {
