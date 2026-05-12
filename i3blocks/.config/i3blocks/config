@@ -16,6 +16,12 @@ interval=5
 color=#91E78B
 format=json
 
+[tokenUsageToday]
+command=node ~/.config/i3blocks/scripts/tokenUsage.js
+interval=60
+color=#91E78B
+format=json
+
 [time]
 command=date +\ %e\ %b\ \ %H:%M
 interval=5
